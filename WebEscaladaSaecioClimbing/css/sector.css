@@ -1,0 +1,40 @@
+/* hoja de estilos para sector.html */
+.contenedor-info-sector {
+    width: 90%;
+}
+
+#tituloVias {
+    text-align: left;
+    margin: 0 20px;
+}
+
+.info-sector {
+    margin: 0 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.info-sector li {
+    display: block;
+    float: left;
+    text-align: center;
+    font-size: 21px;
+}
+
+#sectorAtributos,
+.info-sector-valores {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    width: 100%;
+}
+
+.info-sector-valores li {
+    display: block;
+    float: left;
+}
+
+.info-sector-valores li a {
+    text-decoration: none;
+    text-align: center;
+}

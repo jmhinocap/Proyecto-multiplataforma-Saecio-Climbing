@@ -1,0 +1,40 @@
+/* hoja de estilos para zona.html */
+.contenedor-info-zona {
+    width: 90%;
+}
+
+#tituloSectores {
+    text-align: left;
+    margin: 0 20px;
+}
+
+.info-zona {
+    margin: 0 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.info-zona li {
+    display: block;
+    float: left;
+    text-align: center;
+    font-size: 21px;
+}
+
+#zonaAtributos,
+.info-zona-valores {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    width: 100%;
+}
+
+.info-zona-valores li {
+    display: block;
+    float: left;
+}
+
+.info-zona-valores li a {
+    text-decoration: none;
+    text-align: center;
+}

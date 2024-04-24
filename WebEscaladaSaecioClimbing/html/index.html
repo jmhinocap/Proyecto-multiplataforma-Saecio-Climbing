@@ -3,62 +3,322 @@
 
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1">
+    <meta name="viewport" content="width=device-width; initial-scale=1, shrink-to-fit=no">
     <title>Prototipo web escalada</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="resources/images/icon.png">
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
 </head>
 
 <body>
     <header class="header">
-        <a class="logo" href="index.html"><img src="resources/images/placeholder-logo-1.png" alt="logo"></a>
-        <nav class="nav">
-            <ul class="nav_links">
-                <li><a href="zonas.html"><i class="fa-solid fa-sitemap fa-xs"></i>Zonas</a></li>
-                <li><a href="/mapa.html"><i class="fa-regular fa-map fa-xs"></i>Mapa</a></li>
-                <li><a href="galeria.html"><i class="fa-regular fa-image fa-xs"></i>Galería</a></li>
+        <a class="logo" href="index.html">
+            <object type="image/svg+xml" data="resources/images/logo_white.svg">Logo</object>
+        </a>
+        <nav class="nav-busqueda-rapida">
+            <div class="div-busqueda-rapida">
+                <!--TODO icono de lupa-->
+                <input type="text" id="barraBusquedaRapida" placeholder="Búsqueda rápida">
+            </div>
+            <ul class="nav-links">
+                <li><a href="zonas.html"><i class="fa-solid fa-compass fa-s"></i>Zonas</a></li>
+                <li><a href="mapa.html"><i class="fa-regular fa-map fa-s"></i>Mapa</a></li>
+                <li><a href="galeria.html"><i class="fa-regular fa-image fa-s"></i>Galería</a></li>
+                <li><a href="actividad.html"><i class="fa fa-newspaper-o fa-s"></i>Actividad</a></li>
+                <button id="buttonIniciarSesion">Iniciar sesión</button>
+                <button id="buttonRegistrarse">Registrarse</button>
             </ul>
         </nav>
     </header>
-    <div>
-        <img src="resources/images/indexpicture.png" id="imagen-fondo" />
+    <div class="contenedor-slideshow">
+        <div class="index-slideshow">
+            <img class="imagen-slideshow" src="resources/images/index-slideshow/index-slideshow-3.jpg" draggable="false"/>
+            <div class="texto-sobre-imagen">
+                <a><i class="fa fa-camera"></i> Pepe Hinojo Caparrós</a>
+                <a><i class="fa-solid fa-location-dot"></i> La Garrofa</a>
+            </div>
+        </div>
+        <div class="index-slideshow">
+            <img class="imagen-slideshow" src="resources/images/index-slideshow/index-slideshow-2.jpg" draggable="false"/>
+            <div class="texto-sobre-imagen">
+                <a style="color: #ffffff"><i class="fa fa-camera"></i> Pepe Hinojo Caparrós</a>
+                <a style="color: #ffffff"><i class="fa-solid fa-location-dot"></i> La Garrofa</a>
+            </div>
+        </div>
+        <div class="index-slideshow">
+            <img class="imagen-slideshow" src="resources/images/index-slideshow/index-slideshow-1.jpg" draggable="false"/>
+            <div class="texto-sobre-imagen">
+                <a><i class="fa fa-camera"></i> David Hinojo Caparrós</a>
+                <a><i class="fa-solid fa-location-dot"></i> Albarracín</a>
+            </div>
+        </div>
+        <div class="circulos-slideshow">
+            <span class="circulo-anterior-slideshow" onClick="plusDivs(-1)"></span>
+            <span class="circulo-slideshow"></span>
+            <span class="circulo-siguiente-slideshow" onClick="plusDivs(1)"></span>
+        </div>
+    </div>
+
+    <div class="barra-busqueda-contenedor">
+        <div class="contenido">
+            <div class="barra-busqueda">
+                <input type="text" id="inputBarraBusqueda">
+                <div class="botones-busqueda">
+                    <button id="buttonBuscarGrande"><i class="fa-solid fa-magnifying-glass"></i>Buscar</button>
+                    <div class="contenedor-dropdown">
+                        <button id="buttonMasOpcionesBuscar" onClick="controlarDropdown(event)"
+                            onfocusout="cerrarDropdown()">Más &#x25BC;</button>
+                        <div id="dropdownIndexBuscar" class="contenido-dropdown">
+                            <h3>Búsqueda general</h3>
+                            <a href="#">Zonas</a>
+                            <a href="#">Sectores</a>
+                            <a href="#">Vías</a>
+                            <a href="#">Aperturistas</a>
+                            <a href="#">Usuarios</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="contenido">
-        <h1 id="titulo">Lorem ipsum</h1>
-        <p class="parrafo"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis turpis vitae
-            convallis iaculis. Nulla vel arcu mi.
-            Nulla venenatis eros non risus volutpat, ac egestas purus rhoncus. Vestibulum tincidunt, ligula vel semper
-            consequat, leo nisi euismod orci,
-            ut malesuada ipsum purus at justo. Maecenas porttitor, lectus nec bibendum convallis, mi arcu commodo ipsum,
-            ac iaculis mauris arcu vel turpis.
-            Fusce vel lorem at leo aliquam elementum. Duis lacinia sem mi, quis gravida orci lacinia sed. Donec sed
-            magna vel arcu lacinia accumsan sed ornare nisl.
-            Praesent ullamcorper sed felis vel vestibulum. Curabitur bibendum mollis mauris, sit amet placerat nulla
-            mattis et. Phasellus pretium scelerisque euismod.
-            Vestibulum id imperdiet eros, eu rhoncus metus. Pellentesque habitant morbi tristique senectus et netus et
-            malesuada fames ac turpis egestas.
-            Donec non dapibus mauris. Curabitur vitae turpis feugiat, efficitur tellus id, facilisis massa.</p>
-        <p class="parrafo">Suspendisse potenti. Suspendisse condimentum urna ut diam elementum interdum. Curabitur ante
-            ex, pretium et sapien vitae, convallis vehicula libero.
-            Etiam luctus tempus dolor. Aliquam erat volutpat. Sed eros massa, pretium a sem a, imperdiet interdum velit.
-            Integer ac quam pharetra, mattis sem non,
-            tempor eros. Aenean a tortor placerat, accumsan nulla in, facilisis sapien. Proin venenatis vel libero vitae
-            accumsan. Suspendisse non enim mi.
-            Donec ut faucibus erat, sed vulputate purus.</p>
-        <p class="parrafo">Vestibulum et felis dolor. Cras a ipsum mattis est fermentum volutpat. Ut quis sem congue
-            risus faucibus eleifend. Etiam eget viverra velit.
-            Nulla nisl lorem, luctus finibus eros sit amet, blandit cursus ipsum. Proin venenatis molestie odio. Donec
-            consectetur id ante sed mattis.
-            Duis ut elit tellus. Praesent ornare justo sit amet tortor condimentum ullamcorper. Donec eu quam pharetra,
-            placerat elit eget, vehicula erat.
-            Sed tempor vulputate turpis sed porttitor. Duis vel cursus neque, sit amet cursus lorem. Curabitur ante
-            libero, tempus in imperdiet sit amet,
-            venenatis nec nunc.</p>
+        <div class="seccion-parrafo">
+            <h1 id="titulo">Lorem ipsum</h1>
+            <p class="parrafo"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis turpis vitae
+                convallis iaculis. Nulla vel arcu mi.
+                Nulla venenatis eros non risus volutpat, ac egestas purus rhoncus. Vestibulum tincidunt, ligula vel
+                semper
+                consequat, leo nisi euismod orci,
+                ut malesuada ipsum purus at justo. Maecenas porttitor, lectus nec bibendum convallis, mi arcu commodo
+                ipsum,
+                ac iaculis mauris arcu vel turpis.
+                Fusce vel lorem at leo aliquam elementum. Duis lacinia sem mi, quis gravida orci lacinia sed. Donec sed
+                magna vel arcu lacinia accumsan sed ornare nisl.
+                Praesent ullamcorper sed felis vel vestibulum. Curabitur bibendum mollis mauris, sit amet placerat nulla
+                mattis et. Phasellus pretium scelerisque euismod.
+                Vestibulum id imperdiet eros, eu rhoncus metus. Pellentesque habitant morbi tristique senectus et netus
+                et
+                malesuada fames ac turpis egestas.
+                Donec non dapibus mauris. Curabitur vitae turpis feugiat, efficitur tellus id, facilisis massa.</p>
+            <p class="parrafo">Suspendisse potenti. Suspendisse condimentum urna ut diam elementum interdum. Curabitur
+                ante
+                ex, pretium et sapien vitae, convallis vehicula libero.
+                Etiam luctus tempus dolor. Aliquam erat volutpat. Sed eros massa, pretium a sem a, imperdiet interdum
+                velit.
+                Integer ac quam pharetra, mattis sem non,
+                tempor eros. Aenean a tortor placerat, accumsan nulla in, facilisis sapien. Proin venenatis vel libero
+                vitae
+                accumsan. Suspendisse non enim mi.
+                Donec ut faucibus erat, sed vulputate purus.</p>
+        </div>
+
+        <div class="seccion-escuelas">
+            <div class="">
+                <h2 id="escuelasH2">Escuelas</h2>
+            </div>
+            <div class="escuelas-contenedor">
+                <div class="escuelas">
+                    <a class="escuela" href="#">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/Sierras/alfaro.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Lorem Ipsum</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="#">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/Sierras/alfaro.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Lorem Ipsum</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="#">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/Sierras/alfaro.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Lorem Ipsum</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="#">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/Sierras/alfaro.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Lorem Ipsum</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="#">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/Sierras/alfaro.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Lorem Ipsum</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="#">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/Sierras/alfaro.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Lorem Ipsum</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="#">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/Sierras/alfaro.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Lorem Ipsum</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="#">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/Sierras/alfaro.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Lorem Ipsum</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="#">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/Sierras/alfaro.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Lorem Ipsum</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="#">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/Sierras/alfaro.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Lorem Ipsum</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="contenedor-botones-escuelas">
+                    <span id="buttonDeslizarIzquierda">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </span>
+                    <span id="buttonDeslizarDerecha">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion-busqueda-avanzada">
+            <h2 id="busquedaAvanzada">Búsqueda avanzada</h2>
+            <form class="opciones-busqueda">
+                <input type="button" class="elemento-busqueda" id="buttonTipoEscalada" value="Tipo de escalada &#x25BC;">
+                <input type="text" class="elemento-busqueda" placeholder="Vía" id="inputNombreVia">
+                <input type="button" class="elemento-busqueda" id="buttonGrado" value="Grado &#x25BC;">
+                <input type="text" class="elemento-busqueda" placeholder="Sector" id="inputNombreSector">
+                <br/>
+                <input type="button" class="elemento-busqueda" id="buttonBorrar" value="Borrar">
+                <input type="submit" class="elemento-busqueda" id="buttonBuscar" value="Buscar">
+            </form>
+        </div>
+
+        <div class="seccion-ultimas-entradas">
+            <h2 id="ultimasEntradasTitulo">Últimas entradas</h2>
+            <div class="ultimas-entradas">
+                <a class="ultima-entrada" href="#">
+                    <h4 class="entrada-via">Vía</h4>
+                    <h4 class="entrada-grado">Grado</h4>
+                    <h4 class="entrada-sector">Sector</h4>
+                    <h4 class="entrada-aperturistas">Aperturistas</h4>
+                </a>
+                <a class="ultima-entrada">
+                    <h4 class="entrada-via">Vía</h4>
+                    <h4 class="entrada-grado">Grado</h4>
+                    <h4 class="entrada-sector">Sector</h4>
+                    <h4 class="entrada-aperturistas">Aperturistas</h4>
+                </a>
+                <a class="ultima-entrada">
+                    <h4 class="entrada-via">Vía</h4>
+                    <h4 class="entrada-grado">Grado</h4>
+                    <h4 class="entrada-sector">Sector</h4>
+                    <h4 class="entrada-aperturistas">Aperturistas</h4>
+                </a>
+                <a class="ultima-entrada">
+                    <h4 class="entrada-via">Vía</h4>
+                    <h4 class="entrada-grado">Grado</h4>
+                    <h4 class="entrada-sector">Sector</h4>
+                    <h4 class="entrada-aperturistas">Aperturistas</h4>
+                </a>
+                <a class="ultima-entrada">
+                    <h4 class="entrada-via">Vía</h4>
+                    <h4 class="entrada-grado">Grado</h4>
+                    <h4 class="entrada-sector">Sector</h4>
+                    <h4 class="entrada-aperturistas">Aperturistas</h4>
+                </a>
+            </div>
+        </div>
+
+        <div class="seccion-enlaces-interes">
+            <h2 id="enlacesInteresTitulo">Enlaces de interés</h2>
+            <div class="enlaces-interes">
+                <a class="enlace-interes" href="https://linktr.ee/clubalmeriensemontanismo" target="_blank">
+                    <img class="foto-enlace" id="fotoCam" src="blank">
+                    <h3 class="titulo-enlace">blank</h3>
+                </a>
+                <a class="enlace-interes" href="https://www.instagram.com/salaclimbbox/?hl=es">
+                    <img class="foto-enlace" id="fotoClimbbox" src="blank">
+                    <h3 class="titulo-enlace">blank</h3>
+                </a>
+                <a class="enlace-interes" href="https://dpdiagonal.com/" target="_blank">                    
+                    <img class="foto-enlace" id="fotoDiagonal" src="blank">
+                    <div class="titulo-enlace">
+                        <h3>blank</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 
     <footer class="footer">
-        <div class="container">
+        <div class="container-footer">
             <div class="footer-row">
                 <div class="footer-links">
                     <h4><a href="#">Quiénes somos</a></h4>
@@ -74,6 +334,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Slick -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
 </body>
 
 </html>

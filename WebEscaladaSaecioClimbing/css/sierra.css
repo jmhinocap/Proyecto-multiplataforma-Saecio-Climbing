@@ -1,0 +1,40 @@
+/* hoja de estilos para sierra.html */
+.contenedor-info-sierra {
+    width: 90%;
+}
+
+#tituloZonas {
+    text-align: left;
+    margin: 0 20px;
+}
+
+.info-sierra {
+    margin: 0 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.info-sierra li {
+    display: block;
+    float: left;
+    text-align: center;
+    font-size: 21px;
+}
+
+#sierraAtributos,
+.info-sierra-valores {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    width: 100%;
+}
+
+.info-sierra-valores li {
+    display: block;
+    float: left;
+}
+
+.info-sierra-valores li a {
+    text-decoration: none;
+    text-align: center;
+}

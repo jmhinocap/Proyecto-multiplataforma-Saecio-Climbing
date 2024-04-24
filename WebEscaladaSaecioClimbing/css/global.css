@@ -1,0 +1,338 @@
+/* hoja de estilos global */
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@500&family=Montserrat:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background-color: #e9e9e9;
+}
+
+button, input {
+    font-family: 'Chivo', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    padding-top: 10px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #313131;
+}
+
+a {
+    text-decoration: none;
+    color: #313131;
+}
+
+.titulo {
+    font-weight: 600;
+    margin: 0;
+    margin-left: 15px;
+    text-align: left;
+}
+
+.barra-direcciones {
+    position: relative;
+    display: flex;
+    border-bottom: 2px solid #313131;
+}
+
+.barra-direcciones #casa {
+    height: 36px;
+    padding-top: 18px;
+    margin-left: 7px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 2%;
+    background-color: #88ab75;
+}
+
+.contenido {
+    background-color: #d9d9d9;
+    margin: auto;
+    width: 85%;
+    box-shadow: 1px 0px 3px rgba(0,0,0,0.2), -1px 0px 3px rgba(0,0,0,0.2);
+}
+
+.logo {
+    cursor: pointer;
+    margin-top: 6px;
+    margin-left: 5%;
+    margin-right: 0%;
+}
+
+.logo object {
+    height: 90px;
+    transition: filter 0.6s ease;
+}
+
+.logo object:hover {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(50%) saturate(2830%) hue-rotate(313deg) brightness(101%) contrast(102%);
+}
+
+.nav {
+    margin: 0%;
+}
+
+.div-busqueda-rapida {
+    display: flex;
+    margin-bottom: 7px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+#barraBusquedaRapida {
+    padding: 5px;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    border: none;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    flex-direction: row;
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin: 0 18px;
+    position: relative;
+    font-family: 'Chivo', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFCC66;
+    transform-origin: bottom;
+    transition: transform 0.25s ease-out;
+}
+
+.nav-links li a:hover::after {
+    transform: scaleX(.75);
+    transform-origin: bottom;
+}
+
+.nav-links li a {
+    transition: all 0.3s ease 0s;
+    font-family: 'Chivo', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    color: #FFCC66;
+}
+
+.nav-links li a .fa,
+.nav-links li a .fa-solid,
+.nav-links li a .fa-regular {
+    padding: 0 8px;
+}
+
+#buttonIniciarSesion {
+    font-size: 14px;
+    margin-left: 14px;
+    padding: 9px 10px;
+    border-radius: 8px;
+    border-color: #d9d9d9;
+    border: none;
+    color: #303030;
+    background-color: #d9d9d9;
+}
+
+#buttonIniciarSesion:active {
+    background-color: #FFCC66;
+    border-color: #FFCC66;
+}
+
+#buttonRegistrarse {
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 8px 10px;
+    border: 2px solid #d9d9d9;
+    border-radius: 8px;
+    color: #f2f2f2;
+    background-color: transparent;
+}
+
+#buttonRegistrarse:active {
+    background-color: #FFCC66;
+    border-color: #FFCC66;
+    color: #303030;
+}
+
+#googleMap {
+    width: 100%;
+    height: 400px;
+}
+
+.contenedor-nav-info {
+    display: flex;
+    width: 100%;
+}
+
+.contenedor-nav-regiones {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    width: 15%;
+    box-shadow: 1px 0px 3px rgba(0,0,0,0.2), -1px 0px 3px rgba(0,0,0,0.2);
+}
+
+#navRegionesSuperior {
+    display: flex;
+    font-size: larger;
+    font-weight: 700;
+    padding-top: 5px;
+    border-bottom: 1px solid #313131;
+    padding-left: 3px;
+}
+
+#navRegionesSuperior:hover {
+    background-color: #FFCC66;
+}
+
+#navRegionesSuperior::before {
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    margin-right: 2px;
+    content: '\f102';
+}
+
+.contenedor-nav-regiones ul li {
+    font-size: medium;
+}
+
+.contenedor-nav-regiones ul li,
+.nav-regiones-padre {
+    padding-left: 7px;
+    padding-right: 7px;
+    color: #313131;
+}
+
+#regionActual::after {
+    content: '\f0d7';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-left: auto;
+    order: 2;
+}
+
+#sectorActual {
+    background-color: #FFCC66;
+}
+
+.submenu-seleccionado ul li {
+    padding: 4px 7px;
+}
+
+.submenu-seleccionado ul li:hover {
+    background-color: #FFCC66;
+}
+
+.nav-regiones-padre {
+    display: flex;
+    font-size: larger;
+    font-weight: 700;
+    padding-top: 5px;
+}
+
+.nav-regiones-padre::after {
+    content: '\f0da';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-left: auto;
+    order: 2;
+}
+
+.region-zona::after {
+    content: '\f0da';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    float:right;
+    padding-right: 6px;
+}
+
+.submenu-seleccionado .nav-regiones-padre {
+    background-color: #FFCC66;
+}
+
+.submenu-seleccionado .submenu-dropdown ul li {
+    padding: 3px 0;
+}
+
+.submenu-seleccionado .submenu-dropdown ul li:hover,
+.submenu-dropdown a:hover {
+    background-color: #FFCC66;
+}
+
+.submenu-seleccionado .submenu-dropdown ul li a {
+    margin-left: 10px;
+}
+
+.submenu-seleccionado .submenu-dropdown ul li a::before {
+    content: '•';
+    padding-right: 5px;
+}
+
+.footer {
+    background-color: #24262b;
+    padding: 30px 0;
+}
+
+.container-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.footer-links h4 {
+    margin-bottom: 25px;
+    border-bottom: 2px solid #88ab75;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.footer-links h4 a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #bbbbbb;
+    font-weight: 500;
+    transition: all .3s ease;
+}
+
+.footer-links h4 a:hover {
+    color: #ffffff;
+    padding-left: 3px;
+}

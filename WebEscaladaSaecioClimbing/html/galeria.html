@@ -5,18 +5,31 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width; initial-scale=1">
     <title>Zonas</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="resources/images/icon.png">
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/galeria.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <header class="header">
-        <a class="logo" href="index.html"><img src="resources/images/placeholder-logo-1.png" alt="logo"></a>
-        <nav class="nav">
-            <ul class="nav_links">
-                <li><a href="zonas.html"><i class="fa-solid fa-sitemap fa-xs"></i>Zonas</a></li>
+        <a class="logo" href="index.html">
+            <object type="image/svg+xml" data="resources/images/logo_white.svg">Logo</object>
+        </a>
+        <nav class="nav-busqueda-rapida">
+            <div class="div-busqueda-rapida">
+                <!--TODO icono de lupa-->
+                <input type="text" id="barraBusquedaRapida" placeholder="Búsqueda rápida">
+            </div>
+            <ul class="nav-links">
+                <li><a href="zonas.html"><i class="fa-solid fa-compass fa-xs"></i>Zonas</a></li>
                 <li><a href="mapa.html"><i class="fa-regular fa-map fa-xs"></i>Mapa</a></li>
                 <li><a href="galeria.html"><i class="fa-regular fa-image fa-xs"></i>Galería</a></li>
+                <li><a href="actividad.html"><i class="fa fa-newspaper-o"></i>Actividad</a></li>
+                <button id="button-iniciar-sesion">Iniciar sesión</button>
+                <button id="button-registrarse">Registrarse</button>
             </ul>
         </nav>
     </header>

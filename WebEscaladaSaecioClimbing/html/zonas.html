@@ -5,88 +5,107 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width; initial-scale=1">
     <title>Zonas</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="resources/images/icon.png">
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/zonas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <header class="header">
-        <a class="logo" href="index.html"><img src="resources/images/placeholder-logo-1.png" alt="logo"></a>
-        <nav class="nav">
-            <ul class="nav_links">
-                <li><a href="zonas.html"><i class="fa-solid fa-sitemap fa-xs"></i>Zonas</a></li>
+        <a class="logo" href="index.html">
+            <object type="image/svg+xml" data="resources/images/logo_white.svg">Logo</object>
+        </a>
+        <nav class="nav-busqueda-rapida">
+            <div class="div-busqueda-rapida">
+                <!--TODO icono de lupa-->
+                <input type="text" id="barraBusquedaRapida" placeholder="Búsqueda rápida">
+            </div>
+            <ul class="nav-links">
+                <li><a href="zonas.html"><i class="fa-solid fa-compass fa-xs"></i>Zonas</a></li>
                 <li><a href="mapa.html"><i class="fa-regular fa-map fa-xs"></i>Mapa</a></li>
                 <li><a href="galeria.html"><i class="fa-regular fa-image fa-xs"></i>Galería</a></li>
+                <li><a href="actividad.html"><i class="fa fa-newspaper-o"></i>Actividad</a></li>
+                <button id="buttonIniciarSesion">Iniciar sesión</button>
+                <button id="buttonRegistrarse">Registrarse</button>
             </ul>
         </nav>
     </header>
 
     <div class="contenido">
-        <h1 id="zonas">Zonas</h1>
+        <div class="barra-direcciones">
+            <a href="index.html" id="casa"><i class="fa-solid fa-house fa-2xl"></i></a>
+            <h1 class="titulo">> Zonas</h1>
+        </div>
 
-        <div class="sierras">
-            <div class="sierra">
-                <div class="info-sierra">
-                    <a class="nombre-sierra" href="#">Nombre de la sierra</a>
-                    <a href="#"><img src="resources/images/Sierras/Nuevo_Mundo,_Sierra_de_Gádor.jpg" class="thumbnail" />
+        <div class="contenedor-sierras">
+            <div class="carta-sierra">
+                <div class="contenido-carta-sierra">
+                    <a class="nombre-sierra" href="sierra.html">
+                        <h2>Nombre de la sierra</h2>
+                    </a>
+                    <a href="sierra.html"><img src="resources/images/Sierras/Nuevo_Mundo,_Sierra_de_Gádor.jpg"
+                            class="thumbnail" />
                 </div>
                 <div class="zonas">
                     <ul class="lista-zonas">
-                        <li class="zona"><a href="#">Zona 1</a></li>
-                        <li class="zona"><a href="#">Zona 2</a></li>
-                        <li class="zona"><a href="#">Zona 3</a></li>
+                        <li class="elemento-lista-zona"><a href="zona.html">Zona 1</a></li>
+                        <li class="elemento-lista-zona"><a href="zona.html">Zona 2</a></li>
+                        <li class="elemento-lista-zona"><a href="zona.html">Zona 3</a></li>
+                        <li class="elemento-lista-zona"><a href="sierra.html" class="mas-zonas">Más zonas</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="sierra">
-                <div class="info-sierra">
-                    <a class="nombre-sierra" href="#">Nombre de la sierra</a>
-                    <a href="#"><img src="resources/images/Sierras/Nuevo_Mundo,_Sierra_de_Gádor.jpg" class="thumbnail" />
+            <div class="carta-sierra">
+                <div class="contenido-carta-sierra">
+                    <a class="nombre-sierra" href="sierra.html">
+                        <h2>Nombre de la sierra</h2>
+                    </a>
+                    <a href="sierra.html"><img src="resources/images/Sierras/Nuevo_Mundo,_Sierra_de_Gádor.jpg"
+                            class="thumbnail" />
                 </div>
                 <div class="zonas">
                     <ul class="lista-zonas">
-                        <li class="zona"><a href="#">Zona 1</a></li>
-                        <li class="zona"><a href="#">Zona 2</a></li>
-                        <li class="zona"><a href="#">Zona 3</a></li>
+                        <li class="elemento-lista-zona"><a href="zona.html">Zona 1</a></li>
+                        <li class="elemento-lista-zona"><a href="zona.html">Zona 2</a></li>
+                        <li class="elemento-lista-zona"><a href="zona.html">Zona 3</a></li>
+                        <li class="elemento-lista-zona"><a href="sierra.html" class="mas-zonas">Más zonas</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="sierra">
-                <div class="info-sierra">
-                    <a class="nombre-sierra" href="#">Nombre de la sierra</a>
-                    <a href="#"><img src="resources/images/Sierras/Nuevo_Mundo,_Sierra_de_Gádor.jpg" class="thumbnail" />
+            <div class="carta-sierra">
+                <div class="contenido-carta-sierra">
+                    <a class="nombre-sierra" href="sierra.html">
+                        <h2>Nombre de la sierra</h2>
+                    </a>
+                    <a href="sierra.html"><img src="resources/images/Sierras/Nuevo_Mundo,_Sierra_de_Gádor.jpg"
+                            class="thumbnail" />
                 </div>
                 <div class="zonas">
                     <ul class="lista-zonas">
-                        <li class="zona"><a href="#">Zona 1</a></li>
-                        <li class="zona"><a href="#">Zona 2</a></li>
-                        <li class="zona"><a href="#">Zona 3</a></li>
+                        <li class="elemento-lista-zona"><a href="zona.html">Zona 1</a></li>
+                        <li class="elemento-lista-zona"><a href="zona.html">Zona 2</a></li>
+                        <li class="elemento-lista-zona"><a href="zona.html">Zona 3</a></li>
+                        <li class="elemento-lista-zona"><a href="sierra.html" class="mas-zonas">Más zonas</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="sierra">
-                <div class="info-sierra">
-                    <a class="nombre-sierra" href="#">Nombre de la sierra</a>
-                    <a href="#"><img src="resources/images/Sierras/Nuevo_Mundo,_Sierra_de_Gádor.jpg" class="thumbnail" />
+            <div class="carta-sierra">
+                <div class="contenido-carta-sierra">
+                    <a class="nombre-sierra" href="sierra.html">
+                        <h2>Nombre de la sierra</h2>
+                    </a>
+                    <a href="sierra.html"><img src="resources/images/Sierras/Nuevo_Mundo,_Sierra_de_Gádor.jpg"
+                            class="thumbnail" />
                 </div>
                 <div class="zonas">
                     <ul class="lista-zonas">
-                        <li class="zona"><a href="#">Zona 1</a></li>
-                        <li class="zona"><a href="#">Zona 2</a></li>
-                        <li class="zona"><a href="#">Zona 3</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="sierra">
-                <div class="info-sierra">
-                    <a class="nombre-sierra" href="#">Nombre de la sierra</a>
-                    <a href="#"><img src="resources/images/Sierras/Nuevo_Mundo,_Sierra_de_Gádor.jpg" class="thumbnail" />
-                </div>
-                <div class="zonas">
-                    <ul class="lista-zonas">
-                        <li class="zona"><a href="#">Zona 1</a></li>
-                        <li class="zona"><a href="#">Zona 2</a></li>
-                        <li class="zona"><a href="#">Zona 3</a></li>
+                        <li class="elemento-lista-zona"><a href="zona.html">Zona 1</a></li>
+                        <li class="elemento-lista-zona"><a href="zona.html">Zona 2</a></li>
+                        <li class="elemento-lista-zona"><a href="zona.html">Zona 3</a></li>
+                        <li class="elemento-lista-zona"><a href="sierra.html" class="mas-zonas">Más zonas</a></li>
                     </ul>
                 </div>
             </div>

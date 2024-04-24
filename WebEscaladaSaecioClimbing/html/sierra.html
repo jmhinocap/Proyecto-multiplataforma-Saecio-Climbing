@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1">
+    <title>Sierra</title>
+    <link rel="icon" type="image/png" href="resources/images/icon.png">
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/sierra.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <a class="logo" href="index.html">
+            <object type="image/svg+xml" data="resources/images/logo_white.svg">Logo</object>
+        </a>
+        <nav class="nav-busqueda-rapida">
+            <div class="div-busqueda-rapida">
+                <!--TODO icono de lupa-->
+                <input type="text" id="barraBusquedaRapida" placeholder="Búsqueda rápida">
+            </div>
+            <ul class="nav-links">
+                <li><a href="zonas.html"><i class="fa-solid fa-compass fa-xs"></i>Zonas</a></li>
+                <li><a href="mapa.html"><i class="fa-regular fa-map fa-xs"></i>Mapa</a></li>
+                <li><a href="galeria.html"><i class="fa-regular fa-image fa-xs"></i>Galería</a></li>
+                <li><a href="actividad.html"><i class="fa fa-newspaper-o"></i>Actividad</a></li>
+                <button id="buttonIniciarSesion">Iniciar sesión</button>
+                <button id="buttonRegistrarse">Registrarse</button>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contenido">
+        <div class="barra-direcciones">
+            <a href="index.html" id="casa"><i class="fa-solid fa-house fa-2xl"></i></a>
+            <h1 class="titulo">> Nombre sierra</h1>
+        </div>
+
+        <!-- ¿Mejor un slideshow? -->
+        <div class="mapa-container">
+            <div id="googleMap"></div>
+        </div>
+
+        <section class="contenedor-nav-info">
+            <div class="contenedor-nav-regiones">
+                <div class="submenu-seleccionado">
+                    <a class="nav-regiones-padre region-sierra" id="regionActual">Sierra</a>
+                    <div class="submenu-dropdown">
+                        <ul>
+                            <li>
+                                <a href="zona.html" class="region-zona"><span>Zona</span></a>
+                            </li>
+                            <li>
+                                <a href="zona.html" class="region-zona"><span>Zona</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="submenu-dropdown">
+                    <a class="nav-regiones-padre region-sierra" href="sierra.html">Sierra</a>
+                </div>
+            </div>
+
+            <div class="contenedor-info-sierra">
+                <h2 class="titulo" id="tituloZonas">Zonas</h2>
+                <div class="info-sierra">
+                    <ul id="sierraAtributos">
+                        <li>Nombre</li>
+                        <li>Tipo de escalada</li>
+                        <li>Sectores</li>
+                        <li>Vías</li>
+                        <li>Grados</li>
+                    </ul>
+                    <ul class="info-sierra-valores">
+                        <li><a href="zona.html">Nombre</a></li>
+                        <li><a>Tipo de escalada</a></li>
+                        <li><a>Sectores</a></li>
+                        <li><a>Vías</a></li>
+                        <li><a>Grados</a></li>
+                    </ul>
+                    <ul class="info-sierra-valores">
+                        <li><a href="zona.html">Nombre</a></li>
+                        <li><a>Tipo de escalada</a></li>
+                        <li><a>Sectores</a></li>
+                        <li><a>Vías</a></li>
+                        <li><a>Grados</a></li>
+                    </ul>
+                    <ul class="info-sierra-valores">
+                        <li><a href="zona.html">Nombre</a></li>
+                        <li><a>Tipo de escalada</a></li>
+                        <li><a>Sectores</a></li>
+                        <li><a>Vías</a></li>
+                        <li><a>Grados</a></li>
+                    </ul>
+                </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-links">
+                    <h4><a href="#">Quiénes somos</a></h4>
+                </div>
+
+                <div class="footer-links">
+                    <h4><a href="#">Contacto</a></h4>
+                </div>
+
+                <div class="footer-links">
+                    <h4><a href="#">Aviso legal</a></h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="../js/sierra.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXjJMkVoKKdKYF6GBh_JRZ270dsvgr-io&callback=myMap"></script>
+</body>
+
+</html>

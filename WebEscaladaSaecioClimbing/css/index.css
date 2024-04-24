@@ -1,0 +1,388 @@
+/* hoja de estilos para index.html */
+.contenedor-slideshow {
+    position: relative;
+    margin-bottom: 0;
+}
+
+.imagen-slideshow {
+    width: 100%;
+    user-select: none;
+}
+
+.texto-sobre-imagen {
+    position: absolute;
+    top: 95%;
+    padding: 10px 10px;
+    user-select: none;
+}
+
+.circulos-slideshow {
+    opacity: .66;
+    position: absolute;
+    left: 50%;
+    top: 96%;
+    text-align: center;
+    user-select: none;
+}
+
+.circulo-anterior-slideshow,
+.circulo-slideshow,
+.circulo-siguiente-slideshow {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.circulo-slideshow {
+    background-color: #FFCC66;
+}
+
+.circulo-anterior-slideshow:hover,
+.circulo-siguiente-slideshow:hover {
+    background-color: #404040;
+}
+
+.circulo-slideshow:hover {
+    background-color: #FFbb44;
+}
+
+.slide-in-derecha {
+    animation: slide-in-derecha .7s ease;
+}
+
+.slide-in-izquierda {
+    animation: slide-in-izquierda .7s ease;
+}
+
+@keyframes slide-in-derecha {
+    0% {
+        transform: translateX(1000px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes slide-in-izquierda {
+    0% {
+        transform: translateX(-1000px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.barra-busqueda-contenedor {
+    position: relative;
+    display: flex;
+    padding: 15px 0px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 10px #808080;
+}
+
+.barra-busqueda-contenedor .contenido {
+    background-color: #ffffff;
+    box-shadow: 0px 0px;
+    padding-bottom: 0px;
+}
+
+.barra-busqueda {
+    font-family: 'Chivo', sans-serif;
+    margin: auto;
+    position: relative;
+    display: flex;
+    width: 92%;
+}
+
+#inputBarraBusqueda {
+    font-family: inherit;
+    background-color: #d9d9d9;
+    padding: 2px;
+    width: 100%;
+}
+
+.botones-busqueda {
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+
+#buttonBuscarGrande {
+    font-family: inherit;
+    border-radius: 0;
+    background-color: #88ab75;
+    color: #f2f2f2;
+	border: none;
+    padding: 2px 8px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+#buttonBuscarGrande:active {
+    background-color: #647d56;
+    transform: translateY(1px);
+}
+
+.contenedor-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#buttonMasOpcionesBuscar {
+    font-family: inherit;
+    box-shadow: -2px 0px 0px #808080;
+    background-color: #88ab75;
+    border: none;
+    padding: 2px 8px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    color: #f2f2f2;
+}
+
+#buttonMasOpcionesBuscar:focus {
+    background-color: #647d56;
+    transform: translateY(1px);
+}
+
+.contenido-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.contenido-dropdown a {
+    color: #303030;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.contenido-dropdown a:hover {
+    background-color: #FFCC66;
+}
+
+.mostrar-dropdown {
+    display: block;
+}
+
+#titulo {
+    padding-top: 10px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #313131;
+}
+
+.parrafo {
+    padding: 20px 15px;
+    text-align: justify;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.seccion-escuelas {
+    background-color: #ffffff;
+    overflow: hidden;
+    margin: 8px 0;
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+#escuelasH2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #313131;
+}
+
+.escuelas-contenedor {
+    position: relative;
+    width: 100%;
+}
+
+.slick-slide {
+    margin: 20px 20px;
+    width: 265px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.slick-slide .imagen-escuela img {
+    height: auto;
+    width: 265px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.slick-slide .contenido-escuela {
+    padding: 2px;
+    margin: 6px 5px 14px 5px;
+}
+
+.slick-slide .nombre-escuela {
+    color: #303030;
+    margin-bottom: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+.slick-slide .info-escuela {
+    color: #404040;
+    font-family: 'Montserrat', sans-serif;
+    font-size: small;
+    font-weight: 500;
+}
+
+.slick-arrow {
+    z-index: 1;
+}
+
+.contenedor-botones-escuelas {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+}
+
+#buttonDeslizarIzquierda, #buttonDeslizarDerecha {
+    position: absolute;
+    cursor: pointer;
+    padding: 20px 6px;
+    font-size: larger;
+    color: #d9d9d9;
+    background-color: rgba(64, 64, 64, 0.6);
+}
+
+#buttonDeslizarDerecha {
+    right: 0;
+}
+
+.slick-dots {
+    display: flex;
+    justify-content: center;
+}
+
+.slick-dots li {
+    margin: 0 12px;
+}
+
+.slick-dots li button {
+    border: none;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.slick-dots li button:hover {
+    background-color: #404040;
+}
+
+.slick-dots li.slick-active button {
+    background-color: #FFCC66;
+}
+
+.seccion-busqueda-avanzada {
+    margin-bottom: 20px;
+}
+
+#busquedaAvanzada {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #313131;
+}
+
+.opciones-busqueda {
+    text-align: center;
+    display: grid;
+    gap: 7px;
+    grid-template-columns: 15% 7.5% 7.5%;
+    place-content: center;
+}
+
+.opciones-busqueda #inputNombreVia,
+.opciones-busqueda #inputNombreSector {
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+#buttonTipoEscalada,
+#buttonGrado {
+    text-align: left;
+}
+
+#buttonBorrar {
+    background-color: #ff0f0f;
+    color: #ffffff;
+    border-radius: 4px;
+    border: none;
+}
+
+.seccion-ultimas-entradas {
+    background-color: #ffffff;
+}
+
+.ultimas-entradas {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.ultima-entrada {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 50px;
+}
+
+.ultima-entrada:hover {
+    text-decoration: underline;
+}
+
+.seccion-enlaces-interes {
+    margin: 10px 0;
+}
+
+.enlaces-interes {
+    text-align: center;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.enlace-interes {
+    background-color: #ffffff;
+    padding: 10px;
+    margin: 0px 40px;
+    border-radius: 6px;
+}
+
+.titulo-enlace {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto-enlace {
+    width: 246px;
+    height: 246px;
+    object-fit: contain;
+    border-radius: 4px;
+}

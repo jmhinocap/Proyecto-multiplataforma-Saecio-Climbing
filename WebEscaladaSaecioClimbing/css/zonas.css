@@ -1,0 +1,72 @@
+/* hoja de estilos para zonas.html */
+.contenedor-sierras {
+    display: grid;
+    column-gap: 2.5rem;
+    row-gap: 1rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 0;
+}
+
+@media (min-width: 700px) {
+    .contenedor-sierras { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1080px) {
+    .contenedor-sierras { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1425px) {
+    .contenedor-sierras { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1850px) {
+    .contenedor-sierras {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.carta-sierra {
+    background-color: #ffffff;
+    max-width: 268px;
+    padding: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.contenido-carta-sierra {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.nombre-sierra h2 {
+    text-align: left;
+    float: left;
+}
+
+.thumbnail {
+    margin-top: 5px;
+    width: 248px;
+    height: auto;
+    border-radius: 4px
+}
+
+.lista-zonas {
+    margin: 5px 20px;
+}
+
+.elemento-lista-zona {
+    padding-top: 8px;
+}
+
+.elemento-lista-zona a, details {
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+
+.mas-zonas:hover {
+    text-decoration: underline;
+}
