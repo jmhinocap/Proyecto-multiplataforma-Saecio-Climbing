@@ -1,6 +1,7 @@
-package dam.pepehc.SaecioClimbingAPI.resource;
+package dam.pepehc.saecio_climbing_api.resource;
 
-import dam.pepehc.SaecioClimbingAPI.entity.Ascension;
+import dam.pepehc.saecio_climbing_api.entity.Aperturista;
+import dam.pepehc.saecio_climbing_api.entity.Ascension;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ViaResource {
     private Long idVia;
+    private Long idSector;
     private String nombre;
     private String grado;
     private String metros;
@@ -23,5 +25,6 @@ public class ViaResource {
     private String fechaUltimaRevision;
     private String descripcion;
     private File foto;
-    private List<Ascension> ascensiones; 
+    private List<Ascension> ascensiones;
+    private List<Aperturista> aperturistas;
 }

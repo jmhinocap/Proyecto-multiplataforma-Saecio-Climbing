@@ -1,5 +1,5 @@
 /* hoja de estilos para zonas.html */
-.contenedor-sierras {
+#contenedorSierras {
     display: grid;
     column-gap: 2.5rem;
     row-gap: 1rem;
@@ -10,19 +10,19 @@
 }
 
 @media (min-width: 700px) {
-    .contenedor-sierras { grid-template-columns: repeat(2, 1fr); }
+    #contenedorSierras { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 1080px) {
-    .contenedor-sierras { grid-template-columns: repeat(3, 1fr); }
+    #contenedorSierras { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (min-width: 1425px) {
-    .contenedor-sierras { grid-template-columns: repeat(4, 1fr); }
+    #contenedorSierras { grid-template-columns: repeat(4, 1fr); }
 }
 
 @media (min-width: 1850px) {
-    .contenedor-sierras {
+    #contenedorSierras {
         grid-template-columns: repeat(5, 1fr);
     }
 }

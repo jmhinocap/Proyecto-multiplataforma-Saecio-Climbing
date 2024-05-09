@@ -1,2 +1,11 @@
-package dam.pepehc.saecio_climbing_api.repository;public interface RolRepository {
+package dam.pepehc.saecio_climbing_api.repository;
+
+import dam.pepehc.saecio_climbing_api.entity.Rol;
+import dam.pepehc.saecio_climbing_api.enums.Roles;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface RolRepository extends JpaRepository<Rol, Long> {
+    Optional<Rol> findByNombre(final Roles nombre);
 }

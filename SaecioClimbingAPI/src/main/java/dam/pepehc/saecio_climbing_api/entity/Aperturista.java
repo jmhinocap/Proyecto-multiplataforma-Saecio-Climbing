@@ -1,10 +1,7 @@
-package dam.pepehc.SaecioClimbingAPI.entity;
+package dam.pepehc.saecio_climbing_api.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -16,12 +13,14 @@ import java.util.List;
 public class Aperturista {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAperturista;
     
-    private DatosPersona datosPersona;
+    private Long idDatosPersona;
     
-    @OneToMany(mappedBy = "primarykey.aperturista", 
-            cascade = CascadeType.ALL)
-    private List<Apertura> aperturas;
+    @ManyToMany
+    @JoinTable(name = "vias_abiertas",
+            joinColumns = @JoinColumn(name = "id_aperturista"),
+            inverseJoinColumns = @JoinColumn(name = "id_via"))   
+    private List<Via> vias;
 }

@@ -13,7 +13,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body onload="poblarZonas()">
     <header class="header">
         <a class="logo" href="index.html">
             <object type="image/svg+xml" data="resources/images/logo_white.svg">Logo</object>
@@ -67,35 +67,18 @@
 
             <div class="contenedor-info-sierra">
                 <h2 class="titulo" id="tituloZonas">Zonas</h2>
-                <div class="info-sierra">
-                    <ul id="sierraAtributos">
-                        <li>Nombre</li>
-                        <li>Tipo de escalada</li>
-                        <li>Sectores</li>
-                        <li>Vías</li>
-                        <li>Grados</li>
-                    </ul>
-                    <ul class="info-sierra-valores">
-                        <li><a href="zona.html">Nombre</a></li>
-                        <li><a>Tipo de escalada</a></li>
-                        <li><a>Sectores</a></li>
-                        <li><a>Vías</a></li>
-                        <li><a>Grados</a></li>
-                    </ul>
-                    <ul class="info-sierra-valores">
-                        <li><a href="zona.html">Nombre</a></li>
-                        <li><a>Tipo de escalada</a></li>
-                        <li><a>Sectores</a></li>
-                        <li><a>Vías</a></li>
-                        <li><a>Grados</a></li>
-                    </ul>
-                    <ul class="info-sierra-valores">
-                        <li><a href="zona.html">Nombre</a></li>
-                        <li><a>Tipo de escalada</a></li>
-                        <li><a>Sectores</a></li>
-                        <li><a>Vías</a></li>
-                        <li><a>Grados</a></li>
-                    </ul>
+                <div id="infoSierra">
+                    <table id="sierraTabla">
+                        <thead>
+                            <tr id="sierraAtributos">
+                                <th>Nombre</th>
+                                <th>Tipo de escalada</th>
+                                <th>Sectores</th>
+                                <th>Vías</th>
+                                <th>Grados</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
         </section>
     </div>

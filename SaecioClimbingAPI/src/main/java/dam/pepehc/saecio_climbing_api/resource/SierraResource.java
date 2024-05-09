@@ -1,6 +1,6 @@
-package dam.pepehc.SaecioClimbingAPI.resource;
+package dam.pepehc.saecio_climbing_api.resource;
 
-import dam.pepehc.SaecioClimbingAPI.entity.Zona;
+import dam.pepehc.saecio_climbing_api.entity.Zona;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

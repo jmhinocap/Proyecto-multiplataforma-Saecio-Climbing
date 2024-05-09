@@ -13,7 +13,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body onload="poblarSectores()">
     <header class="header">
         <a class="logo" href="index.html">
             <object type="image/svg+xml" data="resources/images/logo_white.svg">Logo</object>
@@ -47,16 +47,16 @@
 
         <section class="contenedor-nav-info">
             <div class="contenedor-nav-regiones">
-                <a id="navRegionesSuperior">Sierra</a>
+                <a id="navRegionesSuperior" href="sierra.html">Sierra</a>
                 <div class="submenu-seleccionado">
-                    <a class="nav-regiones-padre region-zona" id="region-actual">Zona</a>
+                    <a class="nav-regiones-padre region-zona" id="regionActual">Zona</a>
                     <div class="submenu-dropdown">
                         <ul>
                             <li>
-                                <a href="zona.html" class="region-sector"><span>Sector</span></a>
+                                <a href="sector.html" class="region-sector"><span>Sector</span></a>
                             </li>
                             <li>
-                                <a href="zona.html" class="region-sector"><span>Sector</span></a>
+                                <a href="sector.html" class="region-sector"><span>Sector</span></a>
                             </li>
                         </ul>
                     </div>
@@ -68,31 +68,17 @@
     
             <div class="contenedor-info-zona">
                 <h2 id="tituloSectores">Sectores</h2>
-                <div class="info-zona">
-                    <ul id="zonaAtributos">
-                        <li>Nombre</li>
-                        <li>Tipo de escalada</li>
-                        <li>Vías</li>
-                        <li>Grados</li>
-                    </ul>
-                    <ul class="info-zona-valores">
-                        <li><a href="sector.html">Nombre</a></li>
-                        <li><a>Tipo de escalada</a></li>
-                        <li><a>Vías</a></li>
-                        <li><a>Grados</a></li>
-                    </ul>
-                    <ul class="info-zona-valores">
-                        <li><a href="sector.html">Nombre</a></li>
-                        <li>Tipo de escalada</li>
-                        <li><a>Vías</a></li>
-                        <li><a>Grados</a></li>
-                    </ul>
-                    <ul class="info-zona-valores">
-                        <li><a href="sector.html">Nombre</a></li>
-                        <li>Tipo de escalada</li>
-                        <li><a>Vías</a></li>
-                        <li><a>Grados</a></li>
-                    </ul>
+                <div id="infoZona">
+                    <table id="zonaTabla">
+                        <thead>
+                            <tr id="zonaAtributos">
+                                <th>Nombre</th>
+                                <th>Tipo de escalada</th>
+                                <th>Vías</th>
+                                <th>Grados</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
         </section>
     </div>

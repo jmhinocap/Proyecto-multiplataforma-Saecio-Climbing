@@ -1,12 +1,13 @@
-package dam.pepehc.SaecioClimbingAPI.resource;
+package dam.pepehc.saecio_climbing_api.resource;
 
-import dam.pepehc.SaecioClimbingAPI.entity.DatosPersona;
+import dam.pepehc.saecio_climbing_api.entity.DatosPersona;
+import dam.pepehc.saecio_climbing_api.entity.Via;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.File;
+import java.util.List;
 
 @Data
 @Builder
@@ -14,9 +15,6 @@ import java.io.File;
 @AllArgsConstructor
 public class AperturistaResource {
     private Long idAperturista;
-    private DatosPersona datosPersona;
-    private Long idPersona;
-    private String nombre;
-    private String apellidos;
-    private File foto;
+    private Long idDatosPersona;
+    private List<Via> vias;
 }

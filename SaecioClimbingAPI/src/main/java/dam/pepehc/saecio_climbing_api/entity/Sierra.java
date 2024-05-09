@@ -1,4 +1,4 @@
-package dam.pepehc.SaecioClimbingAPI.entity;
+package dam.pepehc.saecio_climbing_api.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,6 +23,6 @@ public class Sierra {
     private String nombre;
     private File foto;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Zona> zonas;
 }

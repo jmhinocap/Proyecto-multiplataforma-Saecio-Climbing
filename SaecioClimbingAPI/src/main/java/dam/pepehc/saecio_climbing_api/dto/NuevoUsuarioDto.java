@@ -1,7 +1,7 @@
-package dam.pepehc.SaecioClimbingAPI.dto;
+package dam.pepehc.saecio_climbing_api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dam.pepehc.SaecioClimbingAPI.entity.DatosPersona;
+import dam.pepehc.saecio_climbing_api.entity.DatosPersona;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -17,12 +17,15 @@ public class NuevoUsuarioDto {
     
     @JsonIgnore
     private Long idUsuario;
-
-    @NotNull(message = "Datos de usuario nulos")
-    private DatosPersona datosPersona;
+    
+    @NotNull(message = "Datos de usuario no insertados")
+    private Long idDatosPersona;
 
     @NotBlank(message = "Correo electrónico vacío")
     private String correoElectronico;
+    
+    @NotBlank(message = "Nombre de usuario vacío")
+    private String nombreUsuario;
 
     @NotBlank(message = "Contraseña vacía")
     private String contrasena;

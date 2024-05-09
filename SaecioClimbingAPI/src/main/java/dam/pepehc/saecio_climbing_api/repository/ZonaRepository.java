@@ -1,9 +1,16 @@
-package dam.pepehc.SaecioClimbingAPI.repository;
+package dam.pepehc.saecio_climbing_api.repository;
 
-import dam.pepehc.SaecioClimbingAPI.entity.Zona;
+import dam.pepehc.saecio_climbing_api.entity.Sector;
+import dam.pepehc.saecio_climbing_api.entity.Zona;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface ZonaRepository extends JpaRepository<Zona, Long> {
+    @Query(value = "SELECT zn FROM Zona zn WHERE zn.idSierra = :idSierra")
+    List<Zona> encontrarZonasPorIdSierra(@Param("idSierra") final Long idSierra);
 }

@@ -1,12 +1,14 @@
-package dam.pepehc.SaecioClimbingAPI.entity;
+package dam.pepehc.saecio_climbing_api.entity;
 
-import dam.pepehc.SaecioClimbingAPI.entity.clave_compuesta.AscensionClave;
-import dam.pepehc.SaecioClimbingAPI.enums.TipoDeAscension;
+import dam.pepehc.saecio_climbing_api.entity.clave_compuesta.AscensionClave;
+import dam.pepehc.saecio_climbing_api.enums.TipoDeAscension;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import static jakarta.persistence.EnumType.STRING;
 
 @Entity
 @Data
@@ -15,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Ascension {
     
-    @EmbeddedId
+    @Id
     private AscensionClave idAscension;
     
     @ManyToOne
@@ -29,5 +31,7 @@ public class Ascension {
     private Via via;
     
     private String fechaAscension;
+    
+    @Enumerated(STRING)
     private TipoDeAscension tipoDeAscension;
 }

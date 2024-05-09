@@ -1,7 +1,7 @@
-package dam.pepehc.SaecioClimbingAPI.dto;
+package dam.pepehc.saecio_climbing_api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dam.pepehc.SaecioClimbingAPI.entity.Via;
+import dam.pepehc.saecio_climbing_api.entity.Via;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -20,6 +20,9 @@ public class SectorDto {
 
     @JsonIgnore
     private Long idSector;
+    
+    @NotNull(message = "ID zona no introducido")
+    private Long idZona;
 
     @NotBlank(message = "Nombre vacío")
     private String nombre;

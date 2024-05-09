@@ -1,4 +1,4 @@
-package dam.pepehc.SaecioClimbingAPI.entity;
+package dam.pepehc.saecio_climbing_api.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,10 +20,11 @@ public class Zona {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idZona;
     
+    private Long idSierra;
     private String nombre;
     private String coordenadas;
     private File foto;
     
-    @ManyToOne
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Sector> sectores;
 }

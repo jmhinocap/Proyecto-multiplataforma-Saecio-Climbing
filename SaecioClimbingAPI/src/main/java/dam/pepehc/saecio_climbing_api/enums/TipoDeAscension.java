@@ -1,4 +1,4 @@
-package dam.pepehc.SaecioClimbingAPI.enums;
+package dam.pepehc.saecio_climbing_api.enums;
 
 public enum TipoDeAscension {
     PUNTO_ROJO,
@@ -6,5 +6,6 @@ public enum TipoDeAscension {
     A_VISTA,
     TOP_ROPE,
     INTENTO,
-    PROYECTO
+    PROYECTO,
+    OTRO
 }

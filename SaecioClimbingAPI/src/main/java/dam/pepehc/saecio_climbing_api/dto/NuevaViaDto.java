@@ -1,8 +1,7 @@
-package dam.pepehc.SaecioClimbingAPI.dto;
+package dam.pepehc.saecio_climbing_api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dam.pepehc.SaecioClimbingAPI.entity.Apertura;
-import dam.pepehc.SaecioClimbingAPI.entity.Ascension;
+import dam.pepehc.saecio_climbing_api.entity.Aperturista;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -21,12 +20,15 @@ public class NuevaViaDto {
     
     @JsonIgnore
     private Long idVia;
+    
+    @NotNull(message = "ID de sector no insertado")
+    private Long idSector;
 
     @NotBlank(message = "Nombre en blanco")
     private String nombre;
 
     @NotBlank(message = "Grados en blanco")
-    private String grados;
+    private String grado;
 
     @NotBlank(message = "Metros en blanco")
     private String metros;
@@ -43,9 +45,5 @@ public class NuevaViaDto {
     @NotBlank(message = "Descripcion en blanco")
     private String descripcion;
 
-    @NotNull(message = "Foto nula")
     private File foto;
-
-    @NotNull(message = "Aperturas nulas")
-    private List<Apertura> aperturas;
 }

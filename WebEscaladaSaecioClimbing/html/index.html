@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
 </head>
 
-<body>
+<body onload="poblarUltimasEntradas()">
     <header class="header">
         <a class="logo" href="index.html">
             <object type="image/svg+xml" data="resources/images/logo_white.svg">Logo</object>
@@ -24,35 +24,44 @@
         <nav class="nav-busqueda-rapida">
             <div class="div-busqueda-rapida">
                 <!--TODO icono de lupa-->
-                <input type="text" id="barraBusquedaRapida" placeholder="Búsqueda rápida">
+                <input type="text" id="barraBusquedaRapida" placeholder="&#xf002  Búsqueda rápida">
             </div>
             <ul class="nav-links">
                 <li><a href="zonas.html"><i class="fa-solid fa-compass fa-s"></i>Zonas</a></li>
                 <li><a href="mapa.html"><i class="fa-regular fa-map fa-s"></i>Mapa</a></li>
                 <li><a href="galeria.html"><i class="fa-regular fa-image fa-s"></i>Galería</a></li>
                 <li><a href="actividad.html"><i class="fa fa-newspaper-o fa-s"></i>Actividad</a></li>
-                <button id="buttonIniciarSesion">Iniciar sesión</button>
-                <button id="buttonRegistrarse">Registrarse</button>
+                <div id="botonesUsuarioContenedor">
+                    <button id="buttonIniciarSesion">Iniciar sesión</button>
+                    <button id="buttonRegistrarse" onclick="location.href='registrarse.html'">Registrarse</button>
+                </div>
+                <div class="invisible" id="perfilContenedor">
+                    <img id="perfilImagen" src="resources/images/avatar.png">
+                    <a id="nombreUsuario">Mi perfil</a>
+                </div>
             </ul>
         </nav>
     </header>
     <div class="contenedor-slideshow">
         <div class="index-slideshow">
-            <img class="imagen-slideshow" src="resources/images/index-slideshow/index-slideshow-3.jpg" draggable="false"/>
+            <img class="imagen-slideshow" src="resources/images/index-slideshow/index-slideshow-3.jpg"
+                draggable="false" />
             <div class="texto-sobre-imagen">
                 <a><i class="fa fa-camera"></i> Pepe Hinojo Caparrós</a>
                 <a><i class="fa-solid fa-location-dot"></i> La Garrofa</a>
             </div>
         </div>
         <div class="index-slideshow">
-            <img class="imagen-slideshow" src="resources/images/index-slideshow/index-slideshow-2.jpg" draggable="false"/>
+            <img class="imagen-slideshow" src="resources/images/index-slideshow/index-slideshow-2.jpg"
+                draggable="false" />
             <div class="texto-sobre-imagen">
                 <a style="color: #ffffff"><i class="fa fa-camera"></i> Pepe Hinojo Caparrós</a>
                 <a style="color: #ffffff"><i class="fa-solid fa-location-dot"></i> La Garrofa</a>
             </div>
         </div>
         <div class="index-slideshow">
-            <img class="imagen-slideshow" src="resources/images/index-slideshow/index-slideshow-1.jpg" draggable="false"/>
+            <img class="imagen-slideshow" src="resources/images/index-slideshow/index-slideshow-1.jpg"
+                draggable="false" />
             <div class="texto-sobre-imagen">
                 <a><i class="fa fa-camera"></i> David Hinojo Caparrós</a>
                 <a><i class="fa-solid fa-location-dot"></i> Albarracín</a>
@@ -91,22 +100,16 @@
     <div class="contenido">
         <div class="seccion-parrafo">
             <h1 id="titulo">Lorem ipsum</h1>
-            <p class="parrafo"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis turpis vitae
-                convallis iaculis. Nulla vel arcu mi.
-                Nulla venenatis eros non risus volutpat, ac egestas purus rhoncus. Vestibulum tincidunt, ligula vel
-                semper
-                consequat, leo nisi euismod orci,
-                ut malesuada ipsum purus at justo. Maecenas porttitor, lectus nec bibendum convallis, mi arcu commodo
-                ipsum,
-                ac iaculis mauris arcu vel turpis.
-                Fusce vel lorem at leo aliquam elementum. Duis lacinia sem mi, quis gravida orci lacinia sed. Donec sed
-                magna vel arcu lacinia accumsan sed ornare nisl.
-                Praesent ullamcorper sed felis vel vestibulum. Curabitur bibendum mollis mauris, sit amet placerat nulla
-                mattis et. Phasellus pretium scelerisque euismod.
-                Vestibulum id imperdiet eros, eu rhoncus metus. Pellentesque habitant morbi tristique senectus et netus
-                et
-                malesuada fames ac turpis egestas.
-                Donec non dapibus mauris. Curabitur vitae turpis feugiat, efficitur tellus id, facilisis massa.</p>
+            <p class="parrafo"> Bacon ipsum dolor amet cow landjaeger tongue fatback beef pork biltong ham hock
+                frankfurter buffalo beef ribs tail pork belly. Chicken shank capicola, ball tip pork loin short ribs
+                t-bone beef buffalo venison pastrami. Buffalo meatloaf salami hamburger cow. Shankle pastrami ground
+                round chicken shoulder. Boudin short loin t-bone frankfurter strip steak, drumstick ball tip pork belly
+                andouille tenderloin chicken pork chop filet mignon.
+
+                Pig shankle flank, shank ham hock chislic pork alcatra kevin andouille pastrami jowl tenderloin.
+                Meatloaf jerky chicken short loin tail turkey. Venison bacon tenderloin cow jowl prosciutto bresaola
+                alcatra tri-tip chuck brisket kielbasa t-bone. Chislic t-bone jerky cow. Turkey alcatra tail flank
+                sausage shankle ball tip short loin salami fatback shank ham hock beef ribs shoulder strip steak.</p>
             <p class="parrafo">Suspendisse potenti. Suspendisse condimentum urna ut diam elementum interdum. Curabitur
                 ante
                 ex, pretium et sapien vitae, convallis vehicula libero.
@@ -250,49 +253,20 @@
         <div class="seccion-busqueda-avanzada">
             <h2 id="busquedaAvanzada">Búsqueda avanzada</h2>
             <form class="opciones-busqueda">
-                <input type="button" class="elemento-busqueda" id="buttonTipoEscalada" value="Tipo de escalada &#x25BC;">
+                <input type="button" class="elemento-busqueda" id="buttonTipoEscalada"
+                    value="Tipo de escalada &#x25BC;">
                 <input type="text" class="elemento-busqueda" placeholder="Vía" id="inputNombreVia">
                 <input type="button" class="elemento-busqueda" id="buttonGrado" value="Grado &#x25BC;">
                 <input type="text" class="elemento-busqueda" placeholder="Sector" id="inputNombreSector">
-                <br/>
+                <br />
                 <input type="button" class="elemento-busqueda" id="buttonBorrar" value="Borrar">
                 <input type="submit" class="elemento-busqueda" id="buttonBuscar" value="Buscar">
             </form>
         </div>
 
-        <div class="seccion-ultimas-entradas">
+        <div id="seccionUltimasEntradas">
             <h2 id="ultimasEntradasTitulo">Últimas entradas</h2>
-            <div class="ultimas-entradas">
-                <a class="ultima-entrada" href="#">
-                    <h4 class="entrada-via">Vía</h4>
-                    <h4 class="entrada-grado">Grado</h4>
-                    <h4 class="entrada-sector">Sector</h4>
-                    <h4 class="entrada-aperturistas">Aperturistas</h4>
-                </a>
-                <a class="ultima-entrada">
-                    <h4 class="entrada-via">Vía</h4>
-                    <h4 class="entrada-grado">Grado</h4>
-                    <h4 class="entrada-sector">Sector</h4>
-                    <h4 class="entrada-aperturistas">Aperturistas</h4>
-                </a>
-                <a class="ultima-entrada">
-                    <h4 class="entrada-via">Vía</h4>
-                    <h4 class="entrada-grado">Grado</h4>
-                    <h4 class="entrada-sector">Sector</h4>
-                    <h4 class="entrada-aperturistas">Aperturistas</h4>
-                </a>
-                <a class="ultima-entrada">
-                    <h4 class="entrada-via">Vía</h4>
-                    <h4 class="entrada-grado">Grado</h4>
-                    <h4 class="entrada-sector">Sector</h4>
-                    <h4 class="entrada-aperturistas">Aperturistas</h4>
-                </a>
-                <a class="ultima-entrada">
-                    <h4 class="entrada-via">Vía</h4>
-                    <h4 class="entrada-grado">Grado</h4>
-                    <h4 class="entrada-sector">Sector</h4>
-                    <h4 class="entrada-aperturistas">Aperturistas</h4>
-                </a>
+            <div id="ultimasEntradasContainer">
             </div>
         </div>
 
@@ -307,7 +281,7 @@
                     <img class="foto-enlace" id="fotoClimbbox" src="blank">
                     <h3 class="titulo-enlace">blank</h3>
                 </a>
-                <a class="enlace-interes" href="https://dpdiagonal.com/" target="_blank">                    
+                <a class="enlace-interes" href="https://dpdiagonal.com/" target="_blank">
                     <img class="foto-enlace" id="fotoDiagonal" src="blank">
                     <div class="titulo-enlace">
                         <h3>blank</h3>

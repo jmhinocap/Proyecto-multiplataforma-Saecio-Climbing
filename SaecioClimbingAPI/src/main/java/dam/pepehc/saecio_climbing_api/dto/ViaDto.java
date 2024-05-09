@@ -1,8 +1,8 @@
-package dam.pepehc.SaecioClimbingAPI.dto;
+package dam.pepehc.saecio_climbing_api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dam.pepehc.SaecioClimbingAPI.entity.Apertura;
-import dam.pepehc.SaecioClimbingAPI.entity.Ascension;
+import dam.pepehc.saecio_climbing_api.entity.Aperturista;
+import dam.pepehc.saecio_climbing_api.entity.Ascension;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -22,11 +22,14 @@ public class ViaDto {
     @JsonIgnore
     private Long idVia;
     
+    @NotNull(message = "ID sector no introducido")
+    private Long idSector;
+    
     @NotBlank(message = "Nombre en blanco")
     private String nombre;
     
     @NotBlank(message = "Grados en blanco")
-    private String grados;
+    private String grado;
     
     @NotBlank(message = "Metros en blanco")
     private String metros;
@@ -45,10 +48,10 @@ public class ViaDto {
     
     @NotNull(message = "Foto nula")
     private File foto;
+
+    @NotNull(message = "Aperturistas no insertados")
+    private List<Aperturista> aperturistas;
     
-    @NotNull(message = "Ascensiones nulas")
+    @NotNull(message = "Ascensiones no insertadas")
     private List<Ascension> ascensiones;
-    
-    @NotNull(message = "Aperturas nulas")
-    private List<Apertura> aperturas;
 }

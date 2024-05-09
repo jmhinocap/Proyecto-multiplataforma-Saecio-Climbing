@@ -1,9 +1,9 @@
-package dam.pepehc.SaecioClimbingAPI.resource;
+package dam.pepehc.saecio_climbing_api.resource;
 
-import dam.pepehc.SaecioClimbingAPI.entity.Usuario;
-import dam.pepehc.SaecioClimbingAPI.entity.Via;
-import dam.pepehc.SaecioClimbingAPI.entity.clave_compuesta.AscensionClave;
-import dam.pepehc.SaecioClimbingAPI.enums.TipoDeAscension;
+import dam.pepehc.saecio_climbing_api.entity.Usuario;
+import dam.pepehc.saecio_climbing_api.entity.Via;
+import dam.pepehc.saecio_climbing_api.entity.clave_compuesta.AscensionClave;
+import dam.pepehc.saecio_climbing_api.enums.TipoDeAscension;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

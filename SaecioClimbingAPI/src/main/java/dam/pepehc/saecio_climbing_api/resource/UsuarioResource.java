@@ -1,7 +1,8 @@
-package dam.pepehc.SaecioClimbingAPI.resource;
+package dam.pepehc.saecio_climbing_api.resource;
 
-import dam.pepehc.SaecioClimbingAPI.entity.Ascension;
-import dam.pepehc.SaecioClimbingAPI.entity.DatosPersona;
+import dam.pepehc.saecio_climbing_api.entity.Ascension;
+import dam.pepehc.saecio_climbing_api.entity.DatosPersona;
+import dam.pepehc.saecio_climbing_api.entity.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,8 +16,10 @@ import java.util.List;
 @AllArgsConstructor
 public class UsuarioResource {
     private Long idUsuario;
-    private DatosPersona datosPersona;
+    private Long idDatosPersona;
     private String correoElectronico;
+    private String nombreUsuario;
     private String contrasena;
     private List<Ascension> ascensiones;
+    private List<Rol> roles;
 }

@@ -1,0 +1,51 @@
+label {
+    color: #313131;
+}
+
+#contenedorPaginaRegistro {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #d9d9d9;
+}
+
+#contenedorRegistro {
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    box-shadow: 0px 0px 10px #808080;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    width: 25%;
+}
+
+#contenedorRegistro form {
+    display: flex;
+    flex-direction: column;
+    vertical-align: baseline;
+    width: 82%;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contenedorRegistro label {
+    width: 82%;
+}
+
+form input {
+    margin: 2px 0;
+}
+
+#informacionRegistro {
+    text-align: center;
+}
+
+#contenedorCheckContrasena, #contenedorCheckTerminos {
+    margin: 2px 0;
+    text-align: left;
+}
+
+#buttonCrearCuenta {
+    width: 82%;
+}

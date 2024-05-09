@@ -1,7 +1,7 @@
-package dam.pepehc.SaecioClimbingAPI.dto;
+package dam.pepehc.saecio_climbing_api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dam.pepehc.SaecioClimbingAPI.entity.Sector;
+import dam.pepehc.saecio_climbing_api.entity.Sector;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -21,15 +21,18 @@ public class ZonaDto {
     @JsonIgnore
     private Long idZona;
     
+    @NotNull(message = "ID sierra no insertado")
+    private Long idSierra;
+    
     @NotBlank(message = "Nombre en blanco")
     private String nombre;
     
     @NotBlank(message = "Coordenadas en blanco")
     private String coordenadas;
     
-    @NotNull(message = "Foto nula")
+    @NotNull(message = "Foto no insertada")
     private File foto;
     
-    @NotNull(message = "Sectores nulos")
+    @NotNull(message = "Sectores no insertados")
     private List<Sector> sectores;
 }

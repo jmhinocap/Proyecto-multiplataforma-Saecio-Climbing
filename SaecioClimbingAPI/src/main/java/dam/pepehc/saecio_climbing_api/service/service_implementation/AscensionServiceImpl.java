@@ -1,11 +1,11 @@
-package dam.pepehc.SaecioClimbingAPI.service.service_implementation;
+package dam.pepehc.saecio_climbing_api.service.service_implementation;
 
-import dam.pepehc.SaecioClimbingAPI.assembler.AscensionAssembler;
-import dam.pepehc.SaecioClimbingAPI.dto.AscensionDto;
-import dam.pepehc.SaecioClimbingAPI.entity.Ascension;
-import dam.pepehc.SaecioClimbingAPI.repository.AscensionRepository;
-import dam.pepehc.SaecioClimbingAPI.resource.AscensionResource;
-import dam.pepehc.SaecioClimbingAPI.service.service_interface.AscensionService;
+import dam.pepehc.saecio_climbing_api.assembler.AscensionAssembler;
+import dam.pepehc.saecio_climbing_api.dto.AscensionDto;
+import dam.pepehc.saecio_climbing_api.entity.Ascension;
+import dam.pepehc.saecio_climbing_api.repository.AscensionRepository;
+import dam.pepehc.saecio_climbing_api.resource.AscensionResource;
+import dam.pepehc.saecio_climbing_api.service.service_interface.AscensionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

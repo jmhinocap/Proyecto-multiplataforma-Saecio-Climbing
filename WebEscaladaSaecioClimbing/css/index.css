@@ -2,6 +2,7 @@
 .contenedor-slideshow {
     position: relative;
     margin-bottom: 0;
+    font-size: 0;
 }
 
 .imagen-slideshow {
@@ -14,6 +15,7 @@
     top: 95%;
     padding: 10px 10px;
     user-select: none;
+    font-size: 16px;
 }
 
 .circulos-slideshow {
@@ -129,6 +131,10 @@
 #buttonBuscarGrande:active {
     background-color: #647d56;
     transform: translateY(1px);
+}
+
+#buttonBuscarGrande .fa-solid {
+    padding-right: 6px;
 }
 
 .contenedor-dropdown {
@@ -335,11 +341,11 @@
     border: none;
 }
 
-.seccion-ultimas-entradas {
+#seccionUltimasEntradas {
     background-color: #ffffff;
 }
 
-.ultimas-entradas {
+#ultimasEntradasContainer {
     text-align: center;
     width: 100%;
     padding-bottom: 10px;
@@ -356,7 +362,8 @@
 }
 
 .seccion-enlaces-interes {
-    margin: 10px 0;
+    margin-top: 10px;
+    padding-bottom: 20px;
 }
 
 .enlaces-interes {

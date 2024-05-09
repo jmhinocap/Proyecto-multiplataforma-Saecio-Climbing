@@ -1,4 +1,4 @@
-package dam.pepehc.SaecioClimbingAPI.entity.clave_compuesta;
+package dam.pepehc.saecio_climbing_api.entity.clave_compuesta;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

@@ -1,11 +1,12 @@
-package dam.pepehc.SaecioClimbingAPI.service.service_implementation;
+package dam.pepehc.saecio_climbing_api.service.service_implementation;
 
-import dam.pepehc.SaecioClimbingAPI.assembler.AperturistaAssembler;
-import dam.pepehc.SaecioClimbingAPI.dto.AperturistaDto;
-import dam.pepehc.SaecioClimbingAPI.entity.Aperturista;
-import dam.pepehc.SaecioClimbingAPI.repository.AperturistaRepository;
-import dam.pepehc.SaecioClimbingAPI.resource.AperturistaResource;
-import dam.pepehc.SaecioClimbingAPI.service.service_interface.AperturistaService;
+import dam.pepehc.saecio_climbing_api.assembler.AperturistaAssembler;
+import dam.pepehc.saecio_climbing_api.dto.AperturistaDto;
+import dam.pepehc.saecio_climbing_api.dto.NuevoAperturistaDto;
+import dam.pepehc.saecio_climbing_api.entity.Aperturista;
+import dam.pepehc.saecio_climbing_api.repository.AperturistaRepository;
+import dam.pepehc.saecio_climbing_api.resource.AperturistaResource;
+import dam.pepehc.saecio_climbing_api.service.service_interface.AperturistaService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,9 +22,9 @@ public class AperturistaServiceImpl implements AperturistaService {
     private AperturistaRepository aperturistaRepository;
     
     @Override
-    public AperturistaResource nuevoAperturista(AperturistaDto aperturistaDto) {
-        log.info("[AperturistaService]-[nuevoAperturista]-[aperturistaDto: {}]-[Start]", aperturistaDto);
-        Aperturista aperturista = aperturistaAssembler.aparturistaDtoAAperturista(aperturistaDto);
+    public AperturistaResource nuevoAperturista(final NuevoAperturistaDto nuevoAperturistaDto) {
+        log.info("[AperturistaService]-[nuevoAperturista]-[nuevoAperturistaDto: {}]-[Start]", nuevoAperturistaDto);
+        Aperturista aperturista = aperturistaAssembler.aparturistaDtoAAperturista(nuevoAperturistaDto);
         aperturistaRepository.save(aperturista);
         log.info("[AperturistaService]-[nuevoAperturista]-[bancaResource: {}]-[End]",
                 aperturistaAssembler.aperturistaAAperturistaResource(aperturista));
@@ -32,7 +33,7 @@ public class AperturistaServiceImpl implements AperturistaService {
     }
 
     @Override
-    public AperturistaResource leerAperturista(Long idAperturista) {
+    public AperturistaResource leerAperturista(final Long idAperturista) {
         log.info("[AperturistaService]-[leerAperturista]-[idAperturista: {}]-[Start]", idAperturista);
         Aperturista aperturista = aperturistaRepository.findById(idAperturista)
                 .orElseThrow(() -> new RuntimeException());
@@ -43,7 +44,7 @@ public class AperturistaServiceImpl implements AperturistaService {
     }
 
     @Override
-    public AperturistaResource modificarAperturista(AperturistaDto aperturistaDto, Long idAperturista) {
+    public AperturistaResource modificarAperturista(final AperturistaDto aperturistaDto, final Long idAperturista) {
         log.info("[AperturistaService]-[modificarAperturista]-[aperturistaDto: {}. idAperturista: {}]-[Start]",
                 aperturistaDto, idAperturista);
         Aperturista aperturista = aperturistaRepository.findById(idAperturista)
@@ -58,10 +59,10 @@ public class AperturistaServiceImpl implements AperturistaService {
     }
 
     @Override
-    public String eliminarAperturista(Long idAperturista) {
+    public String borrarAperturista(final Long idAperturista) {
         log.info("[AperturistaService]-[eliminarAperturista]-[idAperturista: {}]-[Start]", idAperturista);
         aperturistaRepository.deleteById(idAperturista);
-        String mensaje = "Aperturista eliminado correctamente de la base de datos";
+        String mensaje = "Aperturista " + idAperturista + " correctamente de la base de datos";
         log.info("[AperturistaService]-[eliminarAperturista]-[mensaje: {}]-[End]", mensaje);
         
         return mensaje;

@@ -1,2 +1,25 @@
-package dam.pepehc.saecio_climbing_api.entity;public class Rol {
+package dam.pepehc.saecio_climbing_api.entity;
+
+import dam.pepehc.saecio_climbing_api.enums.Roles;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import static jakarta.persistence.EnumType.STRING;
+
+@Data
+@Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Rol {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idRol;
+    
+    @Enumerated(STRING)
+    private Roles nombre;
 }

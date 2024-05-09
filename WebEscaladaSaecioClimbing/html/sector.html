@@ -13,7 +13,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body onload="poblarVias()">
     <header class="header">
         <a class="logo" href="index.html">
             <object type="image/svg+xml" data="resources/images/logo_white.svg">Logo</object>
@@ -54,7 +54,7 @@
 
         <section class="contenedor-nav-info">
             <div class="contenedor-nav-regiones">
-                <a id="navRegionesSuperior">Zona</a>
+                <a id="navRegionesSuperior" href="zona.html">Zona</a>
                 <div class="submenu-seleccionado">
                     <ul>
                         <li id="sectorActual"><a>Sector</a></li>
@@ -70,45 +70,25 @@
 
             <div class="contenedor-info-sector">
                 <h2 id="tituloVias">Vías</h2>
-                <div class="info-sector">
-                    <ul id="sectorAtributos">
-                        <li>Número</li>
-                        <li>Nombre</li>
-                        <li>Grado</li>
-                        <li>Metros</li>
-                        <li>Nº de chapas</li>
-                        <li>Apertura/Última revisión</li>
-                        <li>Aperturista/s</li>
-                    </ul>
-                    <ul class="info-sector-valores">
-                        <li><a>Número</a></li>
-                        <li><a href="via.html">Nombre</a></li>
-                        <li><a>Grado</a></li>
-                        <li><a>Metros</a></li>
-                        <li><a>Nº de chapas</a></li>
-                        <li><a>Apertura/Última revisión</a></li>
-                        <li><a href="aperturista.html">Aperturista/s</a></li>
-                    </ul>
-                    <ul class="info-sector-valores">
-                        <li><a>Número</a></li>
-                        <li><a href="via.html">Nombre</a></li>
-                        <li><a>Grado</a></li>
-                        <li><a>Metros</a></li>
-                        <li><a>Nº de chapas</a></li>
-                        <li><a>Apertura/Última revisión</a></li>
-                        <li><a href="aperturista.html">Aperturista/s</a></li>
-                    </ul>
-                    <ul class="info-sector-valores">
-                        <li><a>Número</a></li>
-                        <li><a href="via.html">Nombre</a></li>
-                        <li><a>Grado</a></li>
-                        <li><a>Metros</a></li>
-                        <li><a>Nº de chapas</a></li>
-                        <li><a>Apertura/Última revisión</a></li>
-                        <li><a href="apertusita.html">Aperturista/s</a></li>
-                    </ul>
+                <div id="infoSector">
+                    <table id="sectorTabla">
+                        <thead>
+                            <tr id="sectorAtributos">
+                                <th>Número</th>
+                                <th>Nombre</th>
+                                <th>Grado</th>
+                                <th>Metros</th>
+                                <th>Nº de chapas</th>
+                                <th>Apertura/Última revisión</th>
+                                <th>Aperturista/s</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
         </section>
+
+
+
     </div>
 
     <footer class="footer">
@@ -129,7 +109,7 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="../js/sierra.js"></script>
+    <script type="text/javascript" src="../js/sector.js"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXjJMkVoKKdKYF6GBh_JRZ270dsvgr-io&callback=myMap"></script>
 </body>

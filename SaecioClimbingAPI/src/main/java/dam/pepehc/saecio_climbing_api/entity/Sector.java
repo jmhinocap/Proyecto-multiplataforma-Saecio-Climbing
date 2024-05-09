@@ -1,4 +1,4 @@
-package dam.pepehc.SaecioClimbingAPI.entity;
+package dam.pepehc.saecio_climbing_api.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,6 +20,7 @@ public class Sector {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSector;
     
+    private Long idZona;
     private String nombre;
     private String coordenadas;
     private File croquis;

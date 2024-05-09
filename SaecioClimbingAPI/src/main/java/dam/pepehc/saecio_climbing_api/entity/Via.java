@@ -1,5 +1,6 @@
-package dam.pepehc.SaecioClimbingAPI.entity;
+package dam.pepehc.saecio_climbing_api.entity;
 
+import dam.pepehc.saecio_climbing_api.enums.TipoDeEscalada;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,6 +9,8 @@ import lombok.NoArgsConstructor;
 
 import java.io.File;
 import java.util.List;
+
+import static jakarta.persistence.EnumType.STRING;
 
 @Entity
 @Data
@@ -20,6 +23,7 @@ public class Via {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVia;
     
+    private Long idSector;
     private String nombre;
     private String grado;
     private String metros;
@@ -27,13 +31,15 @@ public class Via {
     private String fechaApertura;
     private String fechaUltimaRevision;
     private String descripcion;
+    
+    @Enumerated(STRING)
+    private TipoDeEscalada tipoDeEscalada;
+    
     private File foto;
     
-    @OneToMany(mappedBy = "primarykey.via",
-            cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "vias")
+    private List<Aperturista> aperturistas;
+
+    @OneToMany(mappedBy = "via", cascade = CascadeType.ALL)
     private List<Ascension> ascensiones;
-    
-    @OneToMany(mappedBy = "primarykey.via", 
-            cascade = CascadeType.ALL)
-    private List<Apertura> aperturas;
 }

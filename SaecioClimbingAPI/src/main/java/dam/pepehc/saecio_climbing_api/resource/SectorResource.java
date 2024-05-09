@@ -1,6 +1,6 @@
-package dam.pepehc.SaecioClimbingAPI.resource;
+package dam.pepehc.saecio_climbing_api.resource;
 
-import dam.pepehc.SaecioClimbingAPI.entity.Via;
+import dam.pepehc.saecio_climbing_api.entity.Via;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class SectorResource {
     private Long idSector;
+    private Long idZona;
     private String nombre;
     private String coordenadas;
     private File croquis;
