@@ -12,6 +12,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 @Service
 public class SierraServiceImpl implements SierraService {
@@ -64,6 +67,21 @@ public class SierraServiceImpl implements SierraService {
         log.info("[SierraService]-[eliminarSierra]-[mensaje: {}]-[End]", mensaje);
         
         return mensaje;
+    }
+    
+    @Override
+    public List<SierraResource> leerTodasLasSierras() {
+        log.info("[SierraService]-[leerTodasLasSierras]-[Start]");
+        List<Sierra> sierras = sierraRepository.findAll();
+        List<SierraResource> sierrasResource = new ArrayList<>();
+        
+        for (Sierra s : sierras) {
+            sierrasResource.add(sierraAssembler.sierraASierraResource(s));
+        }
+        
+        log.info("[SierraService]-[leerTodasLasSierras]-[sierrasResource: {}]-[End]", sierrasResource);
+        
+        return sierrasResource;
     }
     
     @Override

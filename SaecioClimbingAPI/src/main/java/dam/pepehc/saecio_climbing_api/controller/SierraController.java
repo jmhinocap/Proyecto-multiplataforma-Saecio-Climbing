@@ -1,9 +1,6 @@
 package dam.pepehc.saecio_climbing_api.controller;
 
-import dam.pepehc.saecio_climbing_api.command.sierra_command.BorrarSierraCommand;
-import dam.pepehc.saecio_climbing_api.command.sierra_command.LeerSierraCommand;
-import dam.pepehc.saecio_climbing_api.command.sierra_command.ModificarSierraCommand;
-import dam.pepehc.saecio_climbing_api.command.sierra_command.NuevaSierraCommand;
+import dam.pepehc.saecio_climbing_api.command.sierra_command.*;
 import dam.pepehc.saecio_climbing_api.dto.NuevaSierraDto;
 import dam.pepehc.saecio_climbing_api.dto.SierraDto;
 import dam.pepehc.saecio_climbing_api.resource.SierraResource;
@@ -15,10 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Slf4j
 @Validated
 @RestController
 @RequestMapping("/api/sierra")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SierraController {
     
     @Autowired
@@ -64,5 +64,15 @@ public class SierraController {
         log.info("[SierraController]-[borrarSierra]-[mensaje: {}]-[End]", mensaje);
         
         return ResponseEntity.ok(mensaje);
+    }
+    
+    @GetMapping("/leer-todas-las-sierras")
+    public ResponseEntity<List<SierraResource>> leerTodasLasSierras() {
+        log.info("[SierraController]-[leerTodasLasSierras]-[Start]");
+        LeerTodasLasSierrasCommand leerTodasLasSierrasCommand = beanFactory.getBean(LeerTodasLasSierrasCommand.class);
+        List<SierraResource> sierrasResource = leerTodasLasSierrasCommand.execute();
+        log.info("[SierraController]-[leerTodasLasSierras]-[sierrasResource: {}]-[End]", sierrasResource);
+        
+        return ResponseEntity.ok(sierrasResource);
     }
 }

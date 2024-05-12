@@ -23,7 +23,6 @@
         </a>
         <nav class="nav-busqueda-rapida">
             <div class="div-busqueda-rapida">
-                <!--TODO icono de lupa-->
                 <input type="text" id="barraBusquedaRapida" placeholder="&#xf002  Búsqueda rápida">
             </div>
             <ul class="nav-links">
@@ -33,7 +32,7 @@
                 <li><a href="actividad.html"><i class="fa fa-newspaper-o fa-s"></i>Actividad</a></li>
                 <div id="botonesUsuarioContenedor">
                     <button id="buttonIniciarSesion">Iniciar sesión</button>
-                    <button id="buttonRegistrarse" onclick="location.href='registrarse.html'">Registrarse</button>
+                    <button id="buttonRegistrarse" onclick="mostrarRegistro()">Registrarse</button>
                 </div>
                 <div class="invisible" id="perfilContenedor">
                     <img id="perfilImagen" src="resources/images/avatar.png">
@@ -42,6 +41,38 @@
             </ul>
         </nav>
     </header>
+    
+    <div id="contenedorPaginaRegistro">
+        <div id="contenedorRegistro">
+            <div id="contenedorRegistroTitulo">
+                <h2>Crea una cuenta</h2>
+                <label onclick="ocultarRegistro()"><i class="fa-solid fa-x"></i></label>
+            </div>
+            <div id="informacionRegistro">
+                <form>
+                    <div id="contenedorInputsPersona">
+                        <input type="text" placeholder="Nombre" id="inputNombre" required>
+                        <input type="text" placeholder="Apellidos" id="inputApellidos">
+                    </div>
+                    <input type="text" placeholder="Nombre de usuario" id="inputNombreUsuario" required>
+                    <input type="text" placeholder="Correo electrónico" id="inputCorreo" required>
+                    <input type="password" placeholder="Contraseña" id="inputContrasena" required>
+                    <div id="contenedorCheckContrasena">
+                        <input type="checkbox" id="checkContrasena">
+                        <label id="labelContrasena">Mostrar contraseña</label>
+                    </div>
+                    <div id="contenedorCheckTerminos">
+                        <input type="checkbox" id="checkTerminos">
+                        <label id="labelTerminos">Acepto los <a href="#">términos y condiciones</a></label>
+                    </div>
+                </form>
+            </div>
+            <input type="submit" value="Crear cuenta" id="buttonCrearCuenta">
+            <br/>
+            <label>¿Ya tienes una cuenta? Inicia sesión <a href="#">aquí.</a></label>
+        </div>
+    </div>
+
     <div class="contenedor-slideshow">
         <div class="index-slideshow">
             <img class="imagen-slideshow" src="resources/images/index-slideshow/index-slideshow-3.jpg"
@@ -290,32 +321,37 @@
             </div>
         </div>
     </div>
-
-    <footer class="footer">
-        <div class="container-footer">
-            <div class="footer-row">
-                <div class="footer-links">
-                    <h4><a href="#">Quiénes somos</a></h4>
-                </div>
-
-                <div class="footer-links">
-                    <h4><a href="#">Contacto</a></h4>
-                </div>
-
-                <div class="footer-links">
-                    <h4><a href="#">Aviso legal</a></h4>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <!-- Slick -->
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    <script type="text/javascript" src="../js/index.js"></script>
 </body>
 
+<footer class="footer">
+    <div class="container-footer">
+        <div class="footer-row">
+            <div class="footer-links">
+                <h4><a href="#">Quiénes somos</a></h4>
+            </div>
+
+            <div class="footer-links">
+                <h4><a href="#">Contacto</a></h4>
+            </div>
+
+            <div class="footer-links">
+                <h4><a href="#">Aviso legal</a></h4>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+</script>
+
+<!-- Slick -->
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js">
+</script>
+
+<!-- Scripts del proyecto -->
+<script type="text/javascript" src="../js/index.js"></script>
+<script type="text/javascript" src="../js/global.js"></script>
 </html>
