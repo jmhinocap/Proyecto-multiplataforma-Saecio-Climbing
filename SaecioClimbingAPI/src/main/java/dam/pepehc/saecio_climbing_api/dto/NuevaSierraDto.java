@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.File;
+import java.util.List;
 
 @Data
 @Builder
@@ -21,7 +22,10 @@ public class NuevaSierraDto {
 
     @NotBlank(message = "Nombre en blanco")
     private String nombre;
+    
+    @NotNull(message = "Coordenadas no introducidas")
+    private String coordenadas;
 
     @NotNull(message = "Foto nula")
-    private File foto;
+    private String foto;
 }

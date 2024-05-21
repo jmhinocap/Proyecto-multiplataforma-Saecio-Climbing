@@ -35,7 +35,7 @@ public class Via {
     @Enumerated(STRING)
     private TipoDeEscalada tipoDeEscalada;
     
-    private File foto;
+    private String foto;
     
     @ManyToMany(mappedBy = "vias")
     private List<Aperturista> aperturistas;

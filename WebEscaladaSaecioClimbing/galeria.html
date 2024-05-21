@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1">
+    <title>Galería</title>
+    <link rel="icon" type="image/png" href="resources/images/global/logos/icon.png">
+    <link rel="stylesheet" type="text/css" href="resources/css/global.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/galeria.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <a class="logo" href="index.html">
+            <object type="image/svg+xml" data="resources/images/global/logos/logo-white.svg">Logo</object>
+        </a>
+        <nav class="nav-busqueda-rapida">
+            <div class="div-busqueda-rapida">
+                <input type="text" id="barraBusquedaRapida" placeholder="&#xf002  Búsqueda rápida">
+            </div>
+            <ul class="nav-links">
+                <li><a href="zonas.html"><i class="fa-solid fa-compass fa-s"></i>Zonas</a></li>
+                <li><a href="galeria.html"><i class="fa-regular fa-image fa-s"></i>Galería</a></li>
+                <li><a href="actividad.html"><i class="fa fa-newspaper-o fa-s"></i>Actividad</a></li>
+                <div id="botonesUsuarioContenedor">
+                    <button id="buttonIniciarSesion" onclick="abrirIniciarSesion(event)">Iniciar sesión</button>
+                    <div id="iniciarSesion">
+                        <form>
+                            <label>Usuario o correo</label>
+                            <input type="text" required/>
+                            <label>Contraseña</label>
+                            <input type="password" required/>
+                            <div id="contenedorCheckContrasena">
+                                <input type="checkbox">
+                                <label>Mostrar contraseña</label>
+                            </div>
+                            <a>He olvidado la contraseña</a>
+                            <input type="submit" value="Inicia sesión">
+                        </form>
+                    </div>
+
+                    <button id="buttonRegistrarse" onclick="mostrarRegistro()">Registrarse</button>
+                </div>
+                <div class="invisible" id="perfilContenedor">
+                    <img id="perfilImagen" src="resources/images/global/usuario/avatar.png">
+                    <a id="nombreUsuario">Mi perfil</a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="contenedorPaginaRegistro">
+        <div id="contenedorRegistro">
+            <div id="contenedorRegistroTitulo">
+                <h2>Crea una cuenta</h2>
+                <label onclick="ocultarRegistro()"><i class="fa-solid fa-x"></i></label>
+            </div>
+            <div id="informacionRegistro">
+                <form>
+                    <div id="contenedorInputsPersona">
+                        <input type="text" placeholder="Nombre" id="inputNombre" required>
+                        <input type="text" placeholder="Apellidos" id="inputApellidos">
+                    </div>
+                    <input type="text" placeholder="Nombre de usuario" id="inputNombreUsuario" required>
+                    <input type="text" placeholder="Correo electrónico" id="inputCorreo" required>
+                    <input type="password" placeholder="Contraseña" id="inputContrasena" required>
+                    <div id="contenedorCheckContrasena">
+                        <input type="checkbox" id="checkContrasena">
+                        <label id="labelContrasena">Mostrar contraseña</label>
+                    </div>
+                    <div id="contenedorCheckTerminos">
+                        <input type="checkbox" id="checkTerminos">
+                        <label id="labelTerminos">Acepto los <a href="#">términos y condiciones</a></label>
+                    </div>
+                </form>
+            </div>
+            <input type="submit" value="Crear cuenta" id="buttonCrearCuenta">
+            <br/>
+            <label>¿Ya tienes una cuenta? Inicia sesión <a>aquí.</a></label>
+        </div>
+    </div>
+</body>
+
+<footer class="footer">
+    <div class="container-footer">
+        <div class="footer-row">
+            <div class="footer-links">
+                <h4><a href="#">Quiénes somos</a></h4>
+            </div>
+
+            <div class="footer-links">
+                <h4><a href="#">Contacto</a></h4>
+            </div>
+
+            <div class="footer-links">
+                <h4><a href="#">Aviso legal</a></h4>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+</script>
+
+<!-- Scripts del proyecto -->
+<script type="text/javascript" src="resources/js/global.js"></script>
+
+</html>

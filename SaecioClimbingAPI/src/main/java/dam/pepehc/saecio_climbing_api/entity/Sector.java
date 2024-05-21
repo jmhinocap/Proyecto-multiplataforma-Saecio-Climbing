@@ -24,7 +24,7 @@ public class Sector {
     private String nombre;
     private String coordenadas;
     private File croquis;
-    private File foto;
+    private String foto;
     
     @OneToMany(cascade = CascadeType.ALL)
     private List<Via> vias;

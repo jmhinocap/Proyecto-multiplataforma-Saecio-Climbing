@@ -27,11 +27,11 @@ public class ZonaDto {
     @NotBlank(message = "Nombre en blanco")
     private String nombre;
     
-    @NotBlank(message = "Coordenadas en blanco")
+    @NotNull(message = "Coordenadas no introducidas")
     private String coordenadas;
     
     @NotNull(message = "Foto no insertada")
-    private File foto;
+    private String foto;
     
     @NotNull(message = "Sectores no insertados")
     private List<Sector> sectores;

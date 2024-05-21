@@ -24,7 +24,7 @@ public class ViaResource {
     private String fechaApertura;
     private String fechaUltimaRevision;
     private String descripcion;
-    private File foto;
+    private String foto;
     private List<Ascension> ascensiones;
     private List<Aperturista> aperturistas;
 }

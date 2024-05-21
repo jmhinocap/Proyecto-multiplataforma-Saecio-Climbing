@@ -14,7 +14,13 @@ public class SectorAssembler {
     
     private final static String CROQUIS_VACIO = ""; // TODO crear pdf de croquis vacío
     private final static String IMAGEN_SECTOR_GENERICA = ""; // TODO crear imagen genérica de sector
-    
+
+    /**
+     * 
+     * @param nuevoSectorDto Un DTO que contiene toda la información para crear una nueva instancia de la entidad 
+     *                       Sector
+     * @return Sector
+     */
     public Sector sectorDtoASector(final NuevoSectorDto nuevoSectorDto) {
         return Sector.builder()
                 .idSector(nuevoSectorDto.getIdSector() == null ? 0L : nuevoSectorDto.getIdSector())
@@ -22,11 +28,16 @@ public class SectorAssembler {
                 .nombre(nuevoSectorDto.getNombre() == null ? "" : nuevoSectorDto.getNombre())
                 .coordenadas(nuevoSectorDto.getCoordenadas() == null ? "" : nuevoSectorDto.getCoordenadas())
                 .croquis(nuevoSectorDto.getCroquis() == null ? new File(CROQUIS_VACIO) : nuevoSectorDto.getCroquis())
-                .foto(nuevoSectorDto.getFoto() == null ? new File(IMAGEN_SECTOR_GENERICA) : nuevoSectorDto.getFoto())
+                .foto(nuevoSectorDto.getFoto() == null ? IMAGEN_SECTOR_GENERICA : nuevoSectorDto.getFoto())
                 .vias(new ArrayList<>())
                 .build();
     }
-    
+
+    /**
+     * 
+     * @param sector Un objeto de la entidad Sector
+     * @return SectorResource
+     */
     public SectorResource sectorASectorResource(final Sector sector) {
         return SectorResource.builder()
                 .idSector(sector.getIdSector() == null ? 0L : sector.getIdSector())
@@ -34,17 +45,25 @@ public class SectorAssembler {
                 .nombre(sector.getNombre() == null ? "" : sector.getNombre())
                 .coordenadas(sector.getCoordenadas() == null ? "" : sector.getCoordenadas())
                 .croquis(sector.getCroquis() == null ? new File(CROQUIS_VACIO) : sector.getCroquis())
-                .foto(sector.getFoto() == null ? new File(IMAGEN_SECTOR_GENERICA) : sector.getFoto())
+                .foto(sector.getFoto() == null ? IMAGEN_SECTOR_GENERICA : sector.getFoto())
                 .vias(sector.getVias() == null ? new ArrayList<>() : sector.getVias())
                 .build();
     }
-    
+
+    /**
+     * 
+     * @param sectorDto Un DTO que contiene la información necesaria para crear una instancia de Sector con información
+     *                  modificada
+     * @param sector Una objeto de la entidad Sector, sirviendo como refuerzo de aquellos atributos que no
+     *               han sido modificados de la entrada
+     * @return Sector
+     */
     public Sector sectorModificadoASector(final SectorDto sectorDto, final Sector sector) {
         return Sector.builder()
                 .idSector(sector.getIdSector())
                 .idZona(sectorDto.getIdZona() == null ? sector.getIdZona() : sectorDto.getIdZona())
                 .nombre(sectorDto.getNombre() == null ? sector.getNombre() : sectorDto.getNombre())
-                .coordenadas(sectorDto.getCoordenadas() == sector.getCoordenadas() ? "" : sectorDto.getCoordenadas())
+                .coordenadas(sectorDto.getCoordenadas() == null ? sector.getCoordenadas() : sectorDto.getCoordenadas())
                 .croquis(sectorDto.getCroquis() == null ? sector.getCroquis() : sectorDto.getCroquis())
                 .foto(sectorDto.getFoto() == null ? sector.getFoto() : sectorDto.getFoto())
                 .vias(sectorDto.getVias() == null ? sector.getVias() : sectorDto.getVias())

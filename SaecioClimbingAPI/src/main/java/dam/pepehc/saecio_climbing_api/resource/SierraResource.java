@@ -16,6 +16,7 @@ import java.util.List;
 public class SierraResource {
     private Long idSierra;
     private String nombre;
-    private File foto;
+    private String coordenadas;
+    private String foto;
     private List<Zona> zonas;
 }

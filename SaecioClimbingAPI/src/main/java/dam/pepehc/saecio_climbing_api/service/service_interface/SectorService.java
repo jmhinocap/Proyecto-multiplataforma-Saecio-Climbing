@@ -15,4 +15,5 @@ public interface SectorService {
     public String borrarSector(final Long idSector);
     public void anadirNuevaVia(final Via via);
     public List<SectorResource> leerSectoresPorIdZona(final Long idZona);
+    public Long leerIdZonaPorIdSector(final Long idSector);
 }

@@ -12,26 +12,47 @@ import java.util.ArrayList;
 @Component
 public class SierraAssembler {
 
-    private final static String IMAGEN_SIERRA_GENERICA = ""; // TODO crear imagen genérica de vía
-    
+    private final static String IMAGEN_SIERRA_GENERICA = ""; // TODO crear imagen genérica de sierra
+
+    /**
+     * 
+     * @param nuevaSierraDto Un DTO que contiene toda la información para crear una nueva instancia de la entidad 
+     *                       Sierra
+     * @return Sierra
+     */
     public Sierra sierraDtoASierra(final NuevaSierraDto nuevaSierraDto) {
         return Sierra.builder()
                 .idSierra(nuevaSierraDto.getIdSierra() == null ? 0L : nuevaSierraDto.getIdSierra())
                 .nombre(nuevaSierraDto.getNombre() == null ? "" : nuevaSierraDto.getNombre())
-                .foto(nuevaSierraDto.getFoto() == null ? new File(IMAGEN_SIERRA_GENERICA) : nuevaSierraDto.getFoto())
+                .coordenadas(nuevaSierraDto.getCoordenadas() == null ? "" : nuevaSierraDto.getCoordenadas())
+                .foto(nuevaSierraDto.getFoto() == null ? IMAGEN_SIERRA_GENERICA : nuevaSierraDto.getFoto())
                 .zonas(new ArrayList<>())
                 .build();
     }
-    
+
+    /**
+     * 
+     * @param sierra Un objeto de la entidad Sierra
+     * @return SierraResource
+     */
     public SierraResource sierraASierraResource(final Sierra sierra) {
         return SierraResource.builder()
                 .idSierra(sierra.getIdSierra() == null ? 0L : sierra.getIdSierra())
                 .nombre(sierra.getNombre() == null ? "" : sierra.getNombre())
-                .foto(sierra.getFoto() == null ? new File(IMAGEN_SIERRA_GENERICA) : sierra.getFoto())
+                .coordenadas(sierra.getCoordenadas() == null ? "" : sierra.getCoordenadas())
+                .foto(sierra.getFoto() == null ? IMAGEN_SIERRA_GENERICA : sierra.getFoto())
                 .zonas(sierra.getZonas() == null ? new ArrayList<>() : sierra.getZonas())
                 .build();
     }
-    
+
+    /**
+     * 
+     * @param sierraDto Un DTO que contiene la información necesaria para crear una instancia de Sierra con información
+     *                  modificada
+     * @param sierra Una objeto de la entidad Sierra, sirviendo como refuerzo de aquellos atributos que no
+     *               han sido modificados de la entrada
+     * @return Sierra
+     */
     public Sierra sierraModificadaASierra(final SierraDto sierraDto, final Sierra sierra) {
         return Sierra.builder()
                 .idSierra(sierra.getIdSierra())

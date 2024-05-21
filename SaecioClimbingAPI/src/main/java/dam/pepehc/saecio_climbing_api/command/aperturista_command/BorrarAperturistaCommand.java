@@ -20,16 +20,28 @@ public class BorrarAperturistaCommand {
     private AperturistaService aperturistaService;
     
     private final Long idAperturista;
-    
+
+    /**
+     * 
+     * @return
+     */
     private boolean canExecute() {
         return Objects.nonNull(idAperturista);
     }
-    
+
+    /**
+     * 
+     * @return
+     */
     private String doExecute() {
         log.info("[BorrarAperturistaCommand]-[doExecute]-[idAperturista: {}]-[Start]", idAperturista);
         return aperturistaService.borrarAperturista(idAperturista);
     }
-    
+
+    /**
+     * 
+     * @return
+     */
     public String execute() {
         if (canExecute())
             return doExecute();

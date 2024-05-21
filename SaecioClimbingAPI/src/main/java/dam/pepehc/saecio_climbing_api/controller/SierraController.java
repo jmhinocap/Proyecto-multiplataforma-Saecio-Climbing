@@ -75,4 +75,14 @@ public class SierraController {
         
         return ResponseEntity.ok(sierrasResource);
     }
+    
+    @GetMapping("/leer-nombre-sierra/{idSierra}")
+    public ResponseEntity<String> leerNombreSierra(@PathVariable("idSierra") final Long idSierra) {
+        log.info("[SierraController]-[leerNombreSierra]-[idSierra: {}]-[Start]", idSierra);
+        LeerNombreSierraCommand leerNombreSierraCommand = beanFactory.getBean(LeerNombreSierraCommand.class, idSierra);
+        String nombreSierra = leerNombreSierraCommand.execute();
+        log.info("[SierraController]-[leerNombreSierra]-[nombreSierra: {}]-[End]", nombreSierra);
+        
+        return ResponseEntity.ok(nombreSierra);
+    }
 }

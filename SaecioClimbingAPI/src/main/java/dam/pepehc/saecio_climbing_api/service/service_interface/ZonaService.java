@@ -7,6 +7,7 @@ import dam.pepehc.saecio_climbing_api.entity.Sector;
 import dam.pepehc.saecio_climbing_api.entity.Zona;
 import dam.pepehc.saecio_climbing_api.resource.ZonaResource;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ZonaService {
@@ -16,4 +17,5 @@ public interface ZonaService {
     public String borrarZona(final Long idZona);
     public void anadirNuevoSector(final Sector sector);
     public List<ZonaResource> leerZonasPorIdSierra(final Long idSierra);
+    public String leerNombreZona(final Long idZona);
 }

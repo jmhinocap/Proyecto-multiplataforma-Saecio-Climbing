@@ -27,14 +27,14 @@ public class SectorDto {
     @NotBlank(message = "Nombre vacío")
     private String nombre;
     
-    @NotBlank(message = "Coordenadas vacías")
+    @NotNull(message = "Coordenadas no introducidas")
     private String coordenadas;
     
     @NotNull(message = "Croquis nulo")
     private File croquis;
     
     @NotNull(message = "Foto nula")
-    private File foto;
+    private String foto;
     
     @NotNull(message = "Vías nulas")
     private List<Via> vias;

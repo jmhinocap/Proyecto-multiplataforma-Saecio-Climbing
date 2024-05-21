@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1, shrink-to-fit=no">
+    <title>Saecio Climbing</title>
+    <link rel="icon" type="image/png" href="resources/images/gloabl/logos/icon.png">
+    <link rel="stylesheet" type="text/css" href="resources/css/global.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/index.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+</head>
+
+<body onload="poblarUltimasEntradas()">
+    <header class="header">
+        <a class="logo" href="index.html">
+            <object type="image/svg+xml" data="resources/images/global/logos/logo-white.svg">Logo</object>
+        </a>
+        <nav class="nav-busqueda-rapida">
+            <div class="div-busqueda-rapida">
+                <input type="text" id="barraBusquedaRapida" placeholder="&#xf002  Búsqueda rápida">
+            </div>
+            <ul class="nav-links">
+                <li><a href="zonas.html"><i class="fa-solid fa-compass fa-s"></i>Zonas</a></li>
+                <li><a href="galeria.html"><i class="fa-regular fa-image fa-s"></i>Galería</a></li>
+                <li><a href="actividad.html"><i class="fa fa-newspaper-o fa-s"></i>Actividad</a></li>
+                <div id="botonesUsuarioContenedor">
+                    <button id="buttonIniciarSesion" onclick="abrirIniciarSesion(event)">Iniciar sesión</button>
+                    <div id="iniciarSesion">
+                        <form>
+                            <label>Usuario o correo</label>
+                            <input type="text" required />
+                            <label>Contraseña</label>
+                            <input type="password" required />
+                            <div id="contenedorCheckContrasena">
+                                <input type="checkbox">
+                                <label>Mostrar contraseña</label>
+                            </div>
+                            <a>He olvidado la contraseña</a>
+                            <input type="submit" value="Inicia sesión">
+                        </form>
+                    </div>
+
+                    <button id="buttonRegistrarse" onclick="mostrarRegistro()">Registrarse</button>
+                </div>
+                <div class="invisible" id="perfilContenedor">
+                    <img id="perfilImagen" src="resources/images/avatar.png">
+                    <a id="nombreUsuario">Mi perfil</a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="contenedorPaginaRegistro">
+        <div id="contenedorRegistro">
+            <div id="contenedorRegistroTitulo">
+                <h2>Crea una cuenta</h2>
+                <label onclick="ocultarRegistro()"><i class="fa-solid fa-x"></i></label>
+            </div>
+            <div id="informacionRegistro">
+                <form>
+                    <div id="contenedorInputsPersona">
+                        <input type="text" placeholder="Nombre" id="inputNombre" required>
+                        <input type="text" placeholder="Apellidos" id="inputApellidos">
+                    </div>
+                    <input type="text" placeholder="Nombre de usuario" id="inputNombreUsuario" required>
+                    <input type="text" placeholder="Correo electrónico" id="inputCorreo" required>
+                    <input type="password" placeholder="Contraseña" id="inputContrasena" required>
+                    <div id="contenedorCheckContrasena">
+                        <input type="checkbox" id="checkContrasena">
+                        <label id="labelContrasena">Mostrar contraseña</label>
+                    </div>
+                    <div id="contenedorCheckTerminos">
+                        <input type="checkbox" id="checkTerminos">
+                        <label id="labelTerminos">Acepto los <a href="#">términos y condiciones</a></label>
+                    </div>
+                </form>
+            </div>
+            <input type="submit" value="Crear cuenta" id="buttonCrearCuenta">
+            <br />
+            <label>¿Ya tienes una cuenta? Inicia sesión <a href="#">aquí.</a></label>
+        </div>
+    </div>
+
+    <div class="contenedor-slideshow">
+        <div class="index-slideshow">
+            <img class="imagen-slideshow" src="resources/images/index/index-slideshow/index-slideshow-3.jpg"
+                draggable="false" />
+            <div class="texto-sobre-imagen">
+                <a><i class="fa fa-camera"></i> Pepe Hinojo Caparrós</a>
+                <a><i class="fa-solid fa-location-dot"></i> La Garrofa</a>
+            </div>
+        </div>
+        <div class="index-slideshow">
+            <img class="imagen-slideshow" src="resources/images/index/index-slideshow/index-slideshow-2.jpg"
+                draggable="false" />
+            <div class="texto-sobre-imagen">
+                <a style="color: #ffffff"><i class="fa fa-camera"></i> Pepe Hinojo Caparrós</a>
+                <a style="color: #ffffff"><i class="fa-solid fa-location-dot"></i> La Garrofa</a>
+            </div>
+        </div>
+        <div class="index-slideshow">
+            <img class="imagen-slideshow" src="resources/images/index/index-slideshow/index-slideshow-1.jpg"
+                draggable="false" />
+            <div class="texto-sobre-imagen">
+                <a><i class="fa fa-camera"></i> David Hinojo Caparrós</a>
+                <a><i class="fa-solid fa-location-dot"></i> Albarracín</a>
+            </div>
+        </div>
+        <div class="circulos-slideshow">
+            <span class="circulo-anterior-slideshow" onClick="plusDivs(-1)"></span>
+            <span class="circulo-slideshow"></span>
+            <span class="circulo-siguiente-slideshow" onClick="plusDivs(1)"></span>
+        </div>
+    </div>
+
+    <div class="barra-busqueda-contenedor">
+        <div class="contenido">
+            <div class="barra-busqueda">
+                <input type="text" id="inputBarraBusqueda">
+                <div class="botones-busqueda">
+                    <button id="buttonBuscarGrande"><i class="fa-solid fa-magnifying-glass"></i>Buscar</button>
+                    <div class="contenedor-dropdown">
+                        <button id="buttonMasOpcionesBuscar" onClick="abrirMasOpciones(event)"
+                            onfocusout="cerrarMasOpciones()">Más &#x25BC;</button>
+                        <div id="dropdownIndexBuscar" class="contenido-dropdown">
+                            <h3>Búsqueda general</h3>
+                            <a href="#">Zonas</a>
+                            <a href="#">Sectores</a>
+                            <a href="#">Vías</a>
+                            <a href="#">Aperturistas</a>
+                            <a href="#">Usuarios</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenido">
+        <div class="seccion-parrafo">
+            <h1 id="titulo">Lorem ipsum</h1>
+            <p class="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, hic, quas vel inventore laborum, accusamus quod culpa quos similique dignissimos velit molestias! Similique ipsum dignissimos veniam aut exercitationem id delectus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore blanditiis odit suscipit, laboriosam aliquid sequi eaque eveniet in ipsum magni illum molestiae laudantium debitis corrupti possimus, sed tempora dolore? Unde. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos ex sapiente, alias ipsum saepe eum animi nemo molestias minus, veniam nisi aspernatur. Laboriosam, quidem libero tenetur ex accusantium adipisci quam?</p>
+            <p class="parrafo">Suspendisse potenti. Suspendisse condimentum urna ut diam elementum interdum. Curabitur
+                ante
+                ex, pretium et sapien vitae, convallis vehicula libero.
+                Etiam luctus tempus dolor. Aliquam erat volutpat. Sed eros massa, pretium a sem a, imperdiet interdum
+                velit.
+                Integer ac quam pharetra, mattis sem non,
+                tempor eros. Aenean a tortor placerat, accumsan nulla in, facilisis sapien. Proin venenatis vel libero
+                vitae
+                accumsan. Suspendisse non enim mi.
+                Donec ut faucibus erat, sed vulputate purus.</p>
+        </div>
+
+        <div class="seccion-escuelas">
+            <div class="">
+                <h2 id="escuelasH2">Escuelas</h2>
+            </div>
+            <div class="escuelas-contenedor">
+                <div class="escuelas">
+                    <a class="escuela" href="zona.html?idZona=1">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/zonas/alhama.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Alhama</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="zona.html?idZona=1">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/zonas/barranco-de-la-garrofa.JPG">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Barranco de la Garrofa</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="zona.html?idZona=1">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/zonas/barranco-de-cacin.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Cacín</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="zona.html?idZona=1">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/zonas/sierra-cabrera.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Sierra Cabrera</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="zona.html?idZona=1">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/zonas/sierra-de-maria.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Sierra de María</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                    <a class="escuela" href="zona.html?idZona=1">
+                        <div class="imagen-escuela">
+                            <img src="resources/images/zonas/salto-del-gallo.jpg">
+                        </div>
+                        <div class="contenido-escuela">
+                            <h3 class="nombre-escuela">Salto del Gallo</h3>
+                            <p class="info-escuela">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                lobortis turpis vitae
+                                convallis iaculis. Nulla vel arcu mi.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="contenedor-botones-escuelas">
+                    <span id="buttonDeslizarIzquierda">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </span>
+                    <span id="buttonDeslizarDerecha">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion-busqueda-avanzada">
+            <h2 id="busquedaAvanzada">Búsqueda avanzada</h2>
+            <form class="opciones-busqueda">
+                <input type="button" class="elemento-busqueda" id="buttonTipoEscalada"
+                    value="Tipo de escalada &#x25BC;">
+                <input type="text" class="elemento-busqueda" placeholder="Vía" id="inputNombreVia">
+                <input type="button" class="elemento-busqueda" id="buttonGrado" value="Grado &#x25BC;">
+                <input type="text" class="elemento-busqueda" placeholder="Sector" id="inputNombreSector">
+                <br />
+                <input type="button" class="elemento-busqueda" id="buttonBorrar" value="Borrar">
+                <input type="submit" class="elemento-busqueda" id="buttonBuscar" value="Buscar">
+            </form>
+        </div>
+
+        <div id="seccionUltimasEntradas">
+            <h2 id="ultimasEntradasTitulo">Últimas entradas</h2>
+            <div id="ultimasEntradasContainer">
+            </div>
+        </div>
+
+        <div class="seccion-enlaces-interes">
+            <h2 id="enlacesInteresTitulo">Enlaces de interés</h2>
+            <div class="enlaces-interes">
+                <a class="enlace-interes" href="https://linktr.ee/clubalmeriensemontanismo" target="_blank">
+                    <img class="foto-enlace" id="fotoCam" src="resources/images/index/index-enlaces-interes/escudo-cam.png">
+                    <h3 class="titulo-enlace">Club Almeriense</br>de montañismo</h3>
+                </a>
+                <a class="enlace-interes" href="https://www.instagram.com/salaclimbbox/?hl=es" targe="_blank">
+                    <img class="foto-enlace" id="fotoClimbbox" src="resources/images/index/index-enlaces-interes/climbbox.jpg">
+                    <h3 class="titulo-enlace">Sala Climbbox</h3>
+                </a>
+                <a class="enlace-interes" href="https://dpdiagonal.com/" target="_blank">
+                    <img class="foto-enlace" id="fotoDiagonal" src="resources/images/index/index-enlaces-interes/diagonal.jpg">
+                    <div class="titulo-enlace">
+                        <h3>Deportes Diagonal</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+<footer class="footer">
+    <div class="container-footer">
+        <div class="footer-row">
+            <div class="footer-links">
+                <h4><a href="#">Quiénes somos</a></h4>
+            </div>
+
+            <div class="footer-links">
+                <h4><a href="#">Contacto</a></h4>
+            </div>
+
+            <div class="footer-links">
+                <h4><a href="#">Aviso legal</a></h4>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+</script>
+
+<!-- Slick -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js">
+</script>
+
+<!-- Scripts del proyecto -->
+<script type="text/javascript" src="resources/js/index.js"></script>
+<script type="text/javascript" src="resources/js/global.js"></script>
+
+</html>

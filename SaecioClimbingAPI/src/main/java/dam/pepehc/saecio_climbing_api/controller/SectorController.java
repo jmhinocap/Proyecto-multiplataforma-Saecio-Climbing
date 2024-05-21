@@ -1,6 +1,7 @@
 package dam.pepehc.saecio_climbing_api.controller;
 
 import dam.pepehc.saecio_climbing_api.command.sector_command.*;
+import dam.pepehc.saecio_climbing_api.command.zona_command.LeerIdZonaPorIdSectorCommand;
 import dam.pepehc.saecio_climbing_api.dto.NuevoSectorDto;
 import dam.pepehc.saecio_climbing_api.dto.SectorDto;
 import dam.pepehc.saecio_climbing_api.resource.SectorResource;
@@ -77,5 +78,16 @@ public class SectorController {
         log.info("[ViaController]-[leerSectoresPorIdZona]-[sectoresResource: {}]-[End]", sectoresResource);
         
         return ResponseEntity.ok(sectoresResource);
+    }
+    
+    @GetMapping("/leer-id-zona-por-id-sector/{idSector}")
+    public ResponseEntity<Long> leerIdZonaPorIdSector(@PathVariable("idSector") final Long idSector) {
+        log.info("[SectorController]-[leerIdZonaPorIdSector]-[idSector: {}]-[Start]", idSector);
+        LeerIdZonaPorIdSectorCommand leerIdZonaPorIdSectorCommand = 
+                beanFactory.getBean(LeerIdZonaPorIdSectorCommand.class, idSector);
+        Long idZona = leerIdZonaPorIdSectorCommand.execute();
+        log.info("[SectorController]-[leerIdZonaPorIdSector]-[idZona: {}]-[End]", idZona);
+        
+        return ResponseEntity.ok(idZona);
     }
 }

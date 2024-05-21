@@ -24,8 +24,11 @@ public class SierraDto {
     @NotBlank(message = "Nombre en blanco")
     private String nombre;
     
+    @NotNull(message = "Coordenadas no introducidas")
+    private String coordenadas;
+    
     @NotNull(message = "Foto nula")
-    private File foto;
+    private String foto;
     
     @NotNull(message = "Zonas nulas")
     private List<Zona> zonas;

@@ -23,7 +23,7 @@ public class Zona {
     private Long idSierra;
     private String nombre;
     private String coordenadas;
-    private File foto;
+    private String foto;
     
     @OneToMany(cascade = CascadeType.ALL)
     private List<Sector> sectores;

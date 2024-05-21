@@ -21,7 +21,8 @@ public class Sierra {
     private Long idSierra;
     
     private String nombre;
-    private File foto;
+    private String coordenadas;
+    private String foto;
     
     @OneToMany(cascade = CascadeType.ALL)
     private List<Zona> zonas;

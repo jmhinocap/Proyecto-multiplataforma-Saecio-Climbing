@@ -10,6 +10,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Slf4j
@@ -29,6 +30,7 @@ public class NuevaZonaCommand {
     
     private ZonaResource doExecute() {
         log.info("[NuevaZonaCommand]-[doExecute]-[nuevaZonaDto: {}]-[Start]", nuevaZonaDto);
+//        nuevaZonaDto.setNow(now);
         return zonaService.nuevaZona(nuevaZonaDto);
     }
     

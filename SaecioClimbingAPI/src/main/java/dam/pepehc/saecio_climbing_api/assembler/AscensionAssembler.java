@@ -15,7 +15,13 @@ import static dam.pepehc.saecio_climbing_api.enums.TipoDeAscension.OTRO;
 
 @Component
 public class AscensionAssembler {
-    
+
+    /**
+     * 
+     * @param ascensionDto Un DTO que contiene toda la información para crear una nueva instancia de la entidad 
+     *                     Ascension
+     * @return Ascension
+     */
     public Ascension ascensionDtoAAscension(final AscensionDto ascensionDto) {
         return Ascension.builder()
                 .idAscension(ascensionDto.getIdAscension() == null ? new AscensionClave() 
@@ -28,7 +34,12 @@ public class AscensionAssembler {
                         : ascensionDto.getTipoDeAscension())
                 .build();
     }
-    
+
+    /**
+     * 
+     * @param ascension Un objeto de la entidad Ascension
+     * @return AscensionResource
+     */
     public AscensionResource ascensionAAscensionResource(final Ascension ascension) {
         return AscensionResource.builder()
                 .idAscension(ascension.getIdAscension() == null ? new AscensionClave() : ascension.getIdAscension())
@@ -39,7 +50,15 @@ public class AscensionAssembler {
                 .tipoDeAscension(ascension.getTipoDeAscension() == null ? OTRO : ascension.getTipoDeAscension())
                 .build();
     }
-    
+
+    /**
+     *
+     * @param ascensionDto Un DTO que contiene la información necesaria para crear una instancia de Ascension con
+     *                     información modificada
+     * @param ascension Una objeto de la entidad Ascension, sirviendo como refuerzo de aquellos atributos que no han 
+     *                  sido modificados de la entrada
+     * @return Ascension
+     */
     public Ascension ascensionModificadaAAscension(final AscensionDto ascensionDto, final Ascension ascension) {
         return Ascension.builder()
                 .idAscension(ascension.getIdAscension())

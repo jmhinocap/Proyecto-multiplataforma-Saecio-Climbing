@@ -45,5 +45,5 @@ public class NuevaViaDto {
     @NotBlank(message = "Descripcion en blanco")
     private String descripcion;
 
-    private File foto;
+    private String foto;
 }

@@ -10,4 +10,6 @@ import java.util.List;
 
 @Repository
 public interface SierraRepository extends JpaRepository<Sierra, Long> {
+    @Query(value = "SELECT sr.nombre FROM Sierra sr WHERE sr.idSierra = :idSierra")
+    String encontrarNombrePorIdSierra(@Param("idSierra") final Long idSierra);
 }

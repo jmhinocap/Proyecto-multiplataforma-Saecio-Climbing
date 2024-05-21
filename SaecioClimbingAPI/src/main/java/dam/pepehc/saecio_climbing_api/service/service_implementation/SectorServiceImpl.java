@@ -1,7 +1,6 @@
 package dam.pepehc.saecio_climbing_api.service.service_implementation;
 
 import dam.pepehc.saecio_climbing_api.assembler.SectorAssembler;
-import dam.pepehc.saecio_climbing_api.dto.NuevaViaDto;
 import dam.pepehc.saecio_climbing_api.dto.NuevoSectorDto;
 import dam.pepehc.saecio_climbing_api.dto.SectorDto;
 import dam.pepehc.saecio_climbing_api.entity.Sector;
@@ -34,7 +33,6 @@ public class SectorServiceImpl implements SectorService {
     public SectorResource nuevoSector(final NuevoSectorDto nuevoSectorDto) {
         log.info("[SectorService]-[nuevoSector]-[nuevoSectorDto: {}]-[Start]", nuevoSectorDto);
         Sector sector = sectorAssembler.sectorDtoASector(nuevoSectorDto);
-        sectorRepository.save(sector);
         zonaService.anadirNuevoSector(sector);
         log.info("[SectorService]-[nuevoSector]-[sectorResource: {}]-[End]",
                 sectorAssembler.sectorASectorResource(sector));
@@ -74,11 +72,20 @@ public class SectorServiceImpl implements SectorService {
         
         return mensaje;
     }
+
+    @Override
+    public void anadirNuevaVia(final Via via) {
+        log.info("[SectorService]-[anadirNuevaVia]-[via: {}]-[Start]", via);
+        Sector sector = sectorRepository.findById(via.getIdSector()).orElseThrow(RuntimeException::new);
+        sectorRepository.save(sector);
+        sector.getVias().add(via);
+        log.info("[SectorService]-[anadirNuevaVia]-[End]");
+    }
     
     @Override
     public List<SectorResource> leerSectoresPorIdZona(final Long idZona) {
         log.info("[SectorService]-[encontrarZonasPorIdZona]-[idZona: {}]-[Start]", idZona);
-        List<Sector> sectores = sectorRepository.encontrarSectoresPorIdSierra(idZona);
+        List<Sector> sectores = sectorRepository.encontrarSectoresPorIdZona(idZona);
         List<SectorResource> sectoresResource = new ArrayList<>();
         
         for (Sector s : sectores) {
@@ -91,11 +98,11 @@ public class SectorServiceImpl implements SectorService {
     }
     
     @Override
-    public void anadirNuevaVia(final Via via) {
-        log.info("[SectorService]-[anadirNuevaVia]-[via: {}]-[Start]", via);
-        Sector sector = sectorRepository.findById(via.getIdSector()).orElseThrow(RuntimeException::new);
-        sectorRepository.save(sector);
-        sector.getVias().add(via);
-        log.info("[SectorService]-[anadirNuevaVia]-[End]");
+    public Long leerIdZonaPorIdSector(final Long idSector) {
+        log.info("[SectorService]-[leerIdZonaPorIdSector]-[idSector: {}]-[Start]", idSector);
+        Long idZona = sectorRepository.encontrarIdZonaPorIdSector(idSector);
+        log.info("[SectorService]-[leerIdZonaPorIdSector]-[idZona: {}]-[End]", idZona);
+        
+        return idZona;
     }
 }

@@ -12,12 +12,17 @@ public class DatosPersonaAssembler {
     
     private final static String IMAGEN_PERSONA_GENERICA = ""; // TODO crear imagen genérica de persona
 
+    /**
+     * 
+     * @param registrarseDto Un DTO de la clase Registrarse con el que rellenar los datos de un usuario
+     * @return DatosPersona
+     */
     public DatosPersona registrarseDtoADatosPersona(final RegistrarseDto registrarseDto) {
         return DatosPersona.builder()
                 .idDatosPersona(0L)
                 .nombre(registrarseDto.getNombre() == null ? "" : registrarseDto.getNombre())
                 .apellidos(registrarseDto.getApellidos() == null ? "" : registrarseDto.getApellidos())
-                .foto(registrarseDto.getFoto() == null ? new File(IMAGEN_PERSONA_GENERICA) : registrarseDto.getFoto())
+                .foto(registrarseDto.getFoto() == null ? IMAGEN_PERSONA_GENERICA : registrarseDto.getFoto())
                 .build();
     }
 }

@@ -47,7 +47,7 @@ public class ViaDto {
     private String descripcion;
     
     @NotNull(message = "Foto nula")
-    private File foto;
+    private String foto;
 
     @NotNull(message = "Aperturistas no insertados")
     private List<Aperturista> aperturistas;

@@ -33,7 +33,6 @@ public class ViaServiceImpl implements ViaService {
         log.info("[ViaService]-[nuevaVia]-[nuevaViaDto: {}]-[Start]", nuevaViaDto);
         Via via = viaAssembler.nuevaViaDtoAVia(nuevaViaDto);
         sectorService.anadirNuevaVia(via);
-        viaRepository.save(via);
         log.info("[ViaService]-[nuevaVia]-[viaResource: {}]-[End]", viaAssembler.viaAViaResource(via));
         
         return viaAssembler.viaAViaResource(via);

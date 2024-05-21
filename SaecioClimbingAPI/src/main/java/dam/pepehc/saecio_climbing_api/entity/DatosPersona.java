@@ -24,5 +24,5 @@ public class DatosPersona {
     
     private String nombre;
     private String apellidos;
-    private File foto;
+    private String foto;
 }

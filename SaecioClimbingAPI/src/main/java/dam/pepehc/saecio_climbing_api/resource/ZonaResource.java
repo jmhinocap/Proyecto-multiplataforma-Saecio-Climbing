@@ -18,6 +18,6 @@ public class ZonaResource {
     private Long idSierra;
     private String nombre;
     private String coordenadas;
-    private File foto;
+    private String foto;
     private List<Sector> sectores;
 }

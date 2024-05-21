@@ -85,6 +85,15 @@ public class SierraServiceImpl implements SierraService {
     }
     
     @Override
+    public String leerNombreSierra(final Long idSierra) {
+        log.info("[SierraService]-[leerNombreSierra]-[idSierra: {}]-[Start]", idSierra);
+        String nombreSierra = sierraRepository.encontrarNombrePorIdSierra(idSierra);
+        log.info("[SierraService]-[leerNombreSierra]-[nombreSierra: {}]-[End]", nombreSierra);
+        
+        return nombreSierra;
+    }
+    
+    @Override
     public void anadirNuevaZona(final Zona zona) {
         log.info("[SierraService]-[anadirNuevaZona]-[zona: {}]-[Start]", zona);
         Sierra sierra = sierraRepository.findById(zona.getIdSierra()).orElseThrow(RuntimeException::new);

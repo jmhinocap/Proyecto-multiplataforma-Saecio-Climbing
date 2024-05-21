@@ -13,5 +13,6 @@ public interface SierraService {
     public SierraResource modificarSierra(final SierraDto sierraDto, final Long idSierra);
     public String borrarSierra(final Long idSierra);
     public List<SierraResource> leerTodasLasSierras();
+    public String leerNombreSierra(final Long idSierra);
     public void anadirNuevaZona(final Zona zona);
 }

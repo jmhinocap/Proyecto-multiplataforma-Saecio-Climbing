@@ -12,7 +12,15 @@ import java.util.ArrayList;
 
 @Component
 public class UsuarioAssembler {
-    
+
+    /**
+     * 
+     * @param registrarseDto Un DTO que contiene toda la información para crear una nueva instancia de la entidad 
+     *                       Usuario
+     * @param idDatosPersona Un Long para poder crear una nueva entrada de DatosPersona
+     * @param rol Un nuevo Rol para el usuario
+     * @return Usuario
+     */
     public Usuario registrarseDtoAUsuario(final RegistrarseDto registrarseDto, final Long idDatosPersona,
                                           final Rol rol) {
         ArrayList<Rol> roles = new ArrayList<>();
@@ -28,7 +36,12 @@ public class UsuarioAssembler {
                 .roles(roles)
                 .build();
     }
-    
+
+    /**
+     * 
+     * @param nuevoUsuarioDto 
+     * @return
+     */
     public Usuario nuevoUsuarioDtoAUsuario(final NuevoUsuarioDto nuevoUsuarioDto) {
         return Usuario.builder()
                 .idUsuario(nuevoUsuarioDto.getIdUsuario() == null ? 0L : nuevoUsuarioDto.getIdUsuario())
@@ -41,7 +54,12 @@ public class UsuarioAssembler {
                 .roles(new ArrayList<>())
                 .build();
     }
-    
+
+    /**
+     * 
+     * @param usuario
+     * @return
+     */
     public UsuarioResource usuarioAUsuarioResource(final Usuario usuario) {
         return UsuarioResource.builder()
                 .idUsuario(usuario.getIdUsuario() == null ? 0L : usuario.getIdUsuario())
@@ -53,7 +71,13 @@ public class UsuarioAssembler {
                 .roles(usuario.getRoles() == null ? new ArrayList<>() : usuario.getRoles())
                 .build();
     }
-    
+
+    /**
+     * 
+     * @param usuarioDto
+     * @param usuario
+     * @return
+     */
     public Usuario usuarioModificadoAUsuario(final UsuarioDto usuarioDto, final Usuario usuario) {
         return Usuario.builder()
                 .idUsuario(usuario.getIdUsuario())

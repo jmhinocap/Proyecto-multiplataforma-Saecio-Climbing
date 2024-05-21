@@ -19,6 +19,6 @@ public class SectorResource {
     private String nombre;
     private String coordenadas;
     private File croquis;
-    private File foto;
+    private String foto;
     private List<Via> vias;
 }

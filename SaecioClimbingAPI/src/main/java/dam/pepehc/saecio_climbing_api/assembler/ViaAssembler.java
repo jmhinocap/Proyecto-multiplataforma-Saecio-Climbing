@@ -13,7 +13,12 @@ import java.util.ArrayList;
 public class ViaAssembler {
 
     private final static String IMAGEN_VIA_GENERICA = ""; // TODO crear imagen genérica de vía
-    
+
+    /**
+     * 
+     * @param nuevaViaDto
+     * @return
+     */
     public Via nuevaViaDtoAVia(final NuevaViaDto nuevaViaDto) {
         return Via.builder()
                 .idVia(nuevaViaDto.getIdVia() == null ? 0L : nuevaViaDto.getIdVia())
@@ -26,12 +31,17 @@ public class ViaAssembler {
                 .fechaUltimaRevision(nuevaViaDto.getFechaUltimaRevision() == null ? "" :
                         nuevaViaDto.getFechaUltimaRevision())
                 .descripcion(nuevaViaDto.getDescripcion() == null ? "" : nuevaViaDto.getDescripcion())
-                .foto(nuevaViaDto.getFoto() == null ? new File(IMAGEN_VIA_GENERICA) : nuevaViaDto.getFoto())
+                .foto(nuevaViaDto.getFoto() == null ? IMAGEN_VIA_GENERICA : nuevaViaDto.getFoto())
                 .aperturistas(new ArrayList<>())
                 .ascensiones(new ArrayList<>())
                 .build();
     }
-    
+
+    /**
+     * 
+     * @param via
+     * @return
+     */
     public ViaResource viaAViaResource(final Via via) {
         return ViaResource.builder()
                 .idVia(via.getIdVia() == null ? 0L : via.getIdVia())
@@ -43,12 +53,18 @@ public class ViaAssembler {
                 .fechaApertura(via.getFechaApertura() == null ? "" : via.getFechaApertura())
                 .fechaUltimaRevision(via.getFechaUltimaRevision() == null ? "" : via.getFechaUltimaRevision())
                 .descripcion(via.getDescripcion() == null ? "" : via.getDescripcion())
-                .foto(via.getFoto() == null ? new File(IMAGEN_VIA_GENERICA) : via.getFoto())
+                .foto(via.getFoto() == null ? IMAGEN_VIA_GENERICA : via.getFoto())
                 .ascensiones(via.getAscensiones() == null ? new ArrayList<>() : via.getAscensiones())
                 .aperturistas(via.getAperturistas() == null ? new ArrayList<>() : via.getAperturistas())
                 .build();
     }
-    
+
+    /**
+     * 
+     * @param viaDto
+     * @param via
+     * @return
+     */
     public Via viaModificadaAVia(final ViaDto viaDto, final Via via) {
         return Via.builder()
                 .idVia(via.getIdVia())

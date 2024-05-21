@@ -17,5 +17,5 @@ public class RegistrarseDto {
     private String usuario;
     private String correoElectronico;
     private String contrasena;
-    private File foto;
+    private String foto;
 }

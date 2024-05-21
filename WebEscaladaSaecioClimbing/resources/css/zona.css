@@ -1,0 +1,18 @@
+/* hoja de estilos para zona.html */
+.contenedor-info-zona {
+    width: 90%;
+    margin: 0 20px;
+}
+
+#tituloSectores {
+    text-align: left;
+}
+
+#infoZona {
+    padding-top: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.info-zona-valores {
+    cursor: pointer;
+}

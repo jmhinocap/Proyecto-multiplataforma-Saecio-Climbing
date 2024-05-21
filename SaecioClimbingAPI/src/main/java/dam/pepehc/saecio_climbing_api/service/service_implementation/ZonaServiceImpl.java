@@ -2,7 +2,6 @@ package dam.pepehc.saecio_climbing_api.service.service_implementation;
 
 import dam.pepehc.saecio_climbing_api.assembler.ZonaAssembler;
 import dam.pepehc.saecio_climbing_api.dto.NuevaZonaDto;
-import dam.pepehc.saecio_climbing_api.dto.NuevoSectorDto;
 import dam.pepehc.saecio_climbing_api.dto.ZonaDto;
 import dam.pepehc.saecio_climbing_api.entity.Sector;
 import dam.pepehc.saecio_climbing_api.entity.Zona;
@@ -34,7 +33,6 @@ public class ZonaServiceImpl implements ZonaService {
     public ZonaResource nuevaZona(final NuevaZonaDto nuevaZonaDto) {
         log.info("[ZonaService]-[nuevaZona]-[nuevaZonaDto: {}]-[Start]", nuevaZonaDto);
         Zona zona = zonaAssembler.zonaDtoAZona(nuevaZonaDto);
-        zonaRepository.save(zona);
         sierraService.anadirNuevaZona(zona);
         log.info("[ZonaService]-[nuevaZona]-[zonaResource: {}]-[End]", zonaAssembler.zonaAZonaResource(zona));
         
@@ -77,6 +75,7 @@ public class ZonaServiceImpl implements ZonaService {
         log.info("[ZonaService]-[anadirNuevoSector]-[sector: {}]-[Start]", sector);
         Zona zona = zonaRepository.findById(sector.getIdZona()).orElseThrow(RuntimeException::new);
         zona.getSectores().add(sector);
+        zonaRepository.save(zona);
         log.info("[ZonaService]-[anadirNuevoSector]-[End]");
     }
     
@@ -93,5 +92,14 @@ public class ZonaServiceImpl implements ZonaService {
         log.info("[ZonaService]-[leerZonasPorIdSierra]-[zonasResource: {}]-[End]", zonasResource);
         
         return zonasResource;
+    }
+    
+    @Override
+    public String leerNombreZona(final Long idZona) {
+        log.info("[ZonaService]-[leerNombreZona]-[idZona: {}]-[Start]", idZona);
+        String nombreZona = zonaRepository.encontrarNombreZona(idZona);
+        log.info("[ZonaService]-[leerNombreZona]-[nombreZona: {}]-[End]", nombreZona);
+        
+        return nombreZona;
     }
 }

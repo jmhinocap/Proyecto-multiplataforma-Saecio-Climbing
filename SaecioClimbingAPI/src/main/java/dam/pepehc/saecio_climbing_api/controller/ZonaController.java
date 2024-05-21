@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Slf4j
@@ -27,7 +28,7 @@ public class ZonaController {
     @PostMapping("/nueva-zona")
     public ResponseEntity<ZonaResource> nuevaZona(@Valid @RequestBody final NuevaZonaDto nuevaZonaDto) {
         log.info("[ZonaController]-[nuevaZona]-[nuevaZonaDto: {}]-[Start]", nuevaZonaDto);
-        NuevaZonaCommand nuevaZonaCommand = beanFactory.getBean(NuevaZonaCommand.class, nuevaZonaDto);
+        NuevaZonaCommand nuevaZonaCommand = beanFactory.getBean(NuevaZonaCommand.class, nuevaZonaDto); // Añadir LocalDateTime.now()
         ZonaResource zonaResource = nuevaZonaCommand.execute();
         log.info("[ZonaController]-[nuevaZona]-[zonaResource: {}]-[End]", zonaResource);
         
@@ -74,5 +75,15 @@ public class ZonaController {
         log.info("[ZonaController]-[leerZonasPorIdSierra]-[zonasResource: {}]-[End]", zonasResource);
         
         return ResponseEntity.ok(zonasResource);
+    }
+    
+    @GetMapping("/leer-nombre-zona/{idZona}")
+    public ResponseEntity<String> leerNombreZona(@PathVariable("idZona") final Long idZona) {
+        log.info("[ZonaController]-[leerNombreZona]-[idZona: {}]-[Start]", idZona);
+        LeerNombreZonaCommand leerNombreZonaCommand = beanFactory.getBean(LeerNombreZonaCommand.class, idZona);
+        String nombreZona = leerNombreZonaCommand.execute();
+        log.info("[ZonaController]-[leerNombreZona]-[nombreZona: {}]-[End]", nombreZona);
+        
+        return ResponseEntity.ok(nombreZona);
     }
 }

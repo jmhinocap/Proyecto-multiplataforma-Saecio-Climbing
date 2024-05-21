@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.File;
+import java.util.List;
 
 @Data
 @Builder
@@ -25,9 +26,9 @@ public class NuevoSectorDto {
     @NotBlank(message = "Nombre vacío")
     private String nombre;
 
-    @NotBlank(message = "Coordenadas vacías")
+    @NotNull(message = "Coordenadas no introducidas")
     private String coordenadas;
 
     private File croquis;
-    private File foto;
+    private String foto;
 }
