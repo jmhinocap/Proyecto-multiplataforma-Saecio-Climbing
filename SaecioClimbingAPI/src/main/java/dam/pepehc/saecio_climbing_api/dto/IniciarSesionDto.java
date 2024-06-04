@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * El tipo Iniciar sesion dto.
+ */
 @Data
 @Builder
 @NoArgsConstructor

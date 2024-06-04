@@ -5,8 +5,6 @@ import dam.pepehc.saecio_climbing_api.command.zona_command.LeerIdZonaPorIdSector
 import dam.pepehc.saecio_climbing_api.dto.NuevoSectorDto;
 import dam.pepehc.saecio_climbing_api.dto.SectorDto;
 import dam.pepehc.saecio_climbing_api.resource.SectorResource;
-import dam.pepehc.saecio_climbing_api.resource.ViaResource;
-import dam.pepehc.saecio_climbing_api.resource.ZonaResource;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.BeanFactory;
@@ -17,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * El tipo Sector controller.
+ */
 @Slf4j
 @Validated
 @RestController
@@ -26,7 +27,13 @@ public class SectorController {
     
     @Autowired
     private BeanFactory beanFactory;
-    
+
+    /**
+     * Nuevo sector.
+     *
+     * @param nuevoSectorDto el sector que se añade a la base de datos
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PostMapping("/nuevo-sector")
     public ResponseEntity<SectorResource> nuevoSector(@Valid @RequestBody final NuevoSectorDto nuevoSectorDto) {
         log.info("[SectorController]-[nuevoSector]-[nuevoSectorDto: {}]-[Start]", nuevoSectorDto);
@@ -36,7 +43,13 @@ public class SectorController {
         
         return ResponseEntity.ok(sectorResource);
     }
-    
+
+    /**
+     * Leer sector.
+     *
+     * @param idSector el id sector
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-sector/{idSector}")
     public ResponseEntity<SectorResource> leerSector(@PathVariable("idSector") final Long idSector) {
         log.info("[SectorController]-[leerSector]-[idSector: {}]-[Start]", idSector);
@@ -46,7 +59,14 @@ public class SectorController {
         
         return ResponseEntity.ok(sectorResource);
     }
-    
+
+    /**
+     * Modificar sector.
+     *
+     * @param sectorDto el sector modificado
+     * @param idSector  el id sector
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PutMapping("/modificar-sector/{idSector}")
     public ResponseEntity<SectorResource> modificarSector(@Valid @RequestBody final SectorDto sectorDto,
                                                            @PathVariable("idSector") final Long idSector) {
@@ -58,7 +78,13 @@ public class SectorController {
         
         return ResponseEntity.ok(sectorResource);
     }
-    
+
+    /**
+     * Borrar sector.
+     *
+     * @param idSector el id sector
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @DeleteMapping("/borrar-sector/{idSector}")
     public ResponseEntity<String> borrarSector(@PathVariable("idSector") final Long idSector) {
         log.info("[SectorController]-[borrarSector]-[idSector: {}]-[Start]", idSector);
@@ -68,7 +94,13 @@ public class SectorController {
         
         return ResponseEntity.ok(mensaje);
     }
-    
+
+    /**
+     * Leer sectores por id zona.
+     *
+     * @param idZona el id zona
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-sectores-por-id-zona/{idZona}")
     public ResponseEntity<List<SectorResource>> leerSectoresPorIdZona(@PathVariable("idZona") final Long idZona) {
         log.info("[SectorController]-[leerSectoresPorIdZona]-[idZona: {}]-[Start]", idZona);
@@ -79,7 +111,13 @@ public class SectorController {
         
         return ResponseEntity.ok(sectoresResource);
     }
-    
+
+    /**
+     * Leer id zona por id sector.
+     *
+     * @param idSector el id sector
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-id-zona-por-id-sector/{idSector}")
     public ResponseEntity<Long> leerIdZonaPorIdSector(@PathVariable("idSector") final Long idSector) {
         log.info("[SectorController]-[leerIdZonaPorIdSector]-[idSector: {}]-[Start]", idSector);

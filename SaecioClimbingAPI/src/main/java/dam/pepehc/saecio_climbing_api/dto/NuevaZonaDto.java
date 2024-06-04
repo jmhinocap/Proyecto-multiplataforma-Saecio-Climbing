@@ -1,6 +1,7 @@
 package dam.pepehc.saecio_climbing_api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import dam.pepehc.saecio_climbing_api.enums.TipoDeEscalada;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -8,9 +9,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.File;
 import java.util.List;
 
+/**
+ * El tipo Nueva zona dto.
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -31,4 +34,7 @@ public class NuevaZonaDto {
 
     @NotNull(message = "Foto no insertada")
     private String foto;
+    
+    @NotNull(message = "TiposDeEscalada no insertados")
+    private List<TipoDeEscalada> tiposDeEscalada;
 }

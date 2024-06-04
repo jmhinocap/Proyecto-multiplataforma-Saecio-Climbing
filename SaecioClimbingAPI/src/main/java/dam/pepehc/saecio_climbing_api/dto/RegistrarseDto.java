@@ -5,8 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.File;
-
+/**
+ * El tipo Registrarse dto.
+ */
 @Data
 @Builder
 @NoArgsConstructor

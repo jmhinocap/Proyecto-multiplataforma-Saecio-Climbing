@@ -9,8 +9,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.File;
-
+/**
+ * La clase DatosPersona guarda la información para las clases Usuario y Aperturista, siendo esta el nombre, los
+ * apellidos y la foto.
+ */
 @Data
 @Entity
 @Builder

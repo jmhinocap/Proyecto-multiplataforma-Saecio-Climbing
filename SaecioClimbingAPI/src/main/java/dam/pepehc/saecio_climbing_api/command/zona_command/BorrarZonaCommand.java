@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Borrar zona command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -29,7 +32,12 @@ public class BorrarZonaCommand {
         log.info("[BorrarZonaCommand]-[doExecute]-[idZona: {}]-[Start]", idZona);
         return zonaService.borrarZona(idZona);
     }
-    
+
+    /**
+     * Execute string.
+     *
+     * @return el string
+     */
     public String execute() {
         if (canExecute())
             return doExecute();

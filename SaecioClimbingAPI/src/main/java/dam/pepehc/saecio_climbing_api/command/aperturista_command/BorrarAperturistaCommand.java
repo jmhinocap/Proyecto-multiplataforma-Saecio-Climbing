@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Borrar aperturista command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -21,26 +24,19 @@ public class BorrarAperturistaCommand {
     
     private final Long idAperturista;
 
-    /**
-     * 
-     * @return
-     */
     private boolean canExecute() {
         return Objects.nonNull(idAperturista);
     }
 
-    /**
-     * 
-     * @return
-     */
     private String doExecute() {
         log.info("[BorrarAperturistaCommand]-[doExecute]-[idAperturista: {}]-[Start]", idAperturista);
         return aperturistaService.borrarAperturista(idAperturista);
     }
 
     /**
-     * 
-     * @return
+     * Execute.
+     *
+     * @return un String con la respuesta del borrado
      */
     public String execute() {
         if (canExecute())

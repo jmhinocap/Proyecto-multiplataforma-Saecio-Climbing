@@ -5,13 +5,15 @@ import dam.pepehc.saecio_climbing_api.entity.Usuario;
 import dam.pepehc.saecio_climbing_api.entity.Via;
 import dam.pepehc.saecio_climbing_api.entity.clave_compuesta.AscensionClave;
 import dam.pepehc.saecio_climbing_api.enums.TipoDeAscension;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * El tipo Ascension dto.
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -24,7 +26,7 @@ public class AscensionDto {
     @NotNull(message = "Usuario nulo")
     private Usuario usuario;
     
-    @NotNull(message = "Via nulo")
+    @NotNull(message = "Via no insertada")
     private Via via;
     
     @NotNull(message = "Fecha de ascensión vacía")

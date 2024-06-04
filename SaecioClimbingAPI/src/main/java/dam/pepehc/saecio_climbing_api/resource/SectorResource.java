@@ -6,9 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.File;
 import java.util.List;
 
+/**
+ * El tipo Sector resource.
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -18,7 +20,8 @@ public class SectorResource {
     private Long idZona;
     private String nombre;
     private String coordenadas;
-    private File croquis;
+    private String croquis;
     private String foto;
+    private List<String> tiposDeEscalada;
     private List<Via> vias;
 }

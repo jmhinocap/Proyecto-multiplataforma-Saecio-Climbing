@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Leer sector command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -30,7 +33,12 @@ public class LeerSectorCommand {
         log.info("[LeerSectorCommand]-[doExecute]-[idSector: {}]-[Start]", idSector);
         return sectorService.leerSector(idSector);
     }
-    
+
+    /**
+     * Execute sector resource.
+     *
+     * @return el sector resource
+     */
     public SectorResource execute() {
         if (canExecute())
             return doExecute();

@@ -6,9 +6,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.File;
 import java.util.List;
 
+/**
+ * Una Sierra representa una cadena montañosa dentro de la provincia, la cuál agrupa distintas Zonas donde se puede
+ * escalar.
+ */
 @Entity
 @Data
 @Builder
@@ -21,6 +24,8 @@ public class Sierra {
     private Long idSierra;
     
     private String nombre;
+    
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String coordenadas;
     private String foto;
     

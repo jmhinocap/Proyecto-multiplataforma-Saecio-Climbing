@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Leer aperturista command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -30,7 +33,12 @@ public class LeerAperturistaCommand {
         log.info("[LeerAperturistaCommand]-[doExecute]-[idAperturista: {}]-[Start]", idAperturista);
         return aperturistaService.leerAperturista(idAperturista);
     }
-    
+
+    /**
+     * Execute.
+     *
+     * @return el aperturista resource
+     */
     public AperturistaResource execute() {
         if (canExecute())
             return doExecute();

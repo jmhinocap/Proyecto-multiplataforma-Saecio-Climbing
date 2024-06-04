@@ -13,6 +13,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Registrar usuario command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -32,7 +35,12 @@ public class RegistrarUsuarioCommand {
         log.info("[RegistrarUsuarioCommand]-[doExecute]-[registrarseDto: {}]-[Start]", registrarseDto);
         return authService.registrarUsuario(registrarseDto);
     }
-    
+
+    /**
+     * Execute mensaje control usuarios.
+     *
+     * @return el mensaje control usuarios
+     */
     public MensajeControlUsuarios execute() {
         if (canExecute())
             return doExecute();

@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * El tipo Sierra service.
+ */
 @Slf4j
 @Service
 public class SierraServiceImpl implements SierraService {
@@ -100,5 +103,17 @@ public class SierraServiceImpl implements SierraService {
         sierra.getZonas().add(zona);
         sierraRepository.save(sierra);
         log.info("[SierraService]-[anadirNuevaZona]-[End]");
+    }
+    
+    @Override
+    public String eliminarZona(final Zona zona) {
+        log.info("[SierraService]-[eliminarZona]-[zona: {}]-[Start]", zona);
+        Sierra sierra = sierraRepository.findById(zona.getIdSierra()).orElseThrow(RuntimeException::new);
+        sierra.getZonas().remove(zona);
+        sierraRepository.save(sierra);
+        String mensaje = "Zona " + zona.getIdZona() + " eliminada correctamente";
+        log.info("[SierraService]-[eliminarZona]-[mesnaje: {}]-[End]", mensaje);
+        
+        return mensaje;
     }
 }

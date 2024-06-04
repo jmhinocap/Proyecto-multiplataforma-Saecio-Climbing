@@ -6,9 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.File;
 import java.util.List;
 
+/**
+ * El tipo Zona resource.
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -19,5 +21,6 @@ public class ZonaResource {
     private String nombre;
     private String coordenadas;
     private String foto;
+    private List<String> tiposDeEscalada;
     private List<Sector> sectores;
 }

@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * El tipo Via service.
+ */
 @Slf4j
 @Service
 public class ViaServiceImpl implements ViaService {
@@ -60,8 +63,8 @@ public class ViaServiceImpl implements ViaService {
     @Override
     public String borrarVia(final Long idVia) {
         log.info("[ViaService]-[eliminarVia]-[idVia: {}]-[Start]", idVia);
-        viaRepository.deleteById(idVia);
-        String mensaje = "Via " + idVia + " eliminada correctamente de la base de datos";
+        Via via = viaRepository.findById(idVia).orElseThrow(RuntimeException::new);
+        String mensaje = sectorService.eliminarVia(via);
         log.info("[ViaService]-[eliminarVia]-[mensaje: {}]-[End]", mensaje);
         
         return mensaje;

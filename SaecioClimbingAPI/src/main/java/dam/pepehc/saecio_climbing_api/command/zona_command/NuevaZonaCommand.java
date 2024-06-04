@@ -13,6 +13,9 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * El tipo Nueva zona command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -33,7 +36,12 @@ public class NuevaZonaCommand {
 //        nuevaZonaDto.setNow(now);
         return zonaService.nuevaZona(nuevaZonaDto);
     }
-    
+
+    /**
+     * Execute zona resource.
+     *
+     * @return el zona resource
+     */
     public ZonaResource execute() {
         if (canExecute())
             return doExecute();

@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 
 import static jakarta.persistence.EnumType.STRING;
 
+/**
+ * Una Ascensión es un intento o logro de encadenar una Vía por parte de un Usuario. Dicho Usuario puede elegir qué Vía
+ * ha probado, en qué tipo de ascensión se cataloga y la fecha en la que lo consiguió.
+ */
 @Entity
 @Data
 @Builder

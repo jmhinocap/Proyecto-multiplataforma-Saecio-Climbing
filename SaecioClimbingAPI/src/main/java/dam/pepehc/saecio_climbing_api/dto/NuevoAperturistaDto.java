@@ -8,6 +8,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * El tipo Nuevo aperturista dto.
+ */
 @Data
 @Builder
 @NoArgsConstructor

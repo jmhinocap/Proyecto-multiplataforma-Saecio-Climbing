@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Modificar zona command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -32,7 +35,12 @@ public class ModificarZonaCommand {
         log.info("[ModificarZonaCommand]-[doExecute]-[zonaDto: {}, idZona: {}]-[Start]", zonaDto, idZona);
         return zonaService.modificarZona(zonaDto, idZona);
     }
-    
+
+    /**
+     * Execute zona resource.
+     *
+     * @return el zona resource
+     */
     public ZonaResource execute() {
         if (canExecute())
             return doExecute();

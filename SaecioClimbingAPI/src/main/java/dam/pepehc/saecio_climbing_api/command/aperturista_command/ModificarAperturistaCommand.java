@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Modificar aperturista command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -33,7 +36,12 @@ public class ModificarAperturistaCommand {
                 aperturistaDto, idAperturista);
         return aperturistaService.modificarAperturista(aperturistaDto, idAperturista);
     }
-    
+
+    /**
+     * Execute.
+     *
+     * @return el aperturista resource
+     */
     public AperturistaResource execute() {
         if (canExecute())
             return doExecute();

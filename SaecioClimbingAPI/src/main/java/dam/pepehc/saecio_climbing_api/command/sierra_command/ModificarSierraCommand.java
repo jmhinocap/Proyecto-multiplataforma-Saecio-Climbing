@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Modificar sierra command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -32,7 +35,12 @@ public class ModificarSierraCommand {
         log.info("[ModificarSierraCommand]-[doExecute]-[sierraDto: {}, idSierra: {}]-[Start]", sierraDto, idSierra);
         return sierraService.modificarSierra(sierraDto, idSierra);
     }
-    
+
+    /**
+     * Execute sierra resource.
+     *
+     * @return el sierra resource
+     */
     public SierraResource execute() {
         if (canExecute())
             return doExecute();

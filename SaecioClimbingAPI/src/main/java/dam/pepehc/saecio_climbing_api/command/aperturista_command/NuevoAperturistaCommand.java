@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Nuevo aperturista command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -22,16 +25,20 @@ public class NuevoAperturistaCommand {
     private AperturistaService aperturistaService;
     
     private final NuevoAperturistaDto nuevoAperturistaDto;
-    
+
     private boolean canExecute() {
         return Objects.nonNull(nuevoAperturistaDto);
     }
-    
     private AperturistaResource doExecute() {
         log.info("[NuevoAperturistaCommand]-[doExecute]-[nuevoAperturistaDtoL: {}]-[Start]", nuevoAperturistaDto);
         return aperturistaService.nuevoAperturista(nuevoAperturistaDto);
     }
-    
+
+    /**
+     * Execute aperturista resource.
+     *
+     * @return aperturista resource
+     */
     public AperturistaResource execute() {
         if (canExecute())
             return doExecute();

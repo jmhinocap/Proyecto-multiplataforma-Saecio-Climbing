@@ -16,6 +16,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * El tipo Sector service.
+ */
 @Slf4j
 @Service
 public class SectorServiceImpl implements SectorService {
@@ -66,8 +69,8 @@ public class SectorServiceImpl implements SectorService {
     @Override
     public String borrarSector(final Long idSector) {
         log.info("[SectorService]-[eliminarSector]-[idSector: {}]-[Start]", idSector);
-        sectorRepository.deleteById(idSector);
-        String mensaje = "Sector " + idSector + " eliminado correctamente de la base de datos";
+        Sector sector = sectorRepository.findById(idSector).orElseThrow(RuntimeException::new);
+        String mensaje = zonaService.eliminarSector(sector);
         log.info("[SectorService]-[eliminarSector]-[mensaje: {}]-[End]", mensaje);
         
         return mensaje;
@@ -77,9 +80,21 @@ public class SectorServiceImpl implements SectorService {
     public void anadirNuevaVia(final Via via) {
         log.info("[SectorService]-[anadirNuevaVia]-[via: {}]-[Start]", via);
         Sector sector = sectorRepository.findById(via.getIdSector()).orElseThrow(RuntimeException::new);
-        sectorRepository.save(sector);
         sector.getVias().add(via);
+        sectorRepository.save(sector);
         log.info("[SectorService]-[anadirNuevaVia]-[End]");
+    }
+    
+    @Override
+    public String eliminarVia(final Via via) {
+        log.info("[SectorService]-[borrarVia]-[via: {}]-[Start]", via);
+        Sector sector = sectorRepository.findById(via.getIdSector()).orElseThrow(RuntimeException::new);
+        sector.getVias().remove(via);
+        sectorRepository.save(sector);
+        String mensaje = "Via " + via.getIdVia() + " eliminada correctamente";
+        log.info("[SectorService]-[borrarVia]-[mensaje: {}]-[End]", mensaje);
+        
+        return mensaje;
     }
     
     @Override

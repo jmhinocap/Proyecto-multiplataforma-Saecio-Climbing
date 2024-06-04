@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Nueva ascension command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -31,7 +34,12 @@ public class NuevaAscensionCommand {
         log.info("[NuevaAscensionCommand]-[doExecute]-[ascensionDto: {}]-[Start]", ascensionDto);
         return ascensionService.nuevaAscension(ascensionDto);
     }
-    
+
+    /**
+     * Execute ascension resource.
+     *
+     * @return el ascension resource
+     */
     public AscensionResource execute() {
         if (canExecute())
             return doExecute();

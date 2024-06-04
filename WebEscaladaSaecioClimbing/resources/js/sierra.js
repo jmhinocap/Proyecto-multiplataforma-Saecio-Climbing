@@ -66,6 +66,10 @@ async function initMap() {
     zoom: 11,
     mapTypeId: "terrain",
     disableDefaultUI: true,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    }
   };
 
   var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
@@ -120,7 +124,7 @@ async function poblarDropdown() {
       navRegiones.innerHTML +=
       "<div id='submenuSeleccionado'>"
         + "<a class='nav-regiones-padre region-sierra' id='regionActual'>" + sierrasArray[i].nombre + "</a>"
-        + "<div class='submenu-dropdown prueba'>"
+        + "<div class='submenu-dropdown submenu-sierras'>"
           + "<ul></ul>"
         + "</div>"
       + "</div>";
@@ -168,9 +172,9 @@ async function poblarZonasDropdown() {
     for (let j = 0; j < zonasInvisiblesArray.length; j++) {
       listasZonasInvisibles[i].innerHTML +=
       "<li>"
-        + "<a data-href=''>" + zonasInvisiblesArray[i].nombre + "</a>"
+        + "<a data-href=''>" + zonasInvisiblesArray[j].nombre + "</a>"
       + "</li>";
-      $(".submenu-dropdown-oculto:not(.sector-sierra-actual) ul li a").last().attr("data-href", "zona.html?idZona=" + zonasInvisiblesArray[i].idZona);
+      $(".submenu-dropdown-oculto:not(.sector-sierra-actual) ul li a").last().attr("data-href", "zona.html?idZona=" + zonasInvisiblesArray[j].idZona);
     }
   }
 
@@ -217,9 +221,12 @@ async function poblarZonas() {
     zonasContainer.innerHTML +=
       "<tbody>"
           + "<tr class='info-sierra-valores' data-href=''>"
-            + "<td>" + (i + 1) + "</td>"
             + "<td>" + zonasArray[i].nombre + "</td>"
+            + "<td>" + zonasArray[i].tiposDeEscalada + "</td>"
             + "<td>" + zonasArray[i].sectores.length + "</td>"
+            + "<td>" + zonasArray[i].vias + "</td>"
+            // hacer componente de grados
+            + "<td>" + + "</td>"
           + "</tr>"
         + "</tbody>";
 

@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Leer via command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -31,7 +34,12 @@ public class LeerViaCommand {
         log.info("[LeerViaCommand]-[doExecute]-[idVia: {}]-[Start]", idVia);
         return viaService.leerVia(idVia);
     }
-    
+
+    /**
+     * Execute via resource.
+     *
+     * @return el via resource
+     */
     public ViaResource execute() {
         if (canExecute())
             return doExecute();

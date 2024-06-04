@@ -269,6 +269,37 @@ label {
     z-index: 1;
 }
 
+#contrasenaOlvidada,
+#terminosCondiciones,
+#iniciaSesionAqui {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#contrasenaOlvidada:link,
+#terminosCondiciones:link,
+#iniciaSesionAqui:link {
+    color: blue;
+}
+
+#contrasenaOlvidada:visited,
+#terminosCondiciones:visited,
+#iniciaSesionAqui:visited {
+    color: #88ab75;
+}
+
+#contrasenaOlvidada:hover,
+#terminosCondiciones:hover,
+#iniciaSesionAqui:hover {
+    color: #88ab75;
+}
+
+#contrasenaOlvidada:active,
+#terminosCondiciones:active,
+#iniciaSesionAqui:active {
+    color: blue;
+}
+
 /* Formulario de registro */
 #contenedorPaginaRegistro {
     background: rgba(255, 255, 255, 0.66);
@@ -328,6 +359,12 @@ form input:not(#checkContrasena, #checkTerminos) {
     text-align: center;
 }
 
+#camposObligatorios {
+    font-size: 12px;
+    color: #707070;
+    text-align: left;
+}
+
 #contenedorInputsPersona {
     display: flex;
 }
@@ -350,6 +387,19 @@ form input:not(#checkContrasena, #checkTerminos) {
     text-align: left;
 }
 
+#requisitosContrasena {
+    text-align: left;
+}
+
+#requisitosContrasena ul li {
+    margin-left: 15px;
+    list-style: circle;
+}
+
+#contenedorCheckTerminos {
+    margin-top: 6px;
+}
+
 #buttonCrearCuenta {
     margin: 6px 0;
     width: 82%;
@@ -365,6 +415,7 @@ form input:not(#checkContrasena, #checkTerminos) {
 .barra-direcciones {
     position: relative;
     display: flex;
+    width: 100%;
     border-bottom: 2px solid #313131;
 }
 
@@ -480,12 +531,13 @@ form input:not(#checkContrasena, #checkTerminos) {
     order: 2;
 }
 
-.region-zona::after {
+li .region-zona::after {
     content: '\f0da';
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    float:right;
-    padding-right: 6px;
+    position: absolute;
+    float: right;
+    right: 7px;
 }
 
 #submenuSeleccionado .nav-regiones-padre {
@@ -505,13 +557,17 @@ form input:not(#checkContrasena, #checkTerminos) {
     margin-left: 10px;
 }
 
-#submenuSeleccionado .submenu-dropdown:not(.prueba) ul li a::before {
+#submenuSeleccionado .submenu-dropdown:not(.submenu-sierras) ul li a::before {
     content: '•';
     padding-right: 5px;
 }
 
-.submenu-dropdown:not(.prueba),
-.prueba ul li {
+.submenu-sierras ul li a, .region-sector {
+    display: inline-block;
+}
+
+.submenu-dropdown:not(.submenu-sierras),
+.submenu-sierras ul li {
     cursor: pointer;
     position: relative;
 }
@@ -533,8 +589,8 @@ form input:not(#checkContrasena, #checkTerminos) {
     padding: 5px;
 }
 
-.submenu-dropdown:not(.prueba):hover .submenu-dropdown-oculto,
-.prueba ul li:hover .submenu-dropdown-oculto {
+.submenu-dropdown:not(.submenu-sierras):hover .submenu-dropdown-oculto,
+.submenu-sierras ul li:hover .submenu-dropdown-oculto {
     display: block;
     position: absolute;
     left: 100%;

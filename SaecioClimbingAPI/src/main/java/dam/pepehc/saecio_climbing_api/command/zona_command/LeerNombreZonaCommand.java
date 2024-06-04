@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Leer nombre zona command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -29,7 +32,12 @@ public class LeerNombreZonaCommand {
         log.info("[LeerNombreZonaCommand]-[doExecute]-[idZona: {}]-[Start]", idZona);
         return zonaService.leerNombreZona(idZona);
     }
-    
+
+    /**
+     * Execute string.
+     *
+     * @return el string
+     */
     public String execute() {
         if (canExecute())
             return doExecute();

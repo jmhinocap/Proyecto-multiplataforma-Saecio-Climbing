@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * El tipo Leer vias por id sector.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -31,7 +34,12 @@ public class LeerViasPorIdSector {
         log.info("[LeerViasPorIdSector]-[doExecute]-[idSector: {}]-[Start]", idSector);
         return viaService.leerViasPorIdSector(idSector);
     }
-    
+
+    /**
+     * Execute list.
+     *
+     * @return el list
+     */
     public List<ViaResource> execute() {
         if (canExecute())
             return doExecute();

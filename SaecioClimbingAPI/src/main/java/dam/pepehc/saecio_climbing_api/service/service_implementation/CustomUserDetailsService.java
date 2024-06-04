@@ -4,7 +4,6 @@ import dam.pepehc.saecio_climbing_api.entity.Usuario;
 import dam.pepehc.saecio_climbing_api.repository.UsuarioRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -16,6 +15,9 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * El tipo Custom user details service.
+ */
 @Slf4j
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

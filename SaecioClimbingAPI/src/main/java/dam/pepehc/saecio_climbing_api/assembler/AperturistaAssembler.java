@@ -3,23 +3,24 @@ package dam.pepehc.saecio_climbing_api.assembler;
 import dam.pepehc.saecio_climbing_api.dto.AperturistaDto;
 import dam.pepehc.saecio_climbing_api.dto.NuevoAperturistaDto;
 import dam.pepehc.saecio_climbing_api.entity.Aperturista;
-import dam.pepehc.saecio_climbing_api.entity.DatosPersona;
 import dam.pepehc.saecio_climbing_api.resource.AperturistaResource;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * El tipo Aperturista assembler.
+ */
 @Component
 public class AperturistaAssembler {
 
     /**
-     * 
-     * @param nuevoAperturistaDto Un DTO que contiene toda la información para crear una nueva instancia de la entidad
-     *                            Aperturista
-     * @return Aperturista
+     * Aparturista dto a aperturista aperturista.
+     *
+     * @param nuevoAperturistaDto
+     * @return 
      */
-    public Aperturista aparturistaDtoAAperturista(final NuevoAperturistaDto nuevoAperturistaDto) {
+    public Aperturista aperturistaDtoAAperturista(final NuevoAperturistaDto nuevoAperturistaDto) {
         return Aperturista.builder()
                 .idAperturista(nuevoAperturistaDto.getIdAperturista() == null ? 0L
                         : nuevoAperturistaDto.getIdAperturista())
@@ -30,9 +31,10 @@ public class AperturistaAssembler {
     }
 
     /**
-     * 
-     * @param aperturista Un objeto de la entidad Aperturista
-     * @return AperturistaResource
+     * Aperturista a aperturista resource aperturista resource.
+     *
+     * @param aperturista 
+     * @return 
      */
     public AperturistaResource aperturistaAAperturistaResource(final Aperturista aperturista) {
         return AperturistaResource.builder()
@@ -43,12 +45,11 @@ public class AperturistaAssembler {
     }
 
     /**
-     * 
-     * @param aperturistaDto Un DTO que contiene la información necesaria para crear una instancia de Aperturista con
-     *                       información modificada
-     * @param aperturista Una objeto de la entidad Aperturista, sirviendo como refuerzo de aquellos atributos que no
-     *                    han sido modificados de la entrada
-     * @return Aperturista
+     * Aperturista modificado a aperturista aperturista.
+     *
+     * @param aperturistaDto 
+     * @param aperturista    
+     * @return 
      */
     public Aperturista aperturistaModificadoAAperturista (final AperturistaDto aperturistaDto,
                                                           final Aperturista aperturista) {
@@ -56,7 +57,7 @@ public class AperturistaAssembler {
                 .idAperturista(aperturista.getIdAperturista())
                 .idDatosPersona(aperturistaDto.getIdAperturista() == null ? aperturista.getIdAperturista() 
                         : aperturistaDto.getIdAperturista())
-                .vias(aperturistaDto.getVias() == null ? aperturista.getVias() : aperturistaDto.getVias())
+                .vias(aperturista.getVias())
                 .build();
     }
 }

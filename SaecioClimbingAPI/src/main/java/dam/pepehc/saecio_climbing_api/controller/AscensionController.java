@@ -14,6 +14,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * El tipo Ascension controller.
+ */
 @Slf4j
 @Validated
 @RestController
@@ -22,7 +25,13 @@ public class AscensionController {
     
     @Autowired
     private BeanFactory beanFactory;
-    
+
+    /**
+     * Nueva ascension.
+     *
+     * @param ascensionDto la ascensión que se añade a la base de datos
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PostMapping("/nueva-ascension")
     public ResponseEntity<AscensionResource> nuevaAscension(@Valid @RequestBody final AscensionDto ascensionDto) {
         log.info("[AscensionController]-[nuevaAscension]-[ascensionDto: {}]-[Start]", ascensionDto);
@@ -32,7 +41,13 @@ public class AscensionController {
         
         return ResponseEntity.ok(ascensionResource);
     }
-    
+
+    /**
+     * Leer ascension.
+     *
+     * @param idAscension el id ascensión
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-ascension/{idAscension}")
     public ResponseEntity<AscensionResource> leerAscension(@PathVariable("idAscension") final Long idAscension) {
         log.info("[AscensionController]-[leerAscension]-[idAscension: {}]-[Start]", idAscension);
@@ -42,7 +57,14 @@ public class AscensionController {
         
         return ResponseEntity.ok(ascensionResource);
     }
-    
+
+    /**
+     * Modificar ascension.
+     *
+     * @param ascensionDto la ascensión modificada
+     * @param idAscension  el id ascensión
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PutMapping("/modificar-ascension/{idAscension}")
     public ResponseEntity<AscensionResource> modificarAscension(@Valid @RequestBody final AscensionDto ascensionDto,
                                                                  @PathVariable("idAscension") final Long idAscension) {
@@ -55,7 +77,13 @@ public class AscensionController {
         
         return ResponseEntity.ok(ascensionResource);
     }
-    
+
+    /**
+     * Borrar ascension.
+     *
+     * @param idAscension el id ascensión
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @DeleteMapping("/borrar-ascension/{idAscension}")
     public ResponseEntity<String> borrarAscension(@PathVariable("idAscension") final Long idAscension) {
         log.info("[AscensionController]-[borrarAscension]-[idAscension: {}]-[Start]", idAscension);

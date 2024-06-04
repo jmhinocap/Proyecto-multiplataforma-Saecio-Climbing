@@ -3,12 +3,17 @@ package dam.pepehc.saecio_climbing_api.assembler;
 import dam.pepehc.saecio_climbing_api.dto.NuevoSectorDto;
 import dam.pepehc.saecio_climbing_api.dto.SectorDto;
 import dam.pepehc.saecio_climbing_api.entity.Sector;
+import dam.pepehc.saecio_climbing_api.enums.TipoDeEscalada;
 import dam.pepehc.saecio_climbing_api.resource.SectorResource;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * El tipo Sector assembler.
+ */
 @Component
 public class SectorAssembler {
     
@@ -16,49 +21,68 @@ public class SectorAssembler {
     private final static String IMAGEN_SECTOR_GENERICA = ""; // TODO crear imagen genérica de sector
 
     /**
-     * 
-     * @param nuevoSectorDto Un DTO que contiene toda la información para crear una nueva instancia de la entidad 
-     *                       Sector
-     * @return Sector
+     * Sector dto a sector sector.
+     *
+     * @param nuevoSectorDto 
+     * @return 
      */
     public Sector sectorDtoASector(final NuevoSectorDto nuevoSectorDto) {
+        List<String> tiposDeEscalada = new ArrayList<>();
+        
+        if (!(nuevoSectorDto.getTiposDeEscalada().isEmpty())) {
+            for (TipoDeEscalada t : nuevoSectorDto.getTiposDeEscalada()) {
+                tiposDeEscalada.add(t.toString());
+            }
+        }
+        
         return Sector.builder()
                 .idSector(nuevoSectorDto.getIdSector() == null ? 0L : nuevoSectorDto.getIdSector())
                 .idZona(nuevoSectorDto.getIdZona() == null ? 0L : nuevoSectorDto.getIdZona())
-                .nombre(nuevoSectorDto.getNombre() == null ? "" : nuevoSectorDto.getNombre())
-                .coordenadas(nuevoSectorDto.getCoordenadas() == null ? "" : nuevoSectorDto.getCoordenadas())
-                .croquis(nuevoSectorDto.getCroquis() == null ? new File(CROQUIS_VACIO) : nuevoSectorDto.getCroquis())
+                .nombre(nuevoSectorDto.getNombre() == null ? StringUtils.EMPTY : nuevoSectorDto.getNombre())
+                .coordenadas(nuevoSectorDto.getCoordenadas() == null ? StringUtils.EMPTY
+                        : nuevoSectorDto.getCoordenadas())
+                .croquis(nuevoSectorDto.getCroquis() == null ? StringUtils.EMPTY : nuevoSectorDto.getCroquis())
                 .foto(nuevoSectorDto.getFoto() == null ? IMAGEN_SECTOR_GENERICA : nuevoSectorDto.getFoto())
+                .tiposDeEscalada(nuevoSectorDto.getTiposDeEscalada() == null ? new ArrayList<>() : tiposDeEscalada)
                 .vias(new ArrayList<>())
                 .build();
     }
 
     /**
-     * 
-     * @param sector Un objeto de la entidad Sector
-     * @return SectorResource
+     * Sector a sector resource sector resource.
+     *
+     * @param sector 
+     * @return 
      */
     public SectorResource sectorASectorResource(final Sector sector) {
         return SectorResource.builder()
                 .idSector(sector.getIdSector() == null ? 0L : sector.getIdSector())
                 .idZona(sector.getIdZona() == null ? 0L : sector.getIdZona())
-                .nombre(sector.getNombre() == null ? "" : sector.getNombre())
-                .coordenadas(sector.getCoordenadas() == null ? "" : sector.getCoordenadas())
-                .croquis(sector.getCroquis() == null ? new File(CROQUIS_VACIO) : sector.getCroquis())
+                .nombre(sector.getNombre() == null ? StringUtils.EMPTY : sector.getNombre())
+                .coordenadas(sector.getCoordenadas() == null ? StringUtils.EMPTY : sector.getCoordenadas())
+                .croquis(sector.getCroquis() == null ? StringUtils.EMPTY : sector.getCroquis())
                 .foto(sector.getFoto() == null ? IMAGEN_SECTOR_GENERICA : sector.getFoto())
+                .tiposDeEscalada(sector.getTiposDeEscalada() == null ? new ArrayList<>() : sector.getTiposDeEscalada())
                 .vias(sector.getVias() == null ? new ArrayList<>() : sector.getVias())
                 .build();
     }
 
     /**
-     * 
-     * @param sectorDto Un DTO que contiene la información necesaria para crear una instancia de Sector con información
-     *                  modificada
-     * @param sector Una objeto de la entidad Sector, sirviendo como refuerzo de aquellos atributos que no
-     *               han sido modificados de la entrada
-     * @return Sector
+     * Sector modificado a sector sector.
+     *
+     * @param sectorDto 
+     * @param sector    
+     * @return 
      */
     public Sector sectorModificadoASector(final SectorDto sectorDto, final Sector sector) {
+        List<String> tiposDeEscalada = new ArrayList<>();
+        
+        if (!(sectorDto.getTiposDeEscalada().isEmpty())) {
+            for (TipoDeEscalada t : sectorDto.getTiposDeEscalada()) {
+                tiposDeEscalada.add(t.toString());
+            }
+        }
+        
         return Sector.builder()
                 .idSector(sector.getIdSector())
                 .idZona(sectorDto.getIdZona() == null ? sector.getIdZona() : sectorDto.getIdZona())
@@ -66,7 +90,8 @@ public class SectorAssembler {
                 .coordenadas(sectorDto.getCoordenadas() == null ? sector.getCoordenadas() : sectorDto.getCoordenadas())
                 .croquis(sectorDto.getCroquis() == null ? sector.getCroquis() : sectorDto.getCroquis())
                 .foto(sectorDto.getFoto() == null ? sector.getFoto() : sectorDto.getFoto())
-                .vias(sectorDto.getVias() == null ? sector.getVias() : sectorDto.getVias())
+                .tiposDeEscalada(sectorDto.getTiposDeEscalada() == null ? sector.getTiposDeEscalada() : tiposDeEscalada)
+                .vias(sector.getVias())
                 .build();
     }
 }

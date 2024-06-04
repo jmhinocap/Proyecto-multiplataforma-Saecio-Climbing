@@ -16,6 +16,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * El tipo Zona service.
+ */
 @Slf4j
 @Service
 public class ZonaServiceImpl implements ZonaService {
@@ -63,8 +66,8 @@ public class ZonaServiceImpl implements ZonaService {
     @Override
     public String borrarZona(final Long idZona) {
         log.info("[ZonaService]-[eliminarZona]-[idZona: {}]-[Start]", idZona);
-        zonaRepository.deleteById(idZona);
-        String mensaje = "Zona " + idZona + " eliminada correctamente de la base de datos";
+        Zona zona = zonaRepository.findById(idZona).orElseThrow(RuntimeException::new);
+        String mensaje = sierraService.eliminarZona(zona);
         log.info("[ZonaService]-[eliminarZona]-[mensaje: {}]-[End]", mensaje);
         
         return mensaje;
@@ -77,6 +80,18 @@ public class ZonaServiceImpl implements ZonaService {
         zona.getSectores().add(sector);
         zonaRepository.save(zona);
         log.info("[ZonaService]-[anadirNuevoSector]-[End]");
+    }
+    
+    @Override
+    public String eliminarSector(final Sector sector) {
+        log.info("[ZonaService]-[eliminarSector]-[sector: {}]-[Start]", sector);
+        Zona zona = zonaRepository.findById(sector.getIdZona()).orElseThrow(RuntimeException::new);
+        zona.getSectores().remove(zona);
+        zonaRepository.save(zona);
+        String mensaje = "Sector " + sector.getIdSector() + " eliminado correctamente";
+        log.info("[ZonaService]-[eliminarSector]-[mensaje: {}]-[End]", mensaje);
+        
+        return mensaje;
     }
     
     @Override

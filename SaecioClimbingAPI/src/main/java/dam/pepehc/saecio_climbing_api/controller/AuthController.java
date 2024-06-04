@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import static dam.pepehc.saecio_climbing_api.enums.MensajeControlUsuarios.CORREO_EN_USO;
 import static dam.pepehc.saecio_climbing_api.enums.MensajeControlUsuarios.USUARIO_EN_USO;
 
+/**
+ * El tipo Auth controller.
+ */
 @Slf4j
 @Validated
 @RestController
@@ -27,7 +30,13 @@ public class AuthController {
     
     @Autowired
     private BeanFactory beanFactory;
-    
+
+    /**
+     * Autentificar usuario.
+     *
+     * @param iniciarSesionDto valores para confirmar que el incio de sesión puede efectuarse
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PostMapping("/iniciar-sesion")
     public ResponseEntity<String> autentificarUsuario(@RequestBody final IniciarSesionDto iniciarSesionDto) {
         log.info("[AuthController]-[autentificarUsuario]-[iniciarSesionDto: {}]-[Start]", iniciarSesionDto);
@@ -38,7 +47,13 @@ public class AuthController {
         
         return ResponseEntity.ok(mensaje);
     }
-    
+
+    /**
+     * Registrar usuario.
+     *
+     * @param registrarseDto valores para confirmar que el registro puede efectuarse
+     * @return respuesta de la cabecera HTTP, puede ser positiva o negativa
+     */
     @PostMapping("/registrar-usuario")
     public ResponseEntity<String> registrarUsuario(@RequestBody final RegistrarseDto registrarseDto) {
         log.info("[AuthController]-[registrarUsuario]-[registrarseDto: {}]-[Start]", registrarseDto);

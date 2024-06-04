@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Borrar via command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -30,7 +33,12 @@ public class BorrarViaCommand {
         log.info("[BorrarViaCommand]-[doExecute]-[idVia: {}]-[Start]", idVia);
         return viaService.borrarVia(idVia);
     }
-    
+
+    /**
+     * Execute string.
+     *
+     * @return el string
+     */
     public String execute() {
         if (canExecute())
             return doExecute();

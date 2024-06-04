@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Borrar usuario command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -30,7 +33,12 @@ public class BorrarUsuarioCommand {
         log.info("[BorrarUsuarioCommand]-[doExecute]-[idUsuario: {}]-[Start]", idUsuario);
         return usuarioService.borrarUsuario(idUsuario);
     }
-    
+
+    /**
+     * Execute string.
+     *
+     * @return el string
+     */
     public String execute() {
         if (canExecute())
             return doExecute();

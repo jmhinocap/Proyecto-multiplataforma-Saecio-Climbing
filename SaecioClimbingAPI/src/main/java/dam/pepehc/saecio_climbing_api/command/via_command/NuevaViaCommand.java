@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Nueva via command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -31,7 +34,12 @@ public class NuevaViaCommand {
         log.info("[NuevaViaCommand]-[doExecute]-[nuevaViaDto: {}]-[Start]", nuevaViaDto);
         return viaService.nuevaVia(nuevaViaDto);
     }
-    
+
+    /**
+     * Execute via resource.
+     *
+     * @return el via resource
+     */
     public ViaResource execute() {
         if (canExecute())
             return doExecute();

@@ -125,9 +125,9 @@ async function poblarUltimasEntradas() {
     $(".ultima-entrada").last().attr("data-href", "via.html?idVia=" + viasArray[i].idVia);
   }
 
-  jQuery(document).ready(function($) {
-    $(".ultima-entrada").click(function() {
-      window.location = $(this).data("href");
-    });
-  });
+  // jQuery(document).ready(function($) {
+  //   $(".ultima-entrada").click(function() {
+  //     window.location = $(this).data("href");
+  //   });
+  // });
 }

@@ -16,6 +16,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * El tipo Aperturista controller.
+ */
 @Slf4j
 @Validated
 @RestController
@@ -24,7 +27,13 @@ public class AperturistaController {
     
     @Autowired
     private BeanFactory beanFactory;
-    
+
+    /**
+     * Nuevo aperturista.
+     *
+     * @param nuevoAperturistaDto el aperturista que se añade a la base de datos
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PostMapping("/nuevo-aperturista")
     public ResponseEntity<AperturistaResource> nuevoAperturista(
             @Valid @RequestBody final NuevoAperturistaDto nuevoAperturistaDto) {
@@ -36,7 +45,13 @@ public class AperturistaController {
         
         return ResponseEntity.ok(aperturistaResource);
     }
-    
+
+    /**
+     * Leer aperturista.
+     *
+     * @param idAperturista el id aperturista
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-aperturista/{idAperturista}")
     public ResponseEntity<AperturistaResource> leerAperturista(
             @PathVariable("idAperturista") final Long idAperturista) {
@@ -48,7 +63,14 @@ public class AperturistaController {
         
         return ResponseEntity.ok(aperturistaResource);
     }
-    
+
+    /**
+     * Modificar aperturista.
+     *
+     * @param aperturistaDto el aperturista modificado
+     * @param idAperturista  el id aperturista
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PutMapping("/modificar-aperturista/{idAperturista}")
     public ResponseEntity<AperturistaResource> modificarAperturista(
             @Valid @RequestBody final AperturistaDto aperturistaDto,
@@ -62,7 +84,13 @@ public class AperturistaController {
         
         return ResponseEntity.ok(aperturistaResource);
     }
-    
+
+    /**
+     * Borrar aperturista.
+     *
+     * @param idAperturista el id aperturista
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @DeleteMapping("/borrar-aperturista/{idAperturista}")
     public ResponseEntity<String> borrarAperturista(@PathVariable("idAperturista") final Long idAperturista) {
         log.info("[AperturistaController]-[borrarAperturista]-[idAperturista: {}]-[Start]", idAperturista);

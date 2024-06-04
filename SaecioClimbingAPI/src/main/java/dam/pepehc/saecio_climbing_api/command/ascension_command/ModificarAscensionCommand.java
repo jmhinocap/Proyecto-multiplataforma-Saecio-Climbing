@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Modificar ascension command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -33,7 +36,12 @@ public class ModificarAscensionCommand {
                 ascensionDto, idAscension);
         return ascensionService.modificarAscension(ascensionDto, idAscension);
     }
-    
+
+    /**
+     * Execute ascension resource.
+     *
+     * @return el ascension resource
+     */
     public AscensionResource execute() {
         if (canExecute())
             return doExecute();

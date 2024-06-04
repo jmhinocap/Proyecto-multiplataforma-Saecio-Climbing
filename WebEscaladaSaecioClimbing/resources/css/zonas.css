@@ -60,6 +60,9 @@
 
 .lista-zonas {
     margin: 5px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .elemento-lista-zona {
@@ -70,11 +73,15 @@
     cursor: pointer;
 }
 
+.mas-zonas {
+    font-weight: 600;
+}
+
+.mas-zonas:hover, .zona-ref:hover {
+    text-decoration: underline;
+}
+
 .elemento-lista-zona a, details {
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
-}
-
-.mas-zonas:hover {
-    text-decoration: underline;
 }

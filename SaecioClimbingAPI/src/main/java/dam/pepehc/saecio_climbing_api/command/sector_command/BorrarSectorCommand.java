@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Borrar sector command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -30,7 +33,12 @@ public class BorrarSectorCommand {
         log.info("[BorrarSectorCommand]-[doExecute]-[idSector: {}]-[Start]", idSector);
         return sectorService.borrarSector(idSector);
     }
-    
+
+    /**
+     * Execute string.
+     *
+     * @return el string
+     */
     public String execute() {
         if (canExecute())
             return doExecute();

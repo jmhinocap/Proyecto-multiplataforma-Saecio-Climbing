@@ -9,6 +9,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * El tipo Ascension resource.
+ */
 @Data
 @Builder
 @NoArgsConstructor

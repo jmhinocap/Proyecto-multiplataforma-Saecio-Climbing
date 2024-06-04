@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Nuevo sector command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -31,7 +34,12 @@ public class NuevoSectorCommand {
         log.info("[NuevoSectorCommand]-[doExecute]-[sectorDto: {}]-[Start]", nuevoSectorDto);
         return sectorService.nuevoSector(nuevoSectorDto);
     }
-    
+
+    /**
+     * Execute sector resource.
+     *
+     * @return el sector resource
+     */
     public SectorResource execute() {
         if (canExecute())
             return doExecute();

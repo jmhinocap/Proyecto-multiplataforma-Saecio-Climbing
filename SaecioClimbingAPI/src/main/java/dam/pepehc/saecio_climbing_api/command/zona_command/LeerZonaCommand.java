@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Leer zona command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -30,7 +33,12 @@ public class LeerZonaCommand {
         log.info("[LeerZonaCommand]-[doExecute]-[idZona: {}]-[Start]", idZona);
         return zonaService.leerZona(idZona);
     }
-    
+
+    /**
+     * Execute zona resource.
+     *
+     * @return el zona resource
+     */
     public ZonaResource execute() {
         if (canExecute())
             return doExecute();

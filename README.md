@@ -16,6 +16,11 @@ Por último, se presenta una aplicación con una interfaz gráfica que se conect
 La página web se construye desde cero haciendo uso de HTML, CSS y Javascript puro, así como jQuery en alguna ocasión. Los iconos vienen de parte de Font Awesome y hay un elemento llamado carrusel, desarrollado por Ken Wheeler
 
 ## Despliegue
+### Servicio Restful, base de datos y servidor web
+En una Raspberry Pi, usando Apache para el servidor web. Todo se construye en Docker por capas, y la Raspberry hace uso de Raspian como sistema operativo.
+
+### Interfaz
+Con Maven
 
 ## Construído con
 - IntelliJ idea
@@ -35,6 +40,6 @@ Fase beta
 Pepe Hinojo Caparrós
 
 ### Logo de la página
-[Pierre-Louis Anceau].(https://www.behance.net/planceau)
+[Pierre-Louis Anceau](https://www.behance.net/planceau)
 
 # Licencias

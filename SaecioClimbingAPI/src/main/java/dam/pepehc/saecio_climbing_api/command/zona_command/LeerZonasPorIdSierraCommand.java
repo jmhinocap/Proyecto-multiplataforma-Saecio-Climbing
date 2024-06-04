@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * El tipo Leer zonas por id sierra command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -31,7 +34,12 @@ public class LeerZonasPorIdSierraCommand {
         log.info("[LeerZonasPorIdSierraCommand]-[doExecute]-[idSierra: {}]-[Start]", idSierra);
         return zonaService.leerZonasPorIdSierra(idSierra);
     }
-    
+
+    /**
+     * Execute list.
+     *
+     * @return el list
+     */
     public List<ZonaResource> execute() {
         if (canExecute())
             return doExecute();

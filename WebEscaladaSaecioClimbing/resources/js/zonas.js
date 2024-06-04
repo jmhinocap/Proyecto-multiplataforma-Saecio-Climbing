@@ -35,14 +35,13 @@ async function poblarCartasSierra() {
     sierrasContainer.innerHTML +=
     "<div class='carta-sierra'>"
       + "<div class='contenido-carta-sierra'>"
-        + "<a class='nombre-sierra sierra-ref' data-href=''><h2>" + sierrasArray[i].nombre + "</h2></a>"
-        + "<a class='sierra-ref' data-href=''><img src='resources/images/Sierras/Nuevo_Mundo,_Sierra_de_Gádor.jpg' class='thumbnail'/></a>"
+        + "<a class='nombre-sierra sierra-ref' href='sierra.html?idSierra=" + sierrasArray[i].idSierra + "'><h2>" + sierrasArray[i].nombre + "</h2></a>"
+        + "<a class='sierra-ref' href='sierra.html?idSierra=" + sierrasArray[i].idSierra + "'><img src='resources/images/sierras/" + sierrasArray[i].foto + "' class='thumbnail'/></a>"
       + "</div>"
       + "<div class='zonas'>"
         + "<ul class='lista-zonas' data-idsierra=''>"
       + "</div>"
     + "</div>";
-    $(".sierra-ref:nth-last-of-type(2)").attr("data-href", "sierra.html?idSierra" + sierrasArray[i].idSierra);
     $(".lista-zonas").last().attr("data-idsierra", sierrasArray[i].idSierra);
   }
 
@@ -60,13 +59,20 @@ async function poblarListasZonas() {
   for(let i = 0; i < listasZonas.length; i++) {
     const zonasArray = await getZonas(listasZonas[i].dataset.idsierra);
     for(let j = 0; j < zonasArray.length; j++) {
-      listasZonas[i].innerHTML +=
-      "<li class='elemento-lista-zona'><a class='zona-ref' data-href=''>" + zonasArray[j].nombre + "</a></div>"
-      $(".zona-ref").last().attr("data-href", "zona.html?idZona=" + zonasArray[j].idSierra);
+      if (!(j == 3)) {
+        listasZonas[i].innerHTML +=
+        "<li class='elemento-lista-zona'><a class='zona-ref' data-href=''>" + zonasArray[j].nombre + "</a></div>"
+        $(".zona-ref").last().attr("data-href", "zona.html?idZona=" + zonasArray[j].idZona);
+      } else {
+        break;
+      }
     }
-    listasZonas[i].innerHTML +=
-    "<li class='elemento-lista-zona'><a class='sierra-ref mas-zonas' data-ref=''>Más zonas</a></li>";
-    $(".sierra-ref").last().attr("data-href", "sierra.html?idSierra=" + listasZonas[i].dataset.idSierra);
+    
+    if (!(zonasArray.length <= 3)) {
+      listasZonas[i].innerHTML +=
+      "<li class='elemento-lista-zona'><a class='sierra-ref mas-zonas' data-ref=''>Más zonas</a></li>";
+      $(".sierra-ref").last().attr("data-href", "sierra.html?idSierra=" + listasZonas[i].dataset.idSierra);
+    }
   }
 
   $(document).ready(function() {
@@ -81,25 +87,3 @@ async function poblarListasZonas() {
     });
   })
 }
-
-// async function crearCartasSierra() {
-//   const sierrasArray = await getSierras();
-//   for (let i = 0; i < sierrasArray.length; i++) {
-//     sierrasContainer.innerHTML +=
-//       "<div class='carta-sierra'>"
-//         + "<div class='contenido-carta-sierra'>"
-//           + "<a class='nombre-sierra sierra-ref' href='sierra.html?idSierra='>"
-//           + "</a>"
-//           + "<a class='sierra-ref' href='sierra.html?idSierra='><img src='resources/images/Sierras/Nuevo_Mundo,_Sierra_de_Gádor.jpg' class='thumbnail'/>"
-//         + "</div>"
-//         + "<div class='zonas'>"
-//             + "<ul class='lista-zonas'>"
-//               + "<li class='elemento-lista-zona'><a class='zona-ref' href='zona.html?idZona='></a></li>"
-//               + "<li class='elemento-lista-zona'><a class='zona-ref' href='zona.html?idZona='></a></li>"
-//               + "<li class='elemento-lista-zona'><a class='zona-ref' href='zona.html?idZona='></a></li>"
-//               + "<li class='elemento-lista-zona'><a class='sierra-ref' href='sierra.html?idSierra='>Más zonas</a></li>"
-//             + "</ul>"
-//         + "</div>"
-//       + "</div>"
-//   }
-// }

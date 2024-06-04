@@ -5,6 +5,9 @@ import lombok.*;
 
 import java.util.List;
 
+/**
+ * Un usuario para la página web
+ */
 @Entity
 @Data
 @Builder
@@ -30,4 +33,7 @@ public class Usuario {
         joinColumns = @JoinColumn(name = "id_usuario"),
         inverseJoinColumns = @JoinColumn(name = "id_rol", referencedColumnName = "idRol"))
     private List<Rol> roles;
+    
+    @Column(name = "activado")
+    private boolean activado;
 }

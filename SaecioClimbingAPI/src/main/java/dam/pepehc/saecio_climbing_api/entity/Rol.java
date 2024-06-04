@@ -9,6 +9,10 @@ import lombok.NoArgsConstructor;
 
 import static jakarta.persistence.EnumType.STRING;
 
+/**
+ * La clase Rol es una utilidad para los Usuarios. Determina qué acciones puede y qué acciones no puede hacer un
+ * Usuario.
+ */
 @Data
 @Entity
 @Builder

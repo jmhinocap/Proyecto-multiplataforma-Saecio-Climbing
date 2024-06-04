@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Leer usuario command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -30,7 +33,12 @@ public class LeerUsuarioCommand {
         log.info("[LeerUsuarioCommand]-[doExecute]-[idUsuario: {}]-[Start]", idUsuario);
         return usuarioService.leerUsuario(idUsuario);
     }
-    
+
+    /**
+     * Execute usuario resource.
+     *
+     * @return el usuario resource
+     */
     public UsuarioResource execute() {
         if (canExecute())
             return doExecute();

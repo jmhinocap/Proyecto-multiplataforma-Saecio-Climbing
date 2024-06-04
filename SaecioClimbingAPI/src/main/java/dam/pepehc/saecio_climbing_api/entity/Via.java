@@ -1,17 +1,17 @@
 package dam.pepehc.saecio_climbing_api.entity;
 
-import dam.pepehc.saecio_climbing_api.enums.TipoDeEscalada;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.File;
 import java.util.List;
 
-import static jakarta.persistence.EnumType.STRING;
-
+/**
+ * Las vías son los caminos escalables en una pared o sector. Tienen distintas dificultades y se le aplican uno o varios
+ * tipos de escalada. Pueden disponer o no de chapas.
+ */
 @Entity
 @Data
 @Builder
@@ -24,6 +24,7 @@ public class Via {
     private Long idVia;
     
     private Long idSector;
+    private String numeroDeCroquis;
     private String nombre;
     private String grado;
     private String metros;
@@ -32,8 +33,7 @@ public class Via {
     private String fechaUltimaRevision;
     private String descripcion;
     
-    @Enumerated(STRING)
-    private TipoDeEscalada tipoDeEscalada;
+    private String tipoDeEscalada;
     
     private String foto;
     

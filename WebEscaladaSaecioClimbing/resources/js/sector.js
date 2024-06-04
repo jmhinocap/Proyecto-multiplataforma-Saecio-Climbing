@@ -103,6 +103,10 @@ async function initMap() {
     zoom: 18,
     mapTypeId: "terrain",
     disableDefaultUI: true,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    }
   };
 
   var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);

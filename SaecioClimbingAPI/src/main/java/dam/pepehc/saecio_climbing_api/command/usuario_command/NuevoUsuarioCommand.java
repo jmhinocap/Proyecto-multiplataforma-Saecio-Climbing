@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Nuevo usuario command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -31,7 +34,12 @@ public class NuevoUsuarioCommand {
         log.info("[NuevoUsuarioCommand]-[doExecute]-[nuevoUsuarioDto: {}]-[Start]", nuevoUsuarioDto);
         return usuarioService.nuevoUsuario(nuevoUsuarioDto);
     }
-    
+
+    /**
+     * Execute usuario resource.
+     *
+     * @return el usuario resource
+     */
     public UsuarioResource execute() {
         if (canExecute())
             return doExecute();

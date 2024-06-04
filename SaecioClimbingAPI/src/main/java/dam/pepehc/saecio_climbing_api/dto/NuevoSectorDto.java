@@ -1,6 +1,7 @@
 package dam.pepehc.saecio_climbing_api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import dam.pepehc.saecio_climbing_api.enums.TipoDeEscalada;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -8,9 +9,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.File;
 import java.util.List;
 
+/**
+ * El tipo Nuevo sector dto.
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -29,6 +32,12 @@ public class NuevoSectorDto {
     @NotNull(message = "Coordenadas no introducidas")
     private String coordenadas;
 
-    private File croquis;
+    @NotBlank(message = "Croquis en blanco")
+    private String croquis;
+    
+    @NotBlank(message = "Croquis en blanco")
     private String foto;
+    
+    @NotNull(message = "Tipos de escalada en blanco")
+    private List<TipoDeEscalada> tiposDeEscalada;
 }

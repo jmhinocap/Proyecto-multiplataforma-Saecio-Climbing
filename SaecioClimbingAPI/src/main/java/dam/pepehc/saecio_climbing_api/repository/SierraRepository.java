@@ -8,8 +8,17 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * La interfaz Sierra repository.
+ */
 @Repository
 public interface SierraRepository extends JpaRepository<Sierra, Long> {
+    /**
+     * Encontrar nombre por id sierra string.
+     *
+     * @param idSierra el id sierra
+     * @return el string
+     */
     @Query(value = "SELECT sr.nombre FROM Sierra sr WHERE sr.idSierra = :idSierra")
     String encontrarNombrePorIdSierra(@Param("idSierra") final Long idSierra);
 }

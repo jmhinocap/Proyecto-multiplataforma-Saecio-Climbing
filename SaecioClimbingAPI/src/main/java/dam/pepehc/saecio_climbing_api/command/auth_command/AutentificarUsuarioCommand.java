@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Autentificar usuario command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -30,7 +33,12 @@ public class AutentificarUsuarioCommand {
         log.info("[AutentificarUsuarioCommand]-[doExecute]-[iniciarSesionDto: {}]-[Start]", iniciarSesionDto);
         return authService.autentificarUsuario(iniciarSesionDto);
     }
-    
+
+    /**
+     * Execute string.
+     *
+     * @return el string
+     */
     public String execute() {
         if (canExecute())
             return doExecute();

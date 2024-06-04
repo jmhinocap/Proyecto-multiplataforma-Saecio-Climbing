@@ -5,6 +5,9 @@ import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
 
+/**
+ * El tipo Ascension clave.
+ */
 @Embeddable
 public class AscensionClave implements Serializable {
     

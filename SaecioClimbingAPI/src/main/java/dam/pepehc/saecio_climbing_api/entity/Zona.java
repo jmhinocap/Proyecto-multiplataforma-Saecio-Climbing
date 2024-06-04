@@ -5,12 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.io.File;
 import java.util.List;
 
-@Entity
+/**
+ * El tipo Zona.
+ */
 @Data
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,8 +23,13 @@ public class Zona {
     
     private Long idSierra;
     private String nombre;
+    
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String coordenadas;
     private String foto;
+    
+    @ElementCollection
+    private List<String> tiposDeEscalada;
     
     @OneToMany(cascade = CascadeType.ALL)
     private List<Sector> sectores;

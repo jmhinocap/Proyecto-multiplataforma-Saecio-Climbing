@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * El tipo Via controller.
+ */
 @Slf4j
 @Validated
 @RestController
@@ -23,7 +26,13 @@ public class ViaController {
     
     @Autowired
     private BeanFactory beanFactory;
-    
+
+    /**
+     * Nueva vía.
+     *
+     * @param nuevaViaDto la vía que se añade a la base de datos
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PostMapping("/nueva-via")
     public ResponseEntity<ViaResource> nuevaVia(@Valid @RequestBody final NuevaViaDto nuevaViaDto) {
         log.info("[ViaController]-[nuevaVia]-[nuevaViaDto: {}]-[Start]", nuevaViaDto);
@@ -33,7 +42,13 @@ public class ViaController {
         
         return ResponseEntity.ok(viaResource);
     }
-    
+
+    /**
+     * Leer vía.
+     *
+     * @param idVia el id vía
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-via/{idVia}")
     public ResponseEntity<ViaResource> leerVia(@PathVariable("idVia") final Long idVia) {
         log.info("[ViaController]-[leerVia]-[idVia: {}]-[Start]", idVia);
@@ -43,7 +58,14 @@ public class ViaController {
         
         return ResponseEntity.ok(viaResource);
     }
-    
+
+    /**
+     * Modificar vía.
+     *
+     * @param viaDto la vía que se modifica
+     * @param idVia  el id vía
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PutMapping("/modificar-via/{idVia}")
     public ResponseEntity<ViaResource> modificarVia(@Valid @RequestBody final ViaDto viaDto,
                                                      @PathVariable("idVia") final Long idVia) {
@@ -54,7 +76,13 @@ public class ViaController {
         
         return ResponseEntity.ok(viaResource);
     }
-    
+
+    /**
+     * Borrar vía.
+     *
+     * @param idVia el id vía
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @DeleteMapping("/borrar-via/{idVia}")
     public ResponseEntity<String> borrarVia(@PathVariable("idVia") final Long idVia) {
         log.info("[ViaController]-[borrarVia]-[idVia: {}]-[Start]", idVia);
@@ -64,7 +92,12 @@ public class ViaController {
         
         return ResponseEntity.ok(mensaje);
     }
-    
+
+    /**
+     * Leer ultimas 5 vías.
+     *
+     * @return the response entity
+     */
     @GetMapping("/leer-ultimas-cinco-vias")
     public ResponseEntity<List<ViaResource>> leerUltimas5Vias() {
         log.info("[ViaController]-[leerUltimas5Vias]-[Start]");
@@ -74,7 +107,13 @@ public class ViaController {
         
         return ResponseEntity.ok(viasResource);
     }
-    
+
+    /**
+     * Leer vías por id sector.
+     *
+     * @param idSector el id sector
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-vias-por-id-sector/{idSector}")
     public ResponseEntity<List<ViaResource>> leerViasPorIdSector(@PathVariable("idSector") final Long idSector) {
         log.info("[ViaController]-[leerViasPorIdSector]-[idSector: {}]-[Start]", idSector);

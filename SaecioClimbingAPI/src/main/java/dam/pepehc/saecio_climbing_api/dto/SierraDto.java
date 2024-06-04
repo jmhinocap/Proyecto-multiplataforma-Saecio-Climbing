@@ -9,9 +9,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.File;
 import java.util.List;
 
+/**
+ * El tipo Sierra dto.
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -30,6 +32,6 @@ public class SierraDto {
     @NotNull(message = "Foto nula")
     private String foto;
     
-    @NotNull(message = "Zonas nulas")
+    @JsonIgnore
     private List<Zona> zonas;
 }

@@ -11,6 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * El tipo Aperturista service.
+ */
 @Slf4j
 @Service
 public class AperturistaServiceImpl implements AperturistaService {
@@ -24,7 +27,7 @@ public class AperturistaServiceImpl implements AperturistaService {
     @Override
     public AperturistaResource nuevoAperturista(final NuevoAperturistaDto nuevoAperturistaDto) {
         log.info("[AperturistaService]-[nuevoAperturista]-[nuevoAperturistaDto: {}]-[Start]", nuevoAperturistaDto);
-        Aperturista aperturista = aperturistaAssembler.aparturistaDtoAAperturista(nuevoAperturistaDto);
+        Aperturista aperturista = aperturistaAssembler.aperturistaDtoAAperturista(nuevoAperturistaDto);
         aperturistaRepository.save(aperturista);
         log.info("[AperturistaService]-[nuevoAperturista]-[bancaResource: {}]-[End]",
                 aperturistaAssembler.aperturistaAAperturistaResource(aperturista));

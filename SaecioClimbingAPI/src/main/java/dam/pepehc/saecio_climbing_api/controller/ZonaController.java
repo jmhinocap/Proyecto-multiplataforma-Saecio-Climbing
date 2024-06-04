@@ -12,9 +12,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * El tipo Zona controller.
+ */
 @Slf4j
 @Validated
 @RestController
@@ -24,7 +26,13 @@ public class ZonaController {
     
     @Autowired
     private BeanFactory beanFactory;
-    
+
+    /**
+     * Nueva zona.
+     *
+     * @param nuevaZonaDto la zona que se añade a la base de datos
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PostMapping("/nueva-zona")
     public ResponseEntity<ZonaResource> nuevaZona(@Valid @RequestBody final NuevaZonaDto nuevaZonaDto) {
         log.info("[ZonaController]-[nuevaZona]-[nuevaZonaDto: {}]-[Start]", nuevaZonaDto);
@@ -34,7 +42,13 @@ public class ZonaController {
         
         return ResponseEntity.ok(zonaResource);
     }
-    
+
+    /**
+     * Leer zona.
+     *
+     * @param idZona el id zona
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-zona/{idZona}")
     public ResponseEntity<ZonaResource> leerZona(@PathVariable("idZona") final Long idZona) {
         log.info("[ZonaController]-[leerZona]-[idZona: {}]-[Start]", idZona);
@@ -44,7 +58,14 @@ public class ZonaController {
         
         return ResponseEntity.ok(zonaResource);
     }
-    
+
+    /**
+     * Modificar zona.
+     *
+     * @param zonaDto la zona que se modifica
+     * @param idZona  el id zona
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PutMapping("/modificar-zona/{idZona}")
     public ResponseEntity<ZonaResource> modificarZona(@Valid @RequestBody final ZonaDto zonaDto, 
                                                       @PathVariable("idZona") final Long idZona) {
@@ -55,7 +76,13 @@ public class ZonaController {
         
         return ResponseEntity.ok(zonaResource);
     }
-    
+
+    /**
+     * Borrar zona.
+     *
+     * @param idZona el id zona
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @DeleteMapping("/borrar-zona/{idZona}")
     public ResponseEntity<String> borrarZona(@PathVariable("idZona") final Long idZona) {
         log.info("[ZonaController]-[borrarZona]-[idZona: {}]-[Start]", idZona);
@@ -65,7 +92,13 @@ public class ZonaController {
         
         return ResponseEntity.ok(mensaje);
     }
-    
+
+    /**
+     * Leer zonas por id sierra.
+     *
+     * @param idSierra el id sierra
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-zonas-por-id-sierra/{idSierra}")
     public ResponseEntity<List<ZonaResource>> leerZonasPorIdSierra(@PathVariable("idSierra") final Long idSierra) {
         log.info("[ZonaController]-[leerZonasPorIdSierra]-[idSierra: {}]-[Start]", idSierra);
@@ -76,7 +109,13 @@ public class ZonaController {
         
         return ResponseEntity.ok(zonasResource);
     }
-    
+
+    /**
+     * Leer nombre zona.
+     *
+     * @param idZona el id zona
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-nombre-zona/{idZona}")
     public ResponseEntity<String> leerNombreZona(@PathVariable("idZona") final Long idZona) {
         log.info("[ZonaController]-[leerNombreZona]-[idZona: {}]-[Start]", idZona);

@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * El tipo Sierra controller.
+ */
 @Slf4j
 @Validated
 @RestController
@@ -23,7 +26,13 @@ public class SierraController {
     
     @Autowired
     private BeanFactory beanFactory;
-    
+
+    /**
+     * Nueva sierra.
+     *
+     * @param nuevaSierraDto la sierra que se añade a la base de datos
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PostMapping("/nueva-sierra")
     public ResponseEntity<SierraResource> nuevaSierra(@Valid @RequestBody final NuevaSierraDto nuevaSierraDto) {
         log.info("[SierraController]-[nuevaSierra]-[nuevaSierraDto: {}]-[Start]", nuevaSierraDto);
@@ -33,7 +42,13 @@ public class SierraController {
         
         return ResponseEntity.ok(sierraResource);
     }
-    
+
+    /**
+     * Leer sierra.
+     *
+     * @param idSierra el id sierra
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-sierra/{idSierra}")
     public ResponseEntity<SierraResource> leerSierra(@PathVariable("idSierra") final Long idSierra) {
         log.info("[SierraController]-[leerSierra]-[idSierra: {}]-[Start]", idSierra);
@@ -43,7 +58,14 @@ public class SierraController {
         
         return ResponseEntity.ok(sierraResource);
     }
-    
+
+    /**
+     * Modificar sierra.
+     *
+     * @param sierraDto la sierra que se modifica
+     * @param idSierra  el id sierra
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @PutMapping("/modificar-sierra/{idSierra}")
     public ResponseEntity<SierraResource> modificarSierra(@Valid @RequestBody final SierraDto sierraDto,
                                                            @PathVariable("idSierra") final Long idSierra) {
@@ -55,7 +77,13 @@ public class SierraController {
         
         return ResponseEntity.ok(sierraResource);
     }
-    
+
+    /**
+     * Borrar sierra.
+     *
+     * @param idSierra el id sierra
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @DeleteMapping("/borrar-sierra/{idSierra}")
     public ResponseEntity<String> borrarSierra(@PathVariable("idSierra") final Long idSierra) {
         log.info("[SierraController]-[borrarSierra]-[idSierra: {}]-[Start]", idSierra);
@@ -65,7 +93,12 @@ public class SierraController {
         
         return ResponseEntity.ok(mensaje);
     }
-    
+
+    /**
+     * Leer todas las sierras.
+     *
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-todas-las-sierras")
     public ResponseEntity<List<SierraResource>> leerTodasLasSierras() {
         log.info("[SierraController]-[leerTodasLasSierras]-[Start]");
@@ -75,7 +108,13 @@ public class SierraController {
         
         return ResponseEntity.ok(sierrasResource);
     }
-    
+
+    /**
+     * Leer nombre sierra.
+     *
+     * @param idSierra el id sierra
+     * @return respuesta positiva de la cabecera HTTP
+     */
     @GetMapping("/leer-nombre-sierra/{idSierra}")
     public ResponseEntity<String> leerNombreSierra(@PathVariable("idSierra") final Long idSierra) {
         log.info("[SierraController]-[leerNombreSierra]-[idSierra: {}]-[Start]", idSierra);

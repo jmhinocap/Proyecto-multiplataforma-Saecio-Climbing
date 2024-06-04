@@ -5,7 +5,6 @@ import dam.pepehc.saecio_climbing_api.entity.Ascension;
 import dam.pepehc.saecio_climbing_api.entity.Usuario;
 import dam.pepehc.saecio_climbing_api.entity.Via;
 import dam.pepehc.saecio_climbing_api.entity.clave_compuesta.AscensionClave;
-import dam.pepehc.saecio_climbing_api.enums.TipoDeAscension;
 import dam.pepehc.saecio_climbing_api.resource.AscensionResource;
 import org.springframework.stereotype.Component;
 
@@ -13,14 +12,17 @@ import java.util.Date;
 
 import static dam.pepehc.saecio_climbing_api.enums.TipoDeAscension.OTRO;
 
+/**
+ * El tipo Ascension assembler.
+ */
 @Component
 public class AscensionAssembler {
 
     /**
-     * 
-     * @param ascensionDto Un DTO que contiene toda la información para crear una nueva instancia de la entidad 
-     *                     Ascension
-     * @return Ascension
+     * Ascension dto a ascension ascension.
+     *
+     * @param ascensionDto 
+     * @return 
      */
     public Ascension ascensionDtoAAscension(final AscensionDto ascensionDto) {
         return Ascension.builder()
@@ -36,9 +38,10 @@ public class AscensionAssembler {
     }
 
     /**
-     * 
-     * @param ascension Un objeto de la entidad Ascension
-     * @return AscensionResource
+     * Ascension a ascension resource ascension resource.
+     *
+     * @param ascension 
+     * @return 
      */
     public AscensionResource ascensionAAscensionResource(final Ascension ascension) {
         return AscensionResource.builder()
@@ -52,12 +55,11 @@ public class AscensionAssembler {
     }
 
     /**
+     * Ascension modificada a ascension ascension.
      *
-     * @param ascensionDto Un DTO que contiene la información necesaria para crear una instancia de Ascension con
-     *                     información modificada
-     * @param ascension Una objeto de la entidad Ascension, sirviendo como refuerzo de aquellos atributos que no han 
-     *                  sido modificados de la entrada
-     * @return Ascension
+     * @param ascensionDto 
+     * @param ascension    
+     * @return 
      */
     public Ascension ascensionModificadaAAscension(final AscensionDto ascensionDto, final Ascension ascension) {
         return Ascension.builder()

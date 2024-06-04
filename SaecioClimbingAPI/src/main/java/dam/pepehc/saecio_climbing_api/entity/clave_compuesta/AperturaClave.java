@@ -5,6 +5,9 @@ import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
 
+/**
+ * El tipo Apertura clave.
+ */
 @Embeddable
 public class AperturaClave implements Serializable {
     

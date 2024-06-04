@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * El tipo Leer sectores por id zona command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -31,7 +34,12 @@ public class LeerSectoresPorIdZonaCommand {
         log.info("[LeerSectoresPorIdZonaCommand]-[doExecute]-[idZona: {}]-[Start]", idZona);
         return sectorService.leerSectoresPorIdZona(idZona);
     }
-    
+
+    /**
+     * Execute list.
+     *
+     * @return el list
+     */
     public List<SectorResource> execute() {
         if (canExecute())
             return doExecute();

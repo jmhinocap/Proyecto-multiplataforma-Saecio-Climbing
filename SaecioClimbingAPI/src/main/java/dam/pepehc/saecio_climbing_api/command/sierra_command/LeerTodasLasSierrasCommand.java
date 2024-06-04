@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * El tipo Leer todas las sierras command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -28,7 +31,12 @@ public class LeerTodasLasSierrasCommand {
         log.info("[LeerTodasLasSierrasCommand]-[doExecute]-[Start]");
         return sierraService.leerTodasLasSierras();
     }
-    
+
+    /**
+     * Execute list.
+     *
+     * @return el list
+     */
     public List<SierraResource> execute() {
         if (canExecute())
             return doExecute();

@@ -8,14 +8,11 @@ import dam.pepehc.saecio_climbing_api.entity.DatosPersona;
 import dam.pepehc.saecio_climbing_api.entity.Rol;
 import dam.pepehc.saecio_climbing_api.entity.Usuario;
 import dam.pepehc.saecio_climbing_api.enums.MensajeControlUsuarios;
-import dam.pepehc.saecio_climbing_api.enums.Roles;
 import dam.pepehc.saecio_climbing_api.repository.RolRepository;
 import dam.pepehc.saecio_climbing_api.repository.UsuarioRepository;
 import dam.pepehc.saecio_climbing_api.service.service_interface.AuthService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -26,6 +23,9 @@ import org.springframework.stereotype.Service;
 import static dam.pepehc.saecio_climbing_api.enums.MensajeControlUsuarios.*;
 import static dam.pepehc.saecio_climbing_api.enums.Roles.ROL_USUARIO;
 
+/**
+ * El tipo Auth service.
+ */
 @Slf4j
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -64,12 +64,12 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public MensajeControlUsuarios registrarUsuario(final RegistrarseDto registrarseDto) {
         log.info("[AuthService]-[registrarUsuario]-[registrarseDto: {}]-[Start]", registrarseDto);
-        if (usuarioRepository.existsByNombreUsuario(registrarseDto.getUsuario())) {
+        if (Boolean.TRUE.equals(usuarioRepository.existsByNombreUsuario(registrarseDto.getUsuario()))) {
             log.info("[AuthService]-[registrarUsuario]-[mensaje: {}]-[End]", USUARIO_EN_USO.mensaje);
             return USUARIO_EN_USO;
         }
         
-        if (usuarioRepository.existsByCorreoElectronico(registrarseDto.getCorreoElectronico())) {
+        if (Boolean.TRUE.equals(usuarioRepository.existsByCorreoElectronico(registrarseDto.getCorreoElectronico()))) {
             log.info("[AuthService]-[registrarUsuario]-[mensaje: {}]-[End]", CORREO_EN_USO.mensaje);
             return CORREO_EN_USO;
         }

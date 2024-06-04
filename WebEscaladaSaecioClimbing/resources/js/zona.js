@@ -75,6 +75,10 @@ async function initMap() {
     zoom: 15,
     mapTypeId: "terrain",
     disableDefaultUI: true,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    }
   };
 
   var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
@@ -123,16 +127,8 @@ async function puntoMedioPoligono(zona) {
 // Código para controlar el dropdown de la barra lateral
 async function poblarDropdown(zona, nombreSierra) {
   navRegiones.innerHTML += 
-  "<a id='navRegionesSuperior' data-href=''>" + nombreSierra + "</a>"
+  "<a id='navRegionesSuperior' href='sierra.html?idSierra=" + zona.idSierra + "'>" + nombreSierra + "</a>"
   + "</div>";
-
-  $("#navRegionesSuperior").attr("data-href", "sierra.html?idSierra=" + zona.idSierra);
-
-  jQuery(document).ready(function() {
-    $("#navRegionesSuperior").click(function() {
-      window.location = $(this).data("href");
-    });
-  });
 
   poblarZonasDropdown(zona.idSierra);
 }

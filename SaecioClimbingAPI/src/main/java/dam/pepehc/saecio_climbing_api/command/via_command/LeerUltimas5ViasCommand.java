@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * El tipo Leer ultimas 5 vias command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -28,7 +31,12 @@ public class LeerUltimas5ViasCommand {
         log.info("[LeerUltimas5ViasCommand]-[doExecute]-[Start]");
         return viaService.leerUltimas5Vias();
     }
-    
+
+    /**
+     * Execute list.
+     *
+     * @return el list
+     */
     public List<ViaResource> execute() {
         if (canExecute())
             return doExecute();

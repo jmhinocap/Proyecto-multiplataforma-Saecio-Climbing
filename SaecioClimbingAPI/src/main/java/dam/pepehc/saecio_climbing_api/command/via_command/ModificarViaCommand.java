@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * El tipo Modificar via command.
+ */
 @Slf4j
 @Component
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -32,7 +35,12 @@ public class ModificarViaCommand {
         log.info("[ModificarViaCommand]-[doExecute]-[viaDto: {}, idVia: {}]-[Start]", viaDto, idVia);
         return viaService.modificarVia(viaDto, idVia);
     }
-    
+
+    /**
+     * Execute via resource.
+     *
+     * @return el via resource
+     */
     public ViaResource execute() {
         if (canExecute())
             return doExecute();

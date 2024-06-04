@@ -1,6 +1,5 @@
 package dam.pepehc.saecio_climbing_api.resource;
 
-import dam.pepehc.saecio_climbing_api.entity.DatosPersona;
 import dam.pepehc.saecio_climbing_api.entity.Via;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * El tipo Aperturista resource.
+ */
 @Data
 @Builder
 @NoArgsConstructor

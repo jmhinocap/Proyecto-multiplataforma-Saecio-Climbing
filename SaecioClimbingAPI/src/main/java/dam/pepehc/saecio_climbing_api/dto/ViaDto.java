@@ -1,8 +1,10 @@
 package dam.pepehc.saecio_climbing_api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import dam.pepehc.saecio_climbing_api.entity.Aperturista;
 import dam.pepehc.saecio_climbing_api.entity.Ascension;
+import dam.pepehc.saecio_climbing_api.enums.TipoDeEscalada;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -10,9 +12,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.File;
 import java.util.List;
 
+/**
+ * El tipo Via dto.
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -24,6 +28,9 @@ public class ViaDto {
     
     @NotNull(message = "ID sector no introducido")
     private Long idSector;
+    
+    @NotBlank(message = "Número de croquis en blanco")
+    private String numeroDeCroquis;
     
     @NotBlank(message = "Nombre en blanco")
     private String nombre;
@@ -48,10 +55,13 @@ public class ViaDto {
     
     @NotNull(message = "Foto nula")
     private String foto;
+    
+    @NotNull(message = "Tipo de escalada no insertado")
+    private TipoDeEscalada tipoDeEscalada;
 
-    @NotNull(message = "Aperturistas no insertados")
+    @JsonIgnoreProperties(value = "vias")
     private List<Aperturista> aperturistas;
     
-    @NotNull(message = "Ascensiones no insertadas")
+    @JsonIgnoreProperties(value = "via")
     private List<Ascension> ascensiones;
 }

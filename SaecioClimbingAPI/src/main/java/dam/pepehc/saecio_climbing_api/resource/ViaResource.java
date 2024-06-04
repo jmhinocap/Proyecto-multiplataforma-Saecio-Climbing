@@ -7,9 +7,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.File;
 import java.util.List;
 
+/**
+ * El tipo Via resource.
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -17,6 +19,7 @@ import java.util.List;
 public class ViaResource {
     private Long idVia;
     private Long idSector;
+    private String numeroDeCroquis;
     private String nombre;
     private String grado;
     private String metros;
@@ -25,6 +28,7 @@ public class ViaResource {
     private String fechaUltimaRevision;
     private String descripcion;
     private String foto;
+    private String tipoDeEscalada;
     private List<Ascension> ascensiones;
     private List<Aperturista> aperturistas;
 }

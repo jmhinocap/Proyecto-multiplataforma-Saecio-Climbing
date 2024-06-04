@@ -5,7 +5,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width; initial-scale=1, shrink-to-fit=no">
     <title>Saecio Climbing</title>
-    <link rel="icon" type="image/png" href="resources/images/gloabl/logos/icon.png">
+    <link rel="icon" type="image/png" href="resources/images/global/logos/icon.png">
     <link rel="stylesheet" type="text/css" href="resources/css/global.css">
     <link rel="stylesheet" type="text/css" href="resources/css/index.css">
     <link rel="stylesheet" type="text/css"
@@ -41,7 +41,7 @@
                                 <input type="checkbox">
                                 <label>Mostrar contraseña</label>
                             </div>
-                            <a>He olvidado la contraseña</a>
+                            <a id="contrasenaOlvidada">He olvidado la contraseña</a>
                             <input type="submit" value="Inicia sesión">
                         </form>
                     </div>
@@ -49,7 +49,7 @@
                     <button id="buttonRegistrarse" onclick="mostrarRegistro()">Registrarse</button>
                 </div>
                 <div class="invisible" id="perfilContenedor">
-                    <img id="perfilImagen" src="resources/images/avatar.png">
+                    <img id="perfilImagen" src="resources/images/global/usuario/avatar.png">
                     <a id="nombreUsuario">Mi perfil</a>
                 </div>
             </ul>
@@ -65,25 +65,35 @@
             <div id="informacionRegistro">
                 <form>
                     <div id="contenedorInputsPersona">
-                        <input type="text" placeholder="Nombre" id="inputNombre" required>
+                        <input type="text" placeholder="Nombre*" id="inputNombre" required>
                         <input type="text" placeholder="Apellidos" id="inputApellidos">
                     </div>
-                    <input type="text" placeholder="Nombre de usuario" id="inputNombreUsuario" required>
-                    <input type="text" placeholder="Correo electrónico" id="inputCorreo" required>
-                    <input type="password" placeholder="Contraseña" id="inputContrasena" required>
+                    <input type="text" placeholder="Nombre de usuario*" id="inputNombreUsuario" required>
+                    <input type="text" placeholder="Correo electrónico*" id="inputCorreo" required>
+                    <input type="password" placeholder="Contraseña*" id="inputContrasena" required>
                     <div id="contenedorCheckContrasena">
                         <input type="checkbox" id="checkContrasena">
                         <label id="labelContrasena">Mostrar contraseña</label>
                     </div>
+                    <div id="requisitosContrasena">
+                        <label>La contraseña debe contener:</label>
+                        <ul>
+                            <li>Entre 5 y 15 caracteres</li>
+                            <li>Al menos una letra en minúscula y una en mayúscula</li>
+                            <li>Al menos un número</li>
+                            <li>Al menos un caracter especial</li>
+                        </ul>
+                    </div>
                     <div id="contenedorCheckTerminos">
                         <input type="checkbox" id="checkTerminos">
-                        <label id="labelTerminos">Acepto los <a href="#">términos y condiciones</a></label>
+                        <label id="labelTerminos">Acepto los <a id="terminosCondiciones" href="#">términos y condiciones</a>*</label>
                     </div>
+                    <label id="camposObligatorios">* Los campos con un asterisco son obligatorios</label>
                 </form>
             </div>
-            <input type="submit" value="Crear cuenta" id="buttonCrearCuenta">
+            <input type="submit" value="Crear cuenta" onclick="registrarUsuario()" id="buttonCrearCuenta">
             <br />
-            <label>¿Ya tienes una cuenta? Inicia sesión <a href="#">aquí.</a></label>
+            <label>¿Ya tienes una cuenta? <a id="iniciaSesionAqui">Inicia sesión aquí.</a></label>
         </div>
     </div>
 
@@ -100,16 +110,16 @@
             <img class="imagen-slideshow" src="resources/images/index/index-slideshow/index-slideshow-2.jpg"
                 draggable="false" />
             <div class="texto-sobre-imagen">
-                <a style="color: #ffffff"><i class="fa fa-camera"></i> Pepe Hinojo Caparrós</a>
-                <a style="color: #ffffff"><i class="fa-solid fa-location-dot"></i> La Garrofa</a>
+                <a style="color: #f2f2f2"><i class="fa fa-camera"></i> Pepe Hinojo Caparrós</a>
+                <a style="color: #f2f2f2"><i class="fa-solid fa-location-dot"></i> La Garrofa</a>
             </div>
         </div>
         <div class="index-slideshow">
             <img class="imagen-slideshow" src="resources/images/index/index-slideshow/index-slideshow-1.jpg"
                 draggable="false" />
             <div class="texto-sobre-imagen">
-                <a><i class="fa fa-camera"></i> David Hinojo Caparrós</a>
-                <a><i class="fa-solid fa-location-dot"></i> Albarracín</a>
+                <a style="color: #f2f2f2"><i class="fa fa-camera"></i> David Hinojo Caparrós</a>
+                <a style="color: #f2f2f2"><i class="fa-solid fa-location-dot"></i> Albarracín</a>
             </div>
         </div>
         <div class="circulos-slideshow">
@@ -197,9 +207,9 @@
                                 convallis iaculis. Nulla vel arcu mi.</p>
                         </div>
                     </a>
-                    <a class="escuela" href="zona.html?idZona=1">
+                    <a class="escuela" href="sierra.html?idSierra=1">
                         <div class="imagen-escuela">
-                            <img src="resources/images/zonas/sierra-cabrera.jpg">
+                            <img src="resources/images/sierras/sierra-cabrera.jpg">
                         </div>
                         <div class="contenido-escuela">
                             <h3 class="nombre-escuela">Sierra Cabrera</h3>
@@ -208,9 +218,9 @@
                                 convallis iaculis. Nulla vel arcu mi.</p>
                         </div>
                     </a>
-                    <a class="escuela" href="zona.html?idZona=1">
+                    <a class="escuela" href="sierra.html?idSierra=1">
                         <div class="imagen-escuela">
-                            <img src="resources/images/zonas/sierra-de-maria.jpg">
+                            <img src="resources/images/sierras/sierra-de-maria.jpg">
                         </div>
                         <div class="contenido-escuela">
                             <h3 class="nombre-escuela">Sierra de María</h3>
