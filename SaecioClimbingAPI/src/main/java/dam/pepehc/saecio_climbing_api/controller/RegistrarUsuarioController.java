@@ -16,10 +16,18 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Calendar;
 
@@ -30,6 +38,7 @@ import java.util.Calendar;
 @Validated
 @RestController
 @RequestMapping("/api/registrar-usuario")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class RegistrarUsuarioController {
     
     @Autowired
@@ -55,31 +64,28 @@ public class RegistrarUsuarioController {
      * @return 
      */
     @PostMapping("/registracion")
-    public ModelAndView registrarCuentaUsuario(@RequestBody @Valid final RegistrarseDto registrarseDto,
-                                               final HttpServletRequest request) {
+    public ResponseEntity<Usuario> registrarCuentaUsuario(@RequestBody @Valid final RegistrarseDto registrarseDto,
+                                                          final HttpServletRequest request) {
         log.info("[RegistrarUsuarioController]-[registrarCuentaUsuario]-[registrarseDto: {}, request: {}]-[Start]",
                 registrarseDto, request);
         // Refactor este troncho a RegistrarUsuarioService. Mamma mia...
         DatosPersona datosPersona = datosPersonaAssembler.registrarseDtoADatosPersona(registrarseDto);
         NuevoUsuarioDto nuevoUsuarioDto = usuarioAssembler.registrarseDtoANuevoUsuarioDto(registrarseDto,
                 datosPersona.getIdDatosPersona());
+        UsuarioResource usuarioResource = usuarioService.nuevoUsuario(nuevoUsuarioDto);
+        Usuario registrado = usuarioAssembler.usuarioResourceAUsuario(usuarioResource);
         try {
-            
-            UsuarioResource usuarioResource = usuarioService.nuevoUsuario(nuevoUsuarioDto);
-            Usuario registrado = usuarioAssembler.usuarioResourceAUsuario(usuarioResource);
-            
-            String appUrl = request.getContextPath();
-            eventPublisher.publishEvent(new RegistroCompletoEvent(appUrl, request.getLocale(), registrado));
+            RegistroCompletoEvent evento = new RegistroCompletoEvent(request.getContextPath(), request.getLocale(), 
+                    registrado);
+            eventPublisher.publishEvent(evento);
         } catch (RuntimeException ex) {
-            ModelAndView mav = new ModelAndView("registration", "user", nuevoUsuarioDto);
-            mav.addObject("mensaje", "Una cuenta con ese correo electrónico o nombre de" +
-                    "usuario ya está en uso.");
-            return mav;
+            System.err.println(ex);
+            return ResponseEntity.badRequest().body(registrado);
         }
-        
-        log.info("[RegistrarUsuarioController]-[registrarCuentaUsuario]-[nuevoUsuarioDto: {}]-[End]", nuevoUsuarioDto);
-        
-        return new ModelAndView("registroExitoso", "usuario", nuevoUsuarioDto);
+
+        log.info("[RegistrarUsuarioController]-[registrarCuentaUsuario]-[registrado: {}]-[End]", registrado);
+
+        return ResponseEntity.ok(registrado);
     }
 
     /**
@@ -90,23 +96,27 @@ public class RegistrarUsuarioController {
      * @return redirecciones a distintas partes de la página según el tipo de respuesta
      */
     @GetMapping("/confirmacion-de-registro")
-    public String confirmacionRegistro(final Model model, @RequestParam("token") final String token) {
+    public ResponseEntity<String> confirmacionRegistro(final Model model, @RequestParam("token") final String token) {
         log.info("[RegistrarUsuarioController]-[confirmacionRegistro]-[model: {}, token: {}]-[Start]", model, token);
+        HttpHeaders headers = new HttpHeaders();
         TokenVerificacion tokenVerificacion = usuarioService.conseguirTokenVerificacion(token);
         if (tokenVerificacion == null) {
-            return "redirect:/badUser.html"; // TODO badUser.html o similar
+            headers.add("Location", "/badUser.html");
+            return new ResponseEntity<String>(headers, HttpStatus.BAD_REQUEST); // TODO badUser.html o similar
         }
         
         Usuario usuario = tokenVerificacion.getUsuario();
         Calendar cal = Calendar.getInstance();
         if ((tokenVerificacion.getFechaCaducidad().getTime() - cal.getTime().getTime()) <= 0) {
-            return "redirect:/badUser.html";
+            headers.add("Location", "/badUser.html");
+            return new ResponseEntity<String>(headers, HttpStatus.BAD_REQUEST);
         }
         
         usuario.setActivado(true);
         usuarioService.guardarUsuarioRegistrado(usuario);
-        String url = "redirect:/index.html";
+        String url = "/index.html";
+        headers.add("index", url);
         log.info("[RegistrarUsuarioController]-[confirmacionRegistro]-[url: {}]-[End]", url);
-        return url;
+        return new ResponseEntity<String>(headers, HttpStatus.OK);
     }
 }

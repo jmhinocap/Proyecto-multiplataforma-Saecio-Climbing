@@ -7,15 +7,15 @@ public enum MensajeControlUsuarios {
     /**
      * El Usuario en uso.
      */
-    USUARIO_EN_USO("El nombre de usuario ya está en uso"),
+    USUARIO_EN_USO("userEnUso"),
     /**
      * El Correo en uso.
      */
-    CORREO_EN_USO("Ya existe una cuenta que usa este correo"),
+    CORREO_EN_USO("emailEnUso"),
     /**
      * El Usuario registrado.
      */
-    USUARIO_REGISTRADO("Usuario registrado correctamente");
+    USUARIO_REGISTRADO("registroCorrecto");
 
     /**
      * El Mensaje.

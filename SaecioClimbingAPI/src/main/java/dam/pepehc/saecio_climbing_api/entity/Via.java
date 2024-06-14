@@ -1,10 +1,8 @@
 package dam.pepehc.saecio_climbing_api.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -40,6 +38,8 @@ public class Via {
     @ManyToMany(mappedBy = "vias")
     private List<Aperturista> aperturistas;
 
+    @ToString.Exclude
+    @JsonIgnore
     @OneToMany(mappedBy = "via", cascade = CascadeType.ALL)
     private List<Ascension> ascensiones;
 }

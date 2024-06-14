@@ -1,9 +1,6 @@
 package dam.pepehc.saecio_climbing_api.controller;
 
-import dam.pepehc.saecio_climbing_api.command.ascension_command.BorrarAscensionCommand;
-import dam.pepehc.saecio_climbing_api.command.ascension_command.LeerAscensionCommand;
-import dam.pepehc.saecio_climbing_api.command.ascension_command.ModificarAscensionCommand;
-import dam.pepehc.saecio_climbing_api.command.ascension_command.NuevaAscensionCommand;
+import dam.pepehc.saecio_climbing_api.command.ascension_command.*;
 import dam.pepehc.saecio_climbing_api.dto.AscensionDto;
 import dam.pepehc.saecio_climbing_api.resource.AscensionResource;
 import jakarta.validation.Valid;
@@ -14,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * El tipo Ascension controller.
  */
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @RequestMapping("/api/ascension")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AscensionController {
     
     @Autowired
@@ -56,6 +56,19 @@ public class AscensionController {
         log.info("[AscensionController]-[leerAscension]-[ascensionResource: {}]-[End]", ascensionResource);
         
         return ResponseEntity.ok(ascensionResource);
+    }
+    
+    @GetMapping("/leer-ascensiones-por-id-usuario/{idUsuario}")
+    public ResponseEntity<List<AscensionResource>> leerAscensionesPorIdUsuario(
+            @PathVariable("idUsuario") final Long idUsuario) {
+        log.info("[AscensionController]-[leerAscensionesPorIdUsuario]-[idUsuario: {}]-[Start]", idUsuario);
+        LeerAscensionesPorIdUsuarioCommand leerAscensionesPorIdUsuarioCommand = 
+                beanFactory.getBean(LeerAscensionesPorIdUsuarioCommand.class, idUsuario);
+        List<AscensionResource> ascensionesResource = leerAscensionesPorIdUsuarioCommand.execute();
+        log.info("[AscensionController]-[leerAscensionesPorIdUsuario]-[ascensionesResource: {}]-[End]", 
+                ascensionesResource);
+        
+        return ResponseEntity.ok(ascensionesResource);
     }
 
     /**

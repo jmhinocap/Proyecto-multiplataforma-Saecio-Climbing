@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -30,12 +31,13 @@ public class CustomUserDetailsService implements UserDetailsService {
         log.info("[CustomUserDetailsService]-[loadUserByUsername]-[usuarioOCorreo: {}]-[Start]", usuarioOCorreo);
         Usuario usuario = usuarioRepository.findByNombreUsuarioOrCorreoElectronico(usuarioOCorreo, usuarioOCorreo)
                 .orElseThrow(RuntimeException::new);
-
+        
         Set<GrantedAuthority> authorities = usuario
                 .getRoles()
                 .stream()
                 .map((rol) -> new SimpleGrantedAuthority(rol.getNombre().nombreRol)).collect(Collectors.toSet());
-        User userDetails = new User(usuario.getCorreoElectronico(), usuario.getContrasena(), authorities);
+        User userDetails = new User(usuario.getCorreoElectronico(), new BCryptPasswordEncoder()
+                .encode(usuario.getContrasena()), authorities);
         log.info("[CustomUserDetailsService]-[loadUserByUsername]-[userDetails: {}]-[End]", userDetails);
         
         return userDetails;

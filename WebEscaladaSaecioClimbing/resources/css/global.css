@@ -17,6 +17,11 @@ body {
     background-color: #e9e9e9;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 button, input {
     font-family: 'Chivo', sans-serif;
 }
@@ -35,8 +40,12 @@ a {
 }
 
 table {
-    border: solid 1px #313131;
+    border-collapse: collapse;
     width: 100%;
+}
+
+thead {
+    cursor: default;
 }
 
 tr {
@@ -46,21 +55,40 @@ tr {
 }
 
 th {
+    border: solid 1px #313131;
     font-size: larger;
 }
 
 td {
+    border: solid 1px #313131;
     font-size: large;
     text-align: center;
     padding: 3px 0px;
 }
 
-tbody tr:hover {
+.info-sector-valores:hover {
+    cursor: default;
+}
+
+tbody tr:not(.info-sector-valores):hover {
+    cursor: pointer;
     text-decoration: underline;
 }
 
 label {
     color: #313131;
+}
+
+details {
+    margin-top: 8px;
+    margin-bottom: 4px;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+details:hover {
+    cursor: pointer;
 }
 
 /* Clases personalizadas */
@@ -202,7 +230,7 @@ label {
     background-color: #d1d1d1;
 }
 
-#buttonIniciarSesion:active {
+#buttonIniciarSesion:focus {
     transition: none;
     background-color: #FFCC66;
     border-color: #FFCC66;
@@ -234,19 +262,25 @@ label {
 }
 
 #perfilContenedor {
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 8px;
     display: flex;
     position: relative;
 }
 
 #perfilImagen {
     align-items: flex-end;
-    margin-right: 8px;
+    margin-right: 12px;
     height: 32px;
-    border: solid 1px #313131;
+    border: solid 1px #f2f2f2;
     border-radius: 50%;
 }
 
 #nombreUsuario {
+    color: #f2f2f2;
+    font-family: 'Chivo', sans-serif;
+    font-size: 28px;
     font-weight: 100;
 }
 
@@ -298,6 +332,21 @@ label {
 #terminosCondiciones:active,
 #iniciaSesionAqui:active {
     color: blue;
+}
+
+#cerrarSesion {
+    cursor: pointer;
+    color: #f2f2f2;
+    background-color: #da190b;
+    margin-right: 6px;
+    float: right;
+    padding: 2px 4px;
+    border-color: #24262b;
+    border-radius: 4px;
+}
+
+#cerrarSesion:hover {
+    background-color: #f44336;
 }
 
 /* Formulario de registro */
@@ -367,6 +416,18 @@ form input:not(#checkContrasena, #checkTerminos) {
 
 #contenedorInputsPersona {
     display: flex;
+}
+
+.requisito-registro {
+    color: #C2371B;
+    text-align: left;
+    font-size: 12px;
+    display: none;
+}
+
+.input-error {
+    box-shadow: 0 0 3px #C2371B;
+    border: 1px solid #C2371B;
 }
 
 #inputNombre, #inputApellidos {
@@ -484,6 +545,7 @@ form input:not(#checkContrasena, #checkTerminos) {
 }
 
 #regionActual {
+    cursor: default;
     background-color: #FFCC66;
     padding-bottom: 3px;
 }
@@ -531,13 +593,18 @@ form input:not(#checkContrasena, #checkTerminos) {
     order: 2;
 }
 
-li .region-zona::after {
-    content: '\f0da';
+.region-zona-contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.region-zona-after {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    position: absolute;
-    float: right;
-    right: 7px;
+    margin-right: 7px;
+    margin-left: 4px;
 }
 
 #submenuSeleccionado .nav-regiones-padre {
@@ -603,6 +670,8 @@ li .region-zona::after {
 
 /* Objeto footer */
 .footer {
+    height: auto;
+    flex-grow: 1;
     background-color: #24262b;
     padding: 30px 0;
 }

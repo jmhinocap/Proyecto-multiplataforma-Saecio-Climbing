@@ -3,6 +3,8 @@ package dam.pepehc.saecio_climbing_api.service.service_interface;
 import dam.pepehc.saecio_climbing_api.dto.AscensionDto;
 import dam.pepehc.saecio_climbing_api.resource.AscensionResource;
 
+import java.util.List;
+
 /**
  * La interfaz Ascension service.
  */
@@ -22,6 +24,13 @@ public interface AscensionService {
      * @return el ascension resource
      */
     public AscensionResource leerAscension(final Long idAscension);
+
+    /**
+     *  Leer ascensiones por id usuario
+     * @param idUsuario el id usuario
+     * @return la lista ascension resource
+     */
+    public List<AscensionResource> leerAscensionesPorIdUsuario(final Long idUsuario);
 
     /**
      * Modificar ascension ascension resource.

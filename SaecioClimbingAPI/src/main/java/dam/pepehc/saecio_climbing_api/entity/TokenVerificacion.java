@@ -24,7 +24,7 @@ public class TokenVerificacion {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long idToken;
     
     private String token;
     
@@ -39,5 +39,9 @@ public class TokenVerificacion {
         cal.setTime(new Timestamp(cal.getTime().getTime()));
         cal.add(Calendar.MINUTE, fechaCaducidadMinutos);
         return new Date(cal.getTime().getTime());
+    }
+    
+    public void setCaducidad() {
+        this.fechaCaducidad = calcularFechaCaducidad(CADUCIDAD);
     }
 }

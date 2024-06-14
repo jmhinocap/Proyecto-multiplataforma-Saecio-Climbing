@@ -50,13 +50,28 @@ public class ZonaServiceImpl implements ZonaService {
         
         return zonaAssembler.zonaAZonaResource(zona);
     }
+    
+    @Override
+    public List<ZonaResource> leerZonas() {
+        log.info("[ZonaService]-[leerZonas]-[Start]");
+        List<Zona> zonas = zonaRepository.findAll();
+        List<ZonaResource> zonasResource = new ArrayList<>();
+        
+        for (Zona z : zonas) {
+            zonasResource.add(zonaAssembler.zonaAZonaResource(z));
+        }
+        
+        log.info("[ZonaService]-[leerZonas]-[zonasResource: {}]-[End]", zonasResource);
+        
+        return zonasResource;
+    }
 
     @Override
     public ZonaResource modificarZona(final ZonaDto zonaDto, final Long idZona) {
         log.info("[ZonaService]-[modificarZona]-[zonaDto: {}, idZona: {}]-[Start]", zonaDto, idZona);
         Zona zona = zonaRepository.findById(idZona).orElseThrow(RuntimeException::new);
-        zonaRepository.save(zona);
         Zona zonaModificada = zonaAssembler.zonaModificadaAZona(zonaDto, zona);
+        zonaRepository.save(zonaModificada);
         log.info("[ZonaService]-[modificarZona]-[zonaResource: {}]-[End]",
                 zonaAssembler.zonaAZonaResource(zonaModificada));
         
@@ -68,6 +83,7 @@ public class ZonaServiceImpl implements ZonaService {
         log.info("[ZonaService]-[eliminarZona]-[idZona: {}]-[Start]", idZona);
         Zona zona = zonaRepository.findById(idZona).orElseThrow(RuntimeException::new);
         String mensaje = sierraService.eliminarZona(zona);
+        zonaRepository.deleteById(idZona);
         log.info("[ZonaService]-[eliminarZona]-[mensaje: {}]-[End]", mensaje);
         
         return mensaje;

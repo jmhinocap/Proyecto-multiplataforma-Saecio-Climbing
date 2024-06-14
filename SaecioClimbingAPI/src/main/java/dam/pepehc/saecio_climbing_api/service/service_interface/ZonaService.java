@@ -28,6 +28,13 @@ public interface ZonaService {
     public ZonaResource leerZona(final Long idZona);
 
     /**
+     * Leer zonas list
+     * 
+     * @return la lista
+     */
+    public List<ZonaResource> leerZonas();
+
+    /**
      * Modificar zona zona resource.
      *
      * @param zonaDto el zona dto

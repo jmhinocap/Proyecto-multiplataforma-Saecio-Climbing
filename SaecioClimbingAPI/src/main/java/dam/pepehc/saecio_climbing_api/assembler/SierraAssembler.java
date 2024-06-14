@@ -61,6 +61,7 @@ public class SierraAssembler {
         return Sierra.builder()
                 .idSierra(sierra.getIdSierra())
                 .nombre(sierraDto.getNombre() == null ? sierra.getNombre() : sierraDto.getNombre())
+                .coordenadas(sierraDto.getCoordenadas() == null ? sierra.getCoordenadas() : sierraDto.getCoordenadas())
                 .foto(sierraDto.getFoto() == null ? sierra.getFoto() : sierraDto.getFoto())
                 .zonas(sierra.getZonas())
                 .build();

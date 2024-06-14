@@ -25,21 +25,21 @@
             <ul class="nav-links">
                 <li><a href="zonas.html"><i class="fa-solid fa-compass fa-s"></i>Zonas</a></li>
                 <li><a href="galeria.html"><i class="fa-regular fa-image fa-s"></i>Galería</a></li>
-                <li><a href="actividad.html"><i class="fa fa-newspaper-o fa-s"></i>Actividad</a></li>
+                <li><a href="actividad.html"><i class="fa fa-newspaper-o fa-s"></i>Mis ascensiones</a></li>
                 <div id="botonesUsuarioContenedor">
-                    <button id="buttonIniciarSesion" onclick="abrirIniciarSesion(event)">Iniciar sesión</button>
+                    <button id="buttonIniciarSesion">Iniciar sesión</button>
                     <div id="iniciarSesion">
-                        <form>
+                        <form id="formularioLogIn" onsubmit="return false">
                             <label>Usuario o correo</label>
-                            <input type="text" required/>
+                            <input id="inputUsuarioOCorreo" type="text" required />
                             <label>Contraseña</label>
-                            <input type="password" required/>
+                            <input id="inputContrasenaInicio" type="password" required />
                             <div id="contenedorCheckContrasena">
-                                <input type="checkbox">
+                                <input type="checkbox" onclick="mostrarContrasena('inputContrasenaInicio')">
                                 <label>Mostrar contraseña</label>
                             </div>
-                            <a>He olvidado la contraseña</a>
-                            <input type="submit" value="Inicia sesión">
+                            <a id="contrasenaOlvidada">He olvidado la contraseña</a>
+                            <input type="submit" value="Inicia sesión" onclick="iniciarSesion(0)">
                         </form>
                     </div>
 
@@ -47,9 +47,10 @@
                 </div>
                 <div class="invisible" id="perfilContenedor">
                     <img id="perfilImagen" src="resources/images/global/usuario/avatar.png">
-                    <a id="nombreUsuario">Mi perfil</a>
+                    <a><span id="nombreUsuario"></span></a>
                 </div>
             </ul>
+            <button class="invisible" id="cerrarSesion" onclick="cerrarSesion()">Cerrar sesión</button>
         </nav>
     </header>
 
@@ -60,27 +61,49 @@
                 <label onclick="ocultarRegistro()"><i class="fa-solid fa-x"></i></label>
             </div>
             <div id="informacionRegistro">
-                <form>
+                <form id="formularioSignUp">
                     <div id="contenedorInputsPersona">
+                        <!-- Formatos para nombre y apellidos -->
+                        <!-- <label class="requisitoRegistro" id="nombreObligatorio">El nombre es obligatorio</label> -->
                         <input type="text" placeholder="Nombre" id="inputNombre" required>
+                        <!-- En el futuro los apellidos deberán ser opcionales -->
+                        <!-- <label class="requisitoRegistro" id="apellidosObligatorios">Al menos un apellido es obligatorio</label> -->
                         <input type="text" placeholder="Apellidos" id="inputApellidos">
                     </div>
+                    <!-- Formato para nombre de usuario -->
+                    <label class="requisito-registro" id="userEnUso">Ya existe una cuenta con ese nombre de usuario</label>
+                    <label class="requisito-registro" id="userObligatorio">El nombre de usuario es obligatorio</label>
                     <input type="text" placeholder="Nombre de usuario" id="inputNombreUsuario" required>
+                    <!-- Formato para correo -->
+                    <label class="requisito-registro" id="correoEnUso">El correo ya se encuentra en uso</label>
+                    <label class="requisito-registro" id="correoObligatorio">El correo es obligatorio</label>
                     <input type="text" placeholder="Correo electrónico" id="inputCorreo" required>
-                    <input type="password" placeholder="Contraseña" id="inputContrasena" required>
+                    <!-- Formato para contraseña -->
+                    <label class="requisito-registro" id="contrasenaObligatoria">La contraseña es obligatoria</label>
+                    <input type="password" placeholder="Contraseña" id="inputContrasenaRegistro" required>
                     <div id="contenedorCheckContrasena">
-                        <input type="checkbox" id="checkContrasena">
+                        <input type="checkbox" id="checkContrasena" onclick="mostrarContrasena('inputContrasenaRegistro')">
                         <label id="labelContrasena">Mostrar contraseña</label>
                     </div>
+                    <div id="requisitosContrasena">
+                        <label>La contraseña debe contener:</label>
+                        <ul>
+                            <li>Entre 5 y 15 caracteres</li>
+                            <li>Al menos una letra en minúscula y una en mayúscula</li>
+                            <li>Al menos un número</li>
+                            <li>Al menos un caracter especial</li>
+                        </ul>
+                    </div>
+                    <label class="requisito-registro" id="terminosObligatorios">Para continuar, debes aceptar los términos y condiciones</label>
                     <div id="contenedorCheckTerminos">
                         <input type="checkbox" id="checkTerminos">
-                        <label id="labelTerminos">Acepto los <a href="#">términos y condiciones</a></label>
+                        <label id="labelTerminos">Acepto los <a id="terminosCondiciones" href="#">términos y condiciones</a>*</label>
                     </div>
                 </form>
             </div>
-            <input type="submit" value="Crear cuenta" id="buttonCrearCuenta">
-            <br/>
-            <label>¿Ya tienes una cuenta? Inicia sesión <a>aquí.</a></label>
+            <input type="submit" value="Crear cuenta" onclick="verificarRegistro()" id="buttonCrearCuenta">
+            <br />
+            <label>¿Ya tienes una cuenta? <a id="iniciaSesionAqui">Inicia sesión aquí.</a></label>
         </div>
     </div>
 

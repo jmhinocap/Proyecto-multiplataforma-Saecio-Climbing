@@ -159,7 +159,10 @@ async function poblarZonasDropdown() {
   for (let i = 0; i < zonasVisiblesArray.length; i++) {
     listaZonasVisible[0].innerHTML +=
     "<li>"
-      + "<a class='region-zona' data-href=''>" + zonasVisiblesArray[i].nombre + "</a>"
+      + "<div class='region-zona-contenedor'>"
+        + "<a class='region-zona' data-href=''>" + zonasVisiblesArray[i].nombre + "</a>"
+        + "<i class='fa-solid fa-caret-right region-zona-after'></i>"
+      + "</div>"
       + "<div class='submenu-dropdown-oculto sector-sierra-actual'>"
         + "<ul data-idzona=''></ul>"
     + "</li>";
@@ -218,15 +221,16 @@ async function poblarSectoresDropdown() {
 async function poblarZonas() {
   const zonasArray = await getZonas(idSierra);
   for (let i = 0; i < zonasArray.length; i++) {
+    let numeroVias = numeroDeVias(zonasArray[i].sectores);
     zonasContainer.innerHTML +=
       "<tbody>"
           + "<tr class='info-sierra-valores' data-href=''>"
             + "<td>" + zonasArray[i].nombre + "</td>"
             + "<td>" + zonasArray[i].tiposDeEscalada + "</td>"
             + "<td>" + zonasArray[i].sectores.length + "</td>"
-            + "<td>" + zonasArray[i].vias + "</td>"
+            + "<td>" + numeroVias + "</td>"
             // hacer componente de grados
-            + "<td>" + + "</td>"
+            // + "<td>" + + "</td>"
           + "</tr>"
         + "</tbody>";
 
@@ -238,4 +242,13 @@ async function poblarZonas() {
       window.location = $(this).data("href");
     });
   });
+}
+
+function numeroDeVias(sectores) {
+  let numeroVias = 0;
+  for (let i = 0; i < sectores.length; i++) {
+    numeroVias += sectores[i].vias.length;
+  }
+
+  return numeroVias;
 }

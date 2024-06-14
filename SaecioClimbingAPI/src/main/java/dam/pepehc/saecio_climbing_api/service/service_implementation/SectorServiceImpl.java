@@ -60,6 +60,7 @@ public class SectorServiceImpl implements SectorService {
         Sector sector = sectorRepository.findById(idSector)
                 .orElseThrow(() -> new RuntimeException());
         Sector sectorModificado = sectorAssembler.sectorModificadoASector(sectorDto, sector);
+        sectorRepository.save(sectorModificado);
         log.info("[SectorService]-[modificarSector]-[sectorResource: {}]-[End]", 
                 sectorAssembler.sectorASectorResource(sectorModificado));
         

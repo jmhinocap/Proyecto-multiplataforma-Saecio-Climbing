@@ -56,6 +56,7 @@ public class SierraServiceImpl implements SierraService {
         Sierra sierra = sierraRepository.findById(idSierra)
                 .orElseThrow(() -> new RuntimeException());
         Sierra sierraModificada = sierraAssembler.sierraModificadaASierra(sierraDto, sierra);
+        sierraRepository.save(sierraModificada);
         log.info("[SierraService]-[modificarSierra]-[sierraResource: {}]-[End]", 
                 sierraAssembler.sierraASierraResource(sierraModificada));
         

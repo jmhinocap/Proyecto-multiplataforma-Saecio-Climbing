@@ -101,8 +101,9 @@ $(document).ready(function () {
 );
 
 // Código para la API
-const ultimasEntradasContainer = document.getElementById('ultimasEntradasContainer');
+const tablaUltimasVias = document.getElementById('tablaUltimasVias');
 const viasUrl = "http://localhost:8086/api/via/leer-ultimas-cinco-vias";
+let sectorUrlBase = "http://localhost:8086/api/sector/leer-sector/";
 
 async function getVias() {
   const respuesta = await fetch(viasUrl);
@@ -111,16 +112,26 @@ async function getVias() {
   return viasArray;
 }
 
+async function getSector(idSector) {
+  const sectorUrl = sectorUrlBase + idSector;
+  const respuesta = await fetch(sectorUrl);
+  const sector = await respuesta.json();
+
+  return sector;
+}
+
 async function poblarUltimasEntradas() {
   const viasArray = await getVias();
   for (let i = 0; i < viasArray.length; i++) {
-    ultimasEntradasContainer.innerHTML +=
-      "<a class='ultima-entrada' tabindex='-1' data-href=''>"
-        + "<h4 class='entrada-via'>" + viasArray[i].nombre + "</h4>"
-        + "<h4 class='entrada-grado'>" + viasArray[i].grado + "</h4>"
-        + "<h4 class='entrada-sector'>" + viasArray[i].idSector + "</h4>"
-        + "<h4 class='entrada-aperturistas'>aperturistas</h4>"
-      + "</a>";
+    const sector = await getSector(viasArray[i].idSector);
+    tablaUltimasVias.innerHTML +=
+      "<tbody>"
+        + "<tr>"
+          + "<td><h4 class='entrada-via'>" + viasArray[i].nombre + "</h4></td>"
+          + "<td><h4 class='entrada-grado'>" + viasArray[i].grado + "</h4></td>"
+          + "<td><h4 class='entrada-sector'>" + sector.nombre + "</h4></td>"
+        + "</tr>"
+      + "</tbody>";
 
     $(".ultima-entrada").last().attr("data-href", "via.html?idVia=" + viasArray[i].idVia);
   }

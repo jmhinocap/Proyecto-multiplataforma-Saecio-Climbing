@@ -55,7 +55,7 @@ public class AuthServiceImpl implements AuthService {
                 .authenticate(new UsernamePasswordAuthenticationToken(iniciarSesionDto.getUsuarioOCorreo(),
                         iniciarSesionDto.getContrasena()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String mensaje = "El usuario inició sesión correctamente";
+        String mensaje = "logInSucc";
         log.info("[AuthService]-[autentificarUsuario]-[mensaje: {}]-[End]", mensaje);
         
         return mensaje;
@@ -74,11 +74,6 @@ public class AuthServiceImpl implements AuthService {
             return CORREO_EN_USO;
         }
         
-        DatosPersona datosPersona = datosPersonaAssembler.registrarseDtoADatosPersona(registrarseDto);
-        Rol rol = rolRepository.findByNombre(ROL_USUARIO).get();
-        Usuario usuario = usuarioAssembler.registrarseDtoAUsuario(registrarseDto, datosPersona.getIdDatosPersona(),
-                rol);
-        usuarioRepository.save(usuario);
         log.info("[AuthService]-[registrarUsuario]-[mensaje: {}]-[End]", USUARIO_REGISTRADO.mensaje);
         
         return USUARIO_REGISTRADO;

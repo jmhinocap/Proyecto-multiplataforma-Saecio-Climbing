@@ -55,6 +55,7 @@ public class ViaServiceImpl implements ViaService {
         log.info("[ViaService]-[modificarVia]-[viaDto: {}, idVia: {}]", viaDto, idVia);
         Via via = viaRepository.findById(idVia).orElseThrow(() -> new RuntimeException());
         Via viaModificada = viaAssembler.viaModificadaAVia(viaDto, via);
+        viaRepository.save(viaModificada);
         log.info("[ViaService]-[modificarVia]-[viaResource: {}]-[End]", viaAssembler.viaAViaResource(viaModificada));
         
         return null;

@@ -1,5 +1,6 @@
 package dam.pepehc.saecio_climbing_api.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,14 +17,16 @@ import java.util.List;
 public class Usuario {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idUsuario;
 
     private Long idDatosPersona;
     private String correoElectronico;
     private String nombreUsuario;
     private String contrasena;
-    
+
+    @ToString.Exclude
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario",
             cascade = CascadeType.ALL)
     private List<Ascension> ascensiones;
@@ -33,6 +36,11 @@ public class Usuario {
         joinColumns = @JoinColumn(name = "id_usuario"),
         inverseJoinColumns = @JoinColumn(name = "id_rol", referencedColumnName = "idRol"))
     private List<Rol> roles;
+
+    @ToString.Exclude
+    @JsonIgnore
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private TokenVerificacion tokenVerificacion;
     
     @Column(name = "activado")
     private boolean activado;

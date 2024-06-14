@@ -4,12 +4,24 @@ const urlParams = new URLSearchParams(queryString);
 const idSector = urlParams.get('idSector');
 const viasContainer = document.getElementById('sectorTabla');
 const navRegiones = document.getElementById('contenedorNavRegiones');
+const nuevaAscensionUrl = "http://localhost:8086/api/ascension/nueva-ascension";
 const sectorUrl = "http://localhost:8086/api/sector/leer-sector/" + idSector;
 const viasUrl = "http://localhost:8086/api/via/leer-vias-por-id-sector/" + idSector;
 let zonaUrl = "http://localhost:8086/api/zona/leer-zona/";
 let nombreSierraUrl = "http://localhost:8086/api/sierra/leer-nombre-sierra/";
 let nombreZonaUrl = "http://localhost:8086/api/zona/leer-nombre-zona/";
 let sectoresUrl = "http://localhost:8086/api/sector/leer-sectores-por-id-zona/";
+
+async function nuevaAscension(ascension) {
+  const respuesta = await fetch(nuevaAscensionUrl, {
+      method: "POST",
+      headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(ascension)
+  });
+}
 
 async function getSector() {
   const respuesta = await fetch(sectorUrl);
@@ -62,6 +74,8 @@ window.addEventListener("load", async function() {
   const sector = await getSector();
   const zona = await getZona(sector.idZona);
   const nombreSierra = await getNombreSierra(zona.idSierra);
+  contenedorRegistroAscension.style.display = "none";
+  poblarCroquisFoto(sector);
   poblarBarraDirecciones(sector, zona, nombreSierra);
   poblarDropdown(zona);
   poblarVias();
@@ -164,6 +178,26 @@ async function puntoMedioPoligono(sector) {
   return puntoMedio;
 }
 
+// Código para el croquis y la foto
+const croquisDetalles = document.getElementById("croquisDetalles");
+let toggleDetalles = 0;
+
+function cambiarDetails() {
+  if (toggleDetalles === 0) {
+    croquisDetalles.innerHTML = "Ocultar croquis";
+    
+    toggleDetalles++;
+  } else {
+    croquisDetalles.innerHTML = "Mostrar croquis";
+    toggleDetalles--;
+  }
+}
+  
+
+function poblarCroquisFoto(sector) {
+  document.getElementById("croquisFoto").src = "resources/images/sectores/" + sector.foto;
+}
+
 // Código para controlar el dropdown de la barra lateral
 async function poblarDropdown(zona) {
   const idZona = zona.idZona;
@@ -220,14 +254,100 @@ async function poblarVias() {
     viasContainer.innerHTML +=
       "<tbody>" 
         + "<tr class='info-sector-valores'>"
-          + "<td>" + (i + 1) + "</td>"
+          + "<td class='numero-via'>" + viasArray[i].numeroDeCroquis + "</td>"
           + "<td>" + viasArray[i].nombre + "</td>"
           + "<td>" + viasArray[i].grado + "</td>"
           + "<td>" + viasArray[i].metros + "</td>"
           + "<td>" + viasArray[i].numeroChapas + "</td>"
           + "<td>" + viasArray[i].fechaApertura + " / " + viasArray[i].fechaUltimaRevision + "</td>"
-          + "<td>" + viasArray[i].aperturistas + "</td>"
+          // + "<td>" + viasArray[i].aperturistas + "</td>"
+          + "<td class='celda-registro'><a><i class='fa-regular fa-pen-to-square'></i></a></td>"
         + "</tr>"
-      + "</tbody>"
+      + "</tbody>";
+    $(".celda-registro").last().on("click", function() {
+      mostrarRegistroVia(viasArray[i]);
+    });
   }
 }
+
+// Código para registrar una vía
+const contenedorRegistroAscension = document.getElementById("contenedorRegistroAscension");
+let viaRegistrar;
+let fechaValor;
+let tipoAscensionValor;
+const nombreViaRegistro = $("#contenedorRegistroAscensionTitulo h3");
+function mostrarRegistroVia(via) {
+  viaRegistrar = via;
+  nombreViaRegistro[0].innerHTML = via.nombre;
+  contenedorRegistroAscension.style.display = "block";
+}
+
+function ocultarRegistroAscension() {
+  contenedorRegistroAscension.style.display = "none";
+}
+
+function registrarAscension() {
+  fechaValor = document.getElementById('fechaAscension').value;
+  tipoAscensionValor = document.getElementById('selectTipoAscension').value;
+  const ascension = {
+    usuario: JSON.parse(sessionStorage.getItem("usuario")),
+    via: viaRegistrar,
+    fechaAscension: fechaValor,
+    tipoDeAscension: tipoAscensionValor
+  }
+  nuevaAscension(ascension);
+  alert("Vía registrada con éxito");
+  ocultarRegistroAscension();
+}
+
+// Autoformateo de fechaAscension
+var fecha = document.getElementById('fechaAscension');
+
+function checkValue(str, max) {
+  if (str.charAt(0) !== '0' || str == '00') {
+    var num = parseInt(str);
+    if (isNaN(num) || num <= 0 || num > max) num = 1;
+    str = num > parseInt(max.toString().charAt(0)) && num.toString().length == 1 ? '0' + num : num.toString();
+  };
+  return str;
+};
+
+fecha.addEventListener('input', function(e) {
+  this.type = 'text';
+  var input = this.value;
+  if (/\D\/$/.test(input)) input = input.substr(0, input.length - 3);
+  var values = input.split('/').map(function(v) {
+    return v.replace(/\D/g, '')
+  });
+  if (values[0]) values[0] = checkValue(values[0], 31);
+  if (values[1]) values[1] = checkValue(values[1], 12);
+  var output = values.map(function(v, i) {
+    return v.length == 2 && i < 2 ? v + ' / ' : v;
+  });
+  this.value = output.join('').substr(0, 14);
+});
+
+fecha.addEventListener('blur', function(e) {
+  this.type = 'text';
+  var input = this.value;
+  var values = input.split('/').map(function(v, i) {
+    return v.replace(/\D/g, '')
+  });
+  var output = '';
+  
+  if (values.length == 3) {
+    var year = values[2].length !== 4 ? parseInt(values[2]) + 2000 : parseInt(values[2]);
+    var month = parseInt(values[0]) - 1;
+    var day = parseInt(values[1]);
+    var d = new Date(year, month, day);
+    if (!isNaN(d)) {
+      document.getElementById('result').innerText = d.toString();
+      var fechas = [d.getMonth() + 1, d.getDate(), d.getFullYear()];
+      output = fechas.map(function(v) {
+        v = v.toString();
+        return v.length == 1 ? '0' + v : v;
+      }).join(' / ');
+    };
+  };
+  this.value = output;
+});

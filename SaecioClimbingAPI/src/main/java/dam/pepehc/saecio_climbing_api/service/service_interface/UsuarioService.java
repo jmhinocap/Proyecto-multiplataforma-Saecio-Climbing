@@ -34,6 +34,14 @@ public interface UsuarioService {
     public UsuarioResource leerUsuario(final Long idUsuario);
 
     /**
+     * Leer usuario por nombre o correo usuario resource.
+     * 
+     * @param usuarioOCorreo el usuario o correo
+     * @return el usuario resource
+     */
+    public UsuarioResource leerUsuarioPorNombreOCorreo(final String usuarioOCorreo);
+
+    /**
      * Modificar usuario usuario resource.
      *
      * @param usuarioDto el usuario dto

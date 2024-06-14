@@ -1,5 +1,6 @@
 package dam.pepehc.saecio_climbing_api.resource;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dam.pepehc.saecio_climbing_api.entity.Aperturista;
 import dam.pepehc.saecio_climbing_api.entity.Ascension;
 import lombok.AllArgsConstructor;

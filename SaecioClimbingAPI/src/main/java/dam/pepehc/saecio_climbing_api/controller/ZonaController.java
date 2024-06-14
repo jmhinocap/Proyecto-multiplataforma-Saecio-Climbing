@@ -60,6 +60,21 @@ public class ZonaController {
     }
 
     /**
+     * Leer zonas.
+     * 
+     * @return respuesta positiva de la cabecera HTTP
+     */
+    @GetMapping("/leer-zonas")
+    public ResponseEntity<List<ZonaResource>> leerZonas() {
+        log.info("[ZonaController]-[leerZonas]-[Start]");
+        LeerZonasCommand leerZonasCommand = beanFactory.getBean(LeerZonasCommand.class);
+        List<ZonaResource> zonasResource = leerZonasCommand.execute();
+        log.info("[ZonaController]-[leerZona]-[zonasResource: {}]-[End]", zonasResource);
+        
+        return ResponseEntity.ok(zonasResource);
+    } 
+
+    /**
      * Modificar zona.
      *
      * @param zonaDto la zona que se modifica

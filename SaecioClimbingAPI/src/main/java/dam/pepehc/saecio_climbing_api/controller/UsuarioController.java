@@ -1,9 +1,6 @@
 package dam.pepehc.saecio_climbing_api.controller;
 
-import dam.pepehc.saecio_climbing_api.command.usuario_command.BorrarUsuarioCommand;
-import dam.pepehc.saecio_climbing_api.command.usuario_command.LeerUsuarioCommand;
-import dam.pepehc.saecio_climbing_api.command.usuario_command.ModificarUsuarioCommand;
-import dam.pepehc.saecio_climbing_api.command.usuario_command.NuevoUsuarioCommand;
+import dam.pepehc.saecio_climbing_api.command.usuario_command.*;
 import dam.pepehc.saecio_climbing_api.dto.NuevoUsuarioDto;
 import dam.pepehc.saecio_climbing_api.dto.UsuarioDto;
 import dam.pepehc.saecio_climbing_api.resource.UsuarioResource;
@@ -22,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @RequestMapping("/api/usuario")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
     
     @Autowired
@@ -55,6 +53,18 @@ public class UsuarioController {
         LeerUsuarioCommand leerUsuarioCommand = beanFactory.getBean(LeerUsuarioCommand.class, idUsuario);
         UsuarioResource usuarioResource = leerUsuarioCommand.execute();
         log.info("[UsuarioController]-[leerUsuario]-[usuarioResource: {}]-[End]", usuarioResource);
+        
+        return ResponseEntity.ok(usuarioResource);
+    }
+    
+    @GetMapping("/leer-usuario-por-nombre-o-correo/{usuarioOCorreo}")
+    public ResponseEntity<UsuarioResource> leerUsuarioPorNombreOCorreo(
+            @PathVariable("usuarioOCorreo") final String usuarioOCorreo) {
+        log.info("[UsuarioController]-[leerUsuarioPorNombreOCorreo]-[usuarioOCorreo: {}]-[Start]", usuarioOCorreo);
+        LeerUsuarioPorNombreOCorreoCommand leerUsuarioPorNombreOCorreoCommand = beanFactory
+                .getBean(LeerUsuarioPorNombreOCorreoCommand.class, usuarioOCorreo);
+        UsuarioResource usuarioResource = leerUsuarioPorNombreOCorreoCommand.execute();
+        log.info("[UsuarioController]-[leerUsuarioPorNombreOCorreo]-[usuarioResource: {}]-[End]", usuarioResource);
         
         return ResponseEntity.ok(usuarioResource);
     }

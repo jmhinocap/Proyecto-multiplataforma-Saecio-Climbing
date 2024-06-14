@@ -358,6 +358,10 @@
     padding-bottom: 10px;
 }
 
+#tablaUltimasVias tbody tr td {
+    border: none !important;
+}
+
 .ultima-entrada {
     display: flex;
     justify-content: space-between;

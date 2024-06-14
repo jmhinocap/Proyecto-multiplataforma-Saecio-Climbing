@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static dam.pepehc.saecio_climbing_api.enums.MensajeControlUsuarios.CORREO_EN_USO;
 import static dam.pepehc.saecio_climbing_api.enums.MensajeControlUsuarios.USUARIO_EN_USO;
@@ -26,6 +23,7 @@ import static dam.pepehc.saecio_climbing_api.enums.MensajeControlUsuarios.USUARI
 @Validated
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AuthController {
     
     @Autowired
@@ -65,6 +63,7 @@ public class AuthController {
         if (mensajeControlUsuarios == USUARIO_EN_USO || mensajeControlUsuarios == CORREO_EN_USO)
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensajeControlUsuarios.mensaje);
         else
+            System.out.println(ResponseEntity.ok(mensajeControlUsuarios.mensaje));
             return ResponseEntity.ok(mensajeControlUsuarios.mensaje);
     }
 }

@@ -28,21 +28,21 @@
             <ul class="nav-links">
                 <li><a href="zonas.html"><i class="fa-solid fa-compass fa-s"></i>Zonas</a></li>
                 <li><a href="galeria.html"><i class="fa-regular fa-image fa-s"></i>Galería</a></li>
-                <li><a href="actividad.html"><i class="fa fa-newspaper-o fa-s"></i>Actividad</a></li>
+                <li><a href="actividad.html"><i class="fa fa-newspaper-o fa-s"></i>Mis ascensiones</a></li>
                 <div id="botonesUsuarioContenedor">
-                    <button id="buttonIniciarSesion" onclick="abrirIniciarSesion(event)">Iniciar sesión</button>
+                    <button id="buttonIniciarSesion">Iniciar sesión</button>
                     <div id="iniciarSesion">
-                        <form>
+                        <form id="formularioLogIn" onsubmit="return false">
                             <label>Usuario o correo</label>
-                            <input type="text" required/>
+                            <input id="inputUsuarioOCorreo" type="text" required />
                             <label>Contraseña</label>
-                            <input type="password" required/>
+                            <input id="inputContrasenaInicio" type="password" required />
                             <div id="contenedorCheckContrasena">
-                                <input type="checkbox">
+                                <input type="checkbox" onclick="mostrarContrasena('inputContrasenaInicio')">
                                 <label>Mostrar contraseña</label>
                             </div>
-                            <a>He olvidado la contraseña</a>
-                            <input type="submit" value="Inicia sesión">
+                            <a id="contrasenaOlvidada">He olvidado la contraseña</a>
+                            <input type="submit" value="Inicia sesión" onclick="iniciarSesion(0)">
                         </form>
                     </div>
 
@@ -50,9 +50,10 @@
                 </div>
                 <div class="invisible" id="perfilContenedor">
                     <img id="perfilImagen" src="resources/images/global/usuario/avatar.png">
-                    <a id="nombreUsuario">Mi perfil</a>
+                    <a><span id="nombreUsuario"></span></a>
                 </div>
             </ul>
+            <button class="invisible" id="cerrarSesion" onclick="cerrarSesion()">Cerrar sesión</button>
         </nav>
     </header>
 
@@ -63,32 +64,135 @@
                 <label onclick="ocultarRegistro()"><i class="fa-solid fa-x"></i></label>
             </div>
             <div id="informacionRegistro">
-                <form>
+                <form id="formularioSignUp">
                     <div id="contenedorInputsPersona">
+                        <!-- Formatos para nombre y apellidos -->
+                        <!-- <label class="requisitoRegistro" id="nombreObligatorio">El nombre es obligatorio</label> -->
                         <input type="text" placeholder="Nombre" id="inputNombre" required>
+                        <!-- En el futuro los apellidos deberán ser opcionales -->
+                        <!-- <label class="requisitoRegistro" id="apellidosObligatorios">Al menos un apellido es obligatorio</label> -->
                         <input type="text" placeholder="Apellidos" id="inputApellidos">
                     </div>
+                    <!-- Formato para nombre de usuario -->
+                    <label class="requisito-registro" id="userEnUso">Ya existe una cuenta con ese nombre de usuario</label>
+                    <label class="requisito-registro" id="userObligatorio">El nombre de usuario es obligatorio</label>
                     <input type="text" placeholder="Nombre de usuario" id="inputNombreUsuario" required>
+                    <!-- Formato para correo -->
+                    <label class="requisito-registro" id="correoEnUso">El correo ya se encuentra en uso</label>
+                    <label class="requisito-registro" id="correoObligatorio">El correo es obligatorio</label>
                     <input type="text" placeholder="Correo electrónico" id="inputCorreo" required>
-                    <input type="password" placeholder="Contraseña" id="inputContrasena" required>
+                    <!-- Formato para contraseña -->
+                    <label class="requisito-registro" id="contrasenaObligatoria">La contraseña es obligatoria</label>
+                    <input type="password" placeholder="Contraseña" id="inputContrasenaRegistro" required>
                     <div id="contenedorCheckContrasena">
-                        <input type="checkbox" id="checkContrasena">
+                        <input type="checkbox" id="checkContrasena" onclick="mostrarContrasena('inputContrasenaRegistro')">
                         <label id="labelContrasena">Mostrar contraseña</label>
                     </div>
+                    <div id="requisitosContrasena">
+                        <label>La contraseña debe contener:</label>
+                        <ul>
+                            <li>Entre 5 y 15 caracteres</li>
+                            <li>Al menos una letra en minúscula y una en mayúscula</li>
+                            <li>Al menos un número</li>
+                            <li>Al menos un caracter especial</li>
+                        </ul>
+                    </div>
+                    <label class="requisito-registro" id="terminosObligatorios">Para continuar, debes aceptar los términos y condiciones</label>
                     <div id="contenedorCheckTerminos">
                         <input type="checkbox" id="checkTerminos">
-                        <label id="labelTerminos">Acepto los <a href="#">términos y condiciones</a></label>
+                        <label id="labelTerminos">Acepto los <a id="terminosCondiciones" href="#">términos y condiciones</a>*</label>
                     </div>
                 </form>
             </div>
-            <input type="submit" value="Crear cuenta" id="buttonCrearCuenta">
-            <br/>
-            <label>¿Ya tienes una cuenta? Inicia sesión <a>aquí.</a></label>
+            <input type="submit" value="Crear cuenta" onclick="verificarRegistro()" id="buttonCrearCuenta">
+            <br />
+            <label>¿Ya tienes una cuenta? <a id="iniciaSesionAqui">Inicia sesión aquí.</a></label>
         </div>
     </div>
 
     <div class="contenido">
+        <div class="barra-direcciones">
+            <a href="index.html" id="casa"><i class="fa-solid fa-house fa-2xl"></i></a>
+            <h1 class="titulo" data-href="">> Mis ascensiones</h1>
+        </div>
+
+        <button id="buttonRegistrarAscension" onclick="mostrarRegistrarAscension()">Registrar ascensión</button>
+
+        <h1 id="ascensionesVacias">
+            Aún no tienes ascenciones registradas.
+            </br>
+            ¡Empieza a encadenar y registra una vía!
+        </h1>
+
+        <h1 id="sesionNoIniciada">
+            Para ver tus ascensiones tienes que iniciar sesión primero.
+            </br>
+            Si aún no tienes una cuenta, puede registrarte <a id="anchorRegistro" onclick="mostrarRegistro()">aquí.</a>
+        </h1>
+
+        <div id="ascensionesContenedor">
+            <table id="ascensionesTabla">
+                <thead>
+                    <tr id="ascensionAtributos">
+                        <th>Nombre de la vía</th>
+                        <th>Fecha de la ascensión</th>
+                        <th>Tipo de ascensión</th>
+                    </tr>
+                </thead>
+                <tbody id="ascensiones">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="contenedorRegistroAscension">
+        <div id="registroAscension">
+            <div id="contenedorRegistroAscensionTitulo">
+                <h3>Nueva ascensión</h3>
+                <label onclick="ocultarRegistroAscension()"><i class="fa-solid fa-x"></i></label>
+            </div>
+            <form id="formularioRegistro">
+                <div id="registroZona">
+                    <label>Zona</label>
+                    <select id="selectZona" onchange="cambiarSectores(event)">
         
+                    </select>
+                </div>
+                <div id="registroSector">
+                    <label>Sector</label>
+                    <select id="selectSector" onchange="cambiarVias(event)">
+        
+                    </select>
+                </div>
+                
+                <div id="registroVia">
+                    <label>Vía</label>
+                    <select id="selectVia">
+
+                    </select>
+                </div>
+
+                <div id="registroFecha">
+                    <label>Fecha de ascensión</label>
+                    <input id="fechaAscension" placeholder="dd/mm/aaaa" type="text">
+                </div>
+                
+                <div id="registroTipo">
+                    <label>Tipo de ascensión</label>
+                    <select id="selectTipoAscension">
+                        <option value="A_VISTA">A vista</option>
+                        <option value="FLASH">A flash</option>
+                        <option value="PUNTO_ROJO">Punto rojo</option>
+                        <option value="TERMINADA_PRIMERO">Terminada en primero</option>
+                        <option value="TOP_ROPE">Top-rope</option>
+                        <option value="INTENTO">Intento</option>
+                        <option value="PROYECTO">Proyecto</option>
+                        <option value="OTRO">Otro</option>
+                    </select>
+                </div>
+            </form>
+            <input id="submitAscension" type="submit" value="Registrar" onclick="registrarAscension()">
+        </div>
     </div>
 </body>
 
@@ -117,5 +221,6 @@
 
 <!-- Scripts del proyecto -->
 <script type="text/javascript" src="resources/js/global.js"></script>
+<script type="text/javascript" src="resources/js/actividad.js"></script>
 
 </html>

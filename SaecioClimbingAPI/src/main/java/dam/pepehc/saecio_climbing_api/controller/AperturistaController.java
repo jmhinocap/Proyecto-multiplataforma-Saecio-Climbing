@@ -6,7 +6,6 @@ import dam.pepehc.saecio_climbing_api.command.aperturista_command.ModificarApert
 import dam.pepehc.saecio_climbing_api.command.aperturista_command.NuevoAperturistaCommand;
 import dam.pepehc.saecio_climbing_api.dto.AperturistaDto;
 import dam.pepehc.saecio_climbing_api.dto.NuevoAperturistaDto;
-import dam.pepehc.saecio_climbing_api.repository.AperturistaRepository;
 import dam.pepehc.saecio_climbing_api.resource.AperturistaResource;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
