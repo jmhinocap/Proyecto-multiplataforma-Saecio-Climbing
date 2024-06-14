@@ -277,9 +277,13 @@ let fechaValor;
 let tipoAscensionValor;
 const nombreViaRegistro = $("#contenedorRegistroAscensionTitulo h3");
 function mostrarRegistroVia(via) {
-  viaRegistrar = via;
-  nombreViaRegistro[0].innerHTML = via.nombre;
-  contenedorRegistroAscension.style.display = "block";
+  if (sessionStorage.getItem("usuario") != null) {
+    viaRegistrar = via;
+    nombreViaRegistro[0].innerHTML = via.nombre;
+    contenedorRegistroAscension.style.display = "block";
+  } else {
+    alert("Tienes que iniciar sesión para poder registrar una vía");
+  }
 }
 
 function ocultarRegistroAscension() {

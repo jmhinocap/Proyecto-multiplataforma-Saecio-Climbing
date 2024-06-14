@@ -6,6 +6,7 @@ $(document).ready(function() {
         $("#sesionNoIniciada").remove();
         mostrarAscensiones();
     } else {
+        $("#ascensionesContenedor").remove();
         $("#buttonRegistrarAscension").remove();
         $("#ascensionesVacias").remove();
     }
