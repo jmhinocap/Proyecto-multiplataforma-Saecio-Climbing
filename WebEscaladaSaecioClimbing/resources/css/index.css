@@ -362,12 +362,6 @@
     border: none !important;
 }
 
-.ultima-entrada {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 50px;
-}
-
 .ultima-entrada:hover {
     text-decoration: underline;
 }

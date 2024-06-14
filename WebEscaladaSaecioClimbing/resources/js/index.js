@@ -126,19 +126,19 @@ async function poblarUltimasEntradas() {
     const sector = await getSector(viasArray[i].idSector);
     tablaUltimasVias.innerHTML +=
       "<tbody>"
-        + "<tr>"
+        + "<tr class='ultima-entrada'>"
           + "<td><h4 class='entrada-via'>" + viasArray[i].nombre + "</h4></td>"
           + "<td><h4 class='entrada-grado'>" + viasArray[i].grado + "</h4></td>"
           + "<td><h4 class='entrada-sector'>" + sector.nombre + "</h4></td>"
         + "</tr>"
       + "</tbody>";
 
-    $(".ultima-entrada").last().attr("data-href", "via.html?idVia=" + viasArray[i].idVia);
+    $(".ultima-entrada").last().attr("data-href", "sector.html?idSector=" + viasArray[i].idSector);
   }
 
-  // jQuery(document).ready(function($) {
-  //   $(".ultima-entrada").click(function() {
-  //     window.location = $(this).data("href");
-  //   });
-  // });
+  $(document).ready(function() {
+    $(".ultima-entrada").click(function() {
+      window.location = $(this).data("href");
+    });
+  });
 }

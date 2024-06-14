@@ -203,7 +203,7 @@ async function poblarSectoresDropdown() {
       for(let j = 0; j < sectoresArray.length; j++) {
         dropdownsZonas[i].innerHTML +=
         "<li>"
-          + "<a data-ref=''>" + sectoresArray[j].nombre + "</a>"
+          + "<a>" + sectoresArray[j].nombre + "</a>"
         + "</li>";
 
         $(".sector-sierra-actual ul li a").last().attr("data-href", "sector.html?idSector=" + sectoresArray[j].idSector);

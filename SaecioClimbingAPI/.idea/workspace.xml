@@ -5,54 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e47aab66-e6f8-4023-99f8-3e2621cf553c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/command/ascension_command/LeerAscensionesPorIdUsuarioCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/command/usuario_command/LeerUsuarioPorNombreOCorreoCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/command/zona_command/LeerZonasCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/sonarlint/issuestore/1/0/10b77ba2d7c41f2f18072d13542b9b58bbed297d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/sonarlint/issuestore/4/5/45fbdc9058ad6f9a936915f6fca3dd2e5aacb659" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/sonarlint/issuestore/b/b/bb3339fb399579fda9c65f8334d6bad7114e8faf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/sonarlint/securityhotspotstore/1/0/10b77ba2d7c41f2f18072d13542b9b58bbed297d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/sonarlint/securityhotspotstore/4/5/45fbdc9058ad6f9a936915f6fca3dd2e5aacb659" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/sonarlint/securityhotspotstore/b/b/bb3339fb399579fda9c65f8334d6bad7114e8faf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/src/main/java/es/damdi/pepehc/saecioclimbingapp/HelloApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/src/main/java/es/damdi/pepehc/saecioclimbingapp/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaecioClimbingApp/SaecioClimbingApp/src/main/resources/es/damdi/pepehc/saecioclimbingapp/hello-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/assembler/SierraAssembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/assembler/SierraAssembler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/config/BaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/config/BaseConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/controller/AperturistaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/controller/AperturistaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/controller/AscensionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/controller/AscensionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/controller/RegistrarUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/controller/RegistrarUsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/controller/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/controller/ZonaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/controller/ZonaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/entity/Ascension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/entity/Ascension.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/entity/TokenVerificacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/entity/TokenVerificacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/entity/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/entity/Via.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/entity/Via.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/enums/MensajeControlUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/enums/MensajeControlUsuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/enums/TipoDeAscension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/enums/TipoDeAscension.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/listeners/RegistroListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/listeners/RegistroListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/repository/AscensionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/repository/AscensionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/resource/UsuarioResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/resource/UsuarioResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/resource/ViaResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/resource/ViaResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/AscensionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/AscensionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/AuthServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/CustomUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/SectorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/SectorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/SierraServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/SierraServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/UsuarioServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/ViaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/ViaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/ZonaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_implementation/ZonaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_interface/AscensionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_interface/AscensionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_interface/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_interface/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_interface/ZonaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/pepehc/saecio_climbing_api/service/service_interface/ZonaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/actividad.html" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/actividad.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/galeria.html" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/galeria.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/resources/css/actividad.css" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/resources/css/actividad.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/resources/css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/resources/css/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/resources/css/sector.css" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/resources/css/sector.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/resources/images/global/usuario/avatar.png" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/resources/images/global/usuario/avatar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/resources/js/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/resources/js/global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/resources/js/sector.js" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/resources/js/sector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/sector.html" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/sector.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/sierra.html" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/sierra.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/via.html" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/via.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/zona.html" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/zona.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/zonas.html" beforeDir="false" afterPath="$PROJECT_DIR$/../WebEscaladaSaecioClimbing/zonas.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,17 +81,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.SaecioClimbingApiApplication.executor": "Run",
-    "Maven.SaecioClimbingAPI [clean,install].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/dev/workspace/Proyecto-multiplataforma-Saecio-Climbing/SaecioClimbingAPI",
-    "settings.editor.selected.configurable": "JavaDoc"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.SaecioClimbingApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SaecioClimbingAPI [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/dev/workspace/Proyecto-multiplataforma-Saecio-Climbing/SaecioClimbingAPI&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;JavaDoc&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="SaecioClimbingApiApplication" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="dam.pepehc.saecio_climbing_api.SaecioClimbingApiApplication" />

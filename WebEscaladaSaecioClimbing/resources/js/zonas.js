@@ -70,19 +70,12 @@ async function poblarListasZonas() {
     
     if (!(zonasArray.length <= 3)) {
       listasZonas[i].innerHTML +=
-      "<li class='elemento-lista-zona'><a class='sierra-ref mas-zonas' data-ref=''>Más zonas</a></li>";
-      $(".sierra-ref").last().attr("data-href", "sierra.html?idSierra=" + listasZonas[i].dataset.idSierra);
+      "<li class='elemento-lista-zona'><a class='sierra-ref mas-zonas' href='sierra.html?idSierra=" + zonasArray[0].idSierra + "'>Más zonas</a></li>";
     }
   }
 
   $(document).ready(function() {
     $(".zona-ref").click(function() {
-      window.location = $(this).data("href");
-    });
-  })
-
-  $(document).ready(function() {
-    $(".sierra-ref").click(function() {
       window.location = $(this).data("href");
     });
   })

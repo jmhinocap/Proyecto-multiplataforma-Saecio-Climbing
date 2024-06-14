@@ -207,7 +207,7 @@ async function poblarSectores() {
       "<tbody>"
         + "<tr class='info-zona-valores' data-href=''>"
           + "<td>" + sectoresArray[i].nombre + "</td>"
-          + "<td>" + sectoresArray[i].tipoDeEscalada + "</td>"
+          + "<td>" + sectoresArray[i].tiposDeEscalada + "</td>"
           + "<td>" + sectoresArray[i].vias.length + "</td>"
         + "</tr>"
       + "</tbody>";
