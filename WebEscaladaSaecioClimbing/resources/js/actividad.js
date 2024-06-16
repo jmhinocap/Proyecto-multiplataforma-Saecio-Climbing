@@ -140,6 +140,7 @@ async function registrarAscension() {
         nuevaAscension(ascension);
         alert("Vía registrada con éxito");
         ocultarRegistroAscension();
+        location.reload();
     }
 }
 
