@@ -5,7 +5,7 @@ const nombreSierra = document.getElementsByClassName('nombre-sierra');
 const refsZona = document.getElementsByClassName('zona-ref');
 const sierrasContainer = document.getElementById('contenedorSierras');
 const sierrasUrl = "http://localhost:8086/api/sierra/leer-todas-las-sierras";
-const zonasUrlBase = "http://localhost:8086/api/zona/leer-zonas-por-id-sierra/"
+const zonasUrlBase = "http://localhost:8086/api/zona/leer-zonas-por-id-sierra/";
 
 async function getSierras() {
   const respuesta = await fetch(sierrasUrl);

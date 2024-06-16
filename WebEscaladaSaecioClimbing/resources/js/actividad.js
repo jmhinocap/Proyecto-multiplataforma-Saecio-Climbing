@@ -164,6 +164,8 @@ async function mostrarAscensiones() {
                 + "<td><a href='sector.html?idSector=" + idSector + "'>" + ascensiones[i].tipoDeAscension + "</a></td>"
             + "</tr>";
         }
+    } else {
+        $("#ascensionesTabla").remove();
     }
 }
 
