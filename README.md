@@ -9,24 +9,19 @@ Saecio Climbing es el nombre principal de este proyecto, el cuál también se us
 ### La API con el servicio Restful
 Para poder controlar los datos que se vuelcan a la página web se desarrolla un servicio Restful que conecta a una base de datos. Esta base de datos contiene la información de sierras, zonas, sectores, vías, usuarios, aperturistas y ascensiones, todo lo necesario para que la página sea funcional.
 
-### La aplicación para controlar la API
-Por último, se presenta una aplicación con una interfaz gráfica que se conectará al servicio Restful y desde donde se podrá controlar la base de datos realizando operaciones básicas como añadir, eliminar o modificar entradas. Así se pueden renovar los datos para que la página web pueda crecer según las necesidades de la comunidad escaladora, y también para poder moderar a los usuarios.
-
 ## Desarrollo del proyecto
 La página web se construye desde cero haciendo uso de HTML, CSS y Javascript puro, así como jQuery en alguna ocasión. Los iconos vienen de parte de Font Awesome y hay un elemento llamado carrusel, desarrollado por Ken Wheeler
 
 ## Despliegue
-### Servicio Restful, base de datos y servidor web
-En una Raspberry Pi, usando Apache para el servidor web. Todo se construye en Docker por capas, y la Raspberry hace uso de Raspian como sistema operativo.
+En una Raspberry Pi, usando Apache para el servidor web. Todo se construye en Docker por capas, y la Raspberry hace uso de Raspbian como sistema operativo.
 
-### Interfaz
-Con Maven
+## Instalación
+Para visualizar la página web tan solo hay que entrar en [www.saecioclimbing.com](https://www.saecioclimbing.com/index.html).
 
 ## Construído con
 - IntelliJ idea
 - Visual Studio Code
 - Java 17
-- JavaFX
 - Spring Boot
 - MySQL
 - HTML, CSS y Javascript
@@ -43,3 +38,4 @@ Pepe Hinojo Caparrós
 [Pierre-Louis Anceau](https://www.behance.net/planceau)
 
 # Licencias
+Creative Commons BY

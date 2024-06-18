@@ -154,7 +154,7 @@ async function mostrarAscensiones() {
     const ascensiones = await getAscensiones(usuario.idUsuario);
     const ascensionesTabla = document.getElementById('ascensiones');
     
-    if (ascensiones === null) {
+    if (ascensiones != null ) {
         $("#ascensionesVacias").remove();
         for (let i = 0; i < ascensiones.length; i++) {
             const idSector = ascensiones[i].via.idSector;
